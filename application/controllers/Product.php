@@ -6,6 +6,7 @@
             $this->load->model('product_model');
             $this->load->helper('name_helper');
         }
+        //de load danh muc
         function catalog(){
 
             //  lay ra id danh muc san pham
@@ -67,6 +68,7 @@
 
 
         }
+        //hien thi san pham
         function view(){
             $product_id = $this->uri->rsegment('3');
             $product_info = $this->product_model->get_info($product_id);

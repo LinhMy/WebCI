@@ -18,7 +18,6 @@
     <div class="category-tab-content">
 
         <div class="tab-inner has-banner-left">
-
             <div class="tab-content-products">
                 <div class="tab-container">
                     <div id="tab-<?php echo $i; ?>" class="tab-panel active">
