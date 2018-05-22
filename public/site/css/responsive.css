@@ -1,0 +1,25 @@
+@media screen and (max-width : 850px){
+    div#price_content {
+        display: none;
+    }
+}
+@media screen and (max-width : 620px){
+    div#price_content {
+        display: none;
+    }
+    .section-home-slide {
+        display: none;
+    }
+    ul.main-header-menu {
+        display: none;
+    }
+
+    ul.kt-nav.top-bar-menu.right {
+        float: left !important;
+    }
+}
+@media screen and (max-width : 500px){
+    .margin-top-30 {
+        display: none;
+    }
+}
