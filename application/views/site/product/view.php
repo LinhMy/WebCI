@@ -44,7 +44,7 @@
             <div class="short-descript">
                 <p><strong>Thông tin:</strong><?php echo $product_info->content; ?></p>
             </div>
-            <form name="add_product" method="post" action="<?php echo base_url('cart/add/'.$product_info->id_product); ?>" enctype="multipart/form-data">
+            <form name="add_product" method="post" action="<?php echo base_url('cart/add/'.$product_info->product_id); ?>" enctype="multipart/form-data">
             <div class="quantity">
                 <span>Số Lượng Mua:</span>
                 <input type="text" data-step="1" data-min="" data-max="" name="qty" value="01" title="Qty" class="input-text qty text" size="4">
@@ -70,7 +70,7 @@
     </ul>
     <div class="tab-container" >
         <div id="tab-1" class="tab-panel active">
-            <div class="fb-comments" data-href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product_info->name_catalog).'/'.seoname($product_info->name).'/'.$product_info->id_product) ?>" data-colorscheme="light" data-numposts="5" data-width="500"></div>
+            <div class="fb-comments" data-href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product_info->name_catalog).'/'.seoname($product_info->name).'/'.$product_info->product_id) ?>" data-colorscheme="light" data-numposts="5" data-width="500"></div>
         </div>
         <div id="tab-2" class="tab-panel" style="margin-bottom: 370px; ">
             <div id="tab-1" class="tab-panel active">
@@ -79,19 +79,19 @@
                         <li class="product-item style6" style="float: left; width: 233px; height: 390px;">
                             <div class="product-inner">
                                 <div class="thumb">
-                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>" title="<?php echo $row->site_title; ?>">
+                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>">
                                         <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image_link; ?>" alt="<?php echo $row->name; ?>">
                                     </a>
                                     <div class="group-button">
                                         <a class="wishlist" href="">Yêu Thích</a>
-                                        <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>" title="<?php echo $row->site_title; ?>">Chi Tiết</a>
-                                        <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->id_product); ?>">Thêm Vào Giỏ</a>
+                                        <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>">Chi Tiết</a>
+                                        <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->product_id); ?>">Thêm Vào Giỏ</a>
                                     </div>
 
                                 </div>
                                 <div class="info">
 
-                                    <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>" title="<?php echo $row->site_title; ?>" ><?php echo $row->name; ?></a></h3>
+                                    <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>" ><?php echo $row->name; ?></a></h3>
 												<span class="price">
                                                 <?php if($row->discount > 0){ ?>
                                                     <ins><?php echo number_format($row->price - $row->discount); ?> VNĐ</ins>

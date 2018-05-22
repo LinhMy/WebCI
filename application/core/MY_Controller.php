@@ -27,13 +27,15 @@ class MY_Controller extends CI_Controller{
                 $name_description = $this->uri->segment('1');
                 $this->data['name_description'] = $name_description;
                 // lay danh sach danh muc san pham
-                $this->load->model('catalog_model');
+                $this->load->model('Category_model');
                 $this->load->model('product_model');
+                $input['where'] = array('parent_id' => 0);
                 $input['order'] = array('category_id', 'asc');
-                $catalog_list = $this->catalog_model->get_list($input);
-                foreach ($catalog_list as $row){
+                $category_list = $this->category_model->get_list($input);
+                foreach ($category_list as $row){
                     // lay danh sach san pham moi
-                    $subs = $this->catalog_model->get_list($input);
+                    $input['where'] = array('parent_id' => $row->category_id);
+                    $subs = $this->category_model->get_list($input);
                     $row->subs = $subs;
                     foreach ($subs as $sub_product){
 
@@ -52,18 +54,18 @@ class MY_Controller extends CI_Controller{
 
                 }
 
-                $this->data['catalog_list'] = $catalog_list;
-                $catalog = $this->uri->rsegment('3');
+                $this->data['category_list'] = $category_list;
+                $category = $this->uri->rsegment('3');
                 // lay thong tin tanh muc
                 $input = array();
                 $input['where'] = array(
-                    'category_id' => $catalog,
+                    'category_id' => $category,
                 );
-                $catalog_name = $this->catalog_model->get_list($input);
-                $this->data['catalog_name'] = $catalog_name;
+                $category_name = $this->category_model->get_list($input);
+                $this->data['category_name'] = $category_name;
                 // end danh muc
                 // lay thong tin san pham
-                $product_info =  $this->product_model->get_info($catalog);
+                $product_info =  $this->product_model->get_info($category);
                 $this->data['product_info'] = $product_info;
 
                 // load ra thu vien cart
@@ -83,9 +85,7 @@ class MY_Controller extends CI_Controller{
         $controller = strtolower($controller);
         // kiem tra xem da ton tai session login hay chua
         $login = $this->session->userdata('login');
-        if(!$login && $controller != 'login'){
-            redirect(admin_url('login'));
-        }
+
         if($login && $controller == 'login'){
             redirect(admin_url('home'));
         }

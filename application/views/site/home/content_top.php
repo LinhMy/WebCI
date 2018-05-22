@@ -13,12 +13,12 @@
                     <li class="product-item style9" style="float: left; width: 28%;">
                         <div class="product-inner">
                             <div class="thumb col-sm-5">
-                                <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>">
+                                <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>">
                                     <img style="width: 150px; height: 184px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image_link; ?>" alt="<?php echo $row->site_title; ?>">
                                 </a>
                             </div>
                             <div class="info col-sm-7">
-                                <h3 class="product-name short"><a title="<?php echo $row->site_title; ?>" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>"><?php echo $row->name; ?></a></h3>
+                                <h3 class="product-name short"><a title="<?php echo $row->site_title; ?>" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>"><?php echo $row->name; ?></a></h3>
                                 <div title="Rated 3 out of 5" class="rating">
                                     <i class="active fa fa-star"></i>
                                     <i class="active fa fa-star"></i>
@@ -35,7 +35,7 @@
                                 <span class="price" style="font-size: 14px; color: #800000; "><?php echo number_format($row->price - $row->discount); ?> VNĐ</span>
                                 <?php }?>
                                 <div class="group-buttons">
-                                    <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->id_product); ?>">Thêm Vào Giỏ Hàng</a>
+                                    <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->product_id); ?>">Thêm Vào Giỏ Hàng</a>
                                 </div>
                             </div>
                         </div>
@@ -55,12 +55,12 @@
                         <li class="product-item style9" style="float: left; width: 27%;">
                             <div class="product-inner">
                                 <div class="thumb col-sm-5">
-                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>">
+                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>">
                                         <img style="width: 150px; height: 184px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image_link; ?>" alt="<?php echo $row->site_title; ?>">
                                     </a>
                                 </div>
                                 <div class="info col-sm-7">
-                                    <h3 class="product-name short"><a title="<?php echo $row->site_title; ?>" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->id_product) ?>"><?php echo $row->name; ?></a></h3>
+                                    <h3 class="product-name short"><a title="<?php echo $row->site_title; ?>" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>"><?php echo $row->name; ?></a></h3>
                                     <div class="rating" title="Rated 3 out of 5">
                                         <i class="active fa fa-star"></i>
                                         <i class="active fa fa-star"></i>
@@ -71,7 +71,7 @@
                                     <span class="price" style="font-size: 14px; float: left; padding-right: 8px  ;color: #800000;"><?php echo number_format($row->price - $row->discount); ?> VNĐ</span>
                                     <span class="price" style="font-size: 14px;text-decoration: line-through; color: #666666; "><?php echo number_format($row->price); ?> VNĐ</span>
                                     <div class="group-buttons">
-                                        <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->id_product); ?>">Thêm Vào Giỏ Hàng</a>
+                                        <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->product_id); ?>">Thêm Vào Giỏ Hàng</a>
                                     </div>
                                 </div>
                             </div>

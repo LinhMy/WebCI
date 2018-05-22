@@ -28,19 +28,19 @@
                             <li class="product-item style10">
                                 <div class="product-inner">
                                     <div class="thumb">
-                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>" title="<?php echo $product->site_title; ?>">
+                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>" title="<?php echo $product->site_title; ?>">
                                             <img style="height: 297px; width: 243px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $product->image_link; ?>" alt="<?php echo $product->site_title; ?>">
                                         </a>
-                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>" title="<?php echo $product->site_title; ?>" class="button quick-view yith-wcqv-button">Chi Tiết</a>
+                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>" title="<?php echo $product->site_title; ?>" class="button quick-view yith-wcqv-button">Chi Tiết</a>
                                         <div class="group-button">
                                             <a class="wishlist " href="#">Wishlist</a>
-                                            <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>" title="<?php echo $product->site_title; ?>">Compare</a>
-                                            <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$product->id_product); ?>">Add to cart</a>
+                                            <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>" title="<?php echo $product->site_title; ?>">Compare</a>
+                                            <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$product->product_id); ?>">Add to cart</a>
                                         </div>
 
                                     </div>
                                     <div class="info">
-                                        <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>" title="<?php echo $product->site_title; ?>"><?php echo $product->name; ?></a></h3>
+                                        <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>" title="<?php echo $product->site_title; ?>"><?php echo $product->name; ?></a></h3>
                                         <?php if($product->discount > 0){ ?>
                                         <span class="price"><?php echo number_format($product->price - $product->discount); ?> VNĐ</span>
                                         <span class="price" style="text-decoration: line-through; color: #0b0b0b"><?php echo number_format($product->price); ?> VNĐ</span>
@@ -61,19 +61,19 @@
                             <li class="product-item style10">
                                 <div class="product-inner">
                                     <div class="thumb">
-                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>">
+                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>">
                                             <img style="width: 233px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $product->image_link; ?>" alt="">
                                         </a>
-                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>" title="Quick View" class="button quick-view yith-wcqv-button">Chi Tiết</a>
+                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>" title="Quick View" class="button quick-view yith-wcqv-button">Chi Tiết</a>
                                         <div class="group-button">
                                             <a class="wishlist" href="#">Wishlist</a>
-                                            <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>">Compare</a>
-                                            <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$product->id_product); ?>">Add to cart</a>
+                                            <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>">Compare</a>
+                                            <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$product->product_id); ?>">Add to cart</a>
                                         </div>
 
                                     </div>
                                     <div class="info">
-                                        <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->id_product) ?>"><?php echo $product->name; ?></a></h3>
+                                        <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product->name_catalog).'/'.seoname($product->name).'/'.$product->product_id) ?>"><?php echo $product->name; ?></a></h3>
                                         <?php if($product->discount > 0){ ?>
                                             <span class="price"><?php echo number_format($product->price - $product->discount); ?> VNĐ</span>
                                             <span class="price" style="text-decoration: line-through; color: #0b0b0b"><?php echo number_format($product->price); ?> VNĐ</span>

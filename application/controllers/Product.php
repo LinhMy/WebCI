@@ -9,10 +9,10 @@
         function catalog(){
 
             //  lay ra id danh muc san pham
-            $this->load->model('catalog_model');
+            $this->load->model('Category_model');
             $id_catalog = $this->uri->rsegment('3');
             $id_catalog = intval($id_catalog);
-            $catalog_info = $this->catalog_model->get_info($id_catalog);
+            $catalog_info = $this->category_model->get_info($id_catalog);
             if(!$catalog_info){
                 redirect();
             }
@@ -21,7 +21,7 @@
             $input = array();
             if($catalog_info->parent_id == 0){
                 $input_catalog['where'] = array('parent_id' => $id_catalog);
-                $catalog_sub = $this->catalog_model->get_list($input_catalog);
+                $catalog_sub = $this->category_model->get_list($input_catalog);
                 $catalog_subs_id = array();
                 if(!empty($catalog_sub)) {
                     foreach ($catalog_sub as $row) {
@@ -62,18 +62,18 @@
             $list = $this->product_model->get_list($input);
             //pre($this->db->last_query($list));
             $this->data['list'] = $list;
-            $this->data['temp'] = 'site/product/catalog';
+            $this->data['temp'] = 'site/product/category';
             $this->load->view('site/layout', $this->data);
 
 
         }
         function view(){
-            $id_product = $this->uri->rsegment('3');
-            $product_info = $this->product_model->get_info($id_product);
+            $product_id = $this->uri->rsegment('3');
+            $product_info = $this->product_model->get_info($product_id);
             $this->data['product_info'] = $product_info;
             // danh sách sản phẩm liên quan
             $input['where'] = array(
-                'id_product !=' => $id_product,
+                'product_id !=' => $product_id,
                 'id_catalog' => $product_info->id_catalog,
             );
 
@@ -93,11 +93,11 @@
 
             $this->data['key'] = trim($key);
             $input = array();
-            if($this->input->get('catalog') > 0){
-                $id_catalog = $this->input->get('catalog');
-                $this->load->model('catalog_model');
+            if($this->input->get('Category') > 0){
+                $id_catalog = $this->input->get('Category');
+                $this->load->model('Category_model');
                 $input1['where'] = array('parent_id' => $id_catalog);
-                $catalog_list = $this->catalog_model->get_list($input1);
+                $catalog_list = $this->category_model->get_list($input1);
                 $id_catalog_subs = array();
                 foreach ($catalog_list as $row){
                     $id_catalog_subs[] = $row->id_catalog;
@@ -113,7 +113,7 @@
                 $result = array();
                 foreach ($list as $row){
                     $item = array();
-                    $item['id'] = $row->id_product;
+                    $item['id'] = $row->product_id;
                     $item['label'] = $row->name;
                     $item['value'] = $row->name;
                     $result[] = $item;

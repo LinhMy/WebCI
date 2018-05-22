@@ -66,7 +66,7 @@
                         <select name="catalog">
                             <option value="0">Danh Mục</option>
                         <?php foreach ($catalog_list as $row): ?>
-                            <option value="<?php echo $row->id_catalog; ?>" <?php echo $this->input->get('catalog') == $row->id_catalog ? 'selected': '' ?> ><?php echo $row->name; ?></option>
+                            <option value="<?php echo $row->id_catalog; ?>" <?php echo $this->input->get('Category') == $row->id_catalog ? 'selected': '' ?> ><?php echo $row->name; ?></option>
                         <?php endforeach; ?>
                         </select>
                     </div>

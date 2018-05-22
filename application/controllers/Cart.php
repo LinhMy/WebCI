@@ -5,9 +5,9 @@
             parent::__construct();
         }
         function add(){
-            $id_product = $this->uri->rsegment('3');
-            $id_product = intval($id_product);
-            $product_info = $this->product_model->get_info($id_product);
+            $product_id = $this->uri->rsegment('3');
+            $product_id = intval($product_id);
+            $product_info = $this->product_model->get_info($product_id);
             if(!$product_info){
                 redirect();
             }
@@ -17,7 +17,7 @@
                 $qty = $this->input->post('qty');
             }
             $data = array();
-            $data['id'] = $id_product;
+            $data['id'] = $product_id;
             $data['qty'] = $qty;
             $data['name'] = $product_info->name;
             $data['name_catalog'] = $product_info->name_catalog;
@@ -48,13 +48,13 @@
             redirect(base_url('cart/index'));
         }
         function del(){
-            $id_product = $this->uri->rsegment('3');
-            $id_product = intval($id_product);
+            $product_id = $this->uri->rsegment('3');
+            $product_id = intval($product_id);
             // load ra sanh sach san pham
             $carts = $this->cart->contents();
-            if($id_product > 0) {
+            if($product_id > 0) {
                 foreach ($carts as $key => $value) {
-                    if ($value['id'] == $id_product) {
+                    if ($value['id'] == $product_id) {
                         $data['rowid'] = array();
                         $data['rowid'] = $key;
                         $data['qty'] = 0;
