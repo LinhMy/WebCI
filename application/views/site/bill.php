@@ -8,7 +8,7 @@
                     </div>
                     <div class="box-content">
                         <h3 class="title">GIAO HÀNG TOÀN QUỐC</h3>
-                        <span class="subtitle">Miễn phí trong 2km</span>
+                        <span class="subtitle">Miễn phí trong 10km</span>
                     </div>
                 </div>
             </div>
