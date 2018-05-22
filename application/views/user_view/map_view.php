@@ -12,8 +12,4 @@ function myMap() {
 }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASaUlAq1z9ITUIw05j42Nz7fcELZOgj7A&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHDImn4Et0jDuZusS-7VfXDjTPgcNDhWs&callback=myMap"></script>
