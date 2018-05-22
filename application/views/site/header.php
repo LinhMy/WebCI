@@ -10,39 +10,6 @@
 </script>
 
 <div class="top-bar">
-    <div class="container">
-        <ul class="kt-nav top-bar-menu">
-            <li><a href="#"><span class="menu-icon pe-7s-headphones"></span> 0905.77.0963</a></li>
-            <li><a href="#"><span class="menu-icon flaticon-new4"></span> Natulieshop@gmail.com</a></li>
-        </ul>
-        <ul class="kt-nav top-bar-menu right">
-            <li>
-                <a href="#"><span class="menu-icon pe-7s-add-user"></span> Đăng nhập/đăng Ký</a>
-            </li>
-            <li class="menu-item-has-children box-setting">
-                <a href="#"><span class="menu-icon pe-7s-config"></span> Chỉnh sửa</a>
-                <div class="sub-menu box-setting-content">
-                    <div class="box-section">
-                        <h4 class="title">Select your language:</h4>
-                        <div class="inner">
-                            <a href="#"><img src="<?php echo base_url('upload'); ?>/icons/1.png" alt=""></a>
-                            <a href="#"><img src="<?php echo base_url('upload'); ?>/icons/2.png" alt=""></a>
-                            <a href="#"><img src="<?php echo base_url('upload'); ?>/icons/3.png" alt=""></a>
-                            <a href="#"><img src="<?php echo base_url('upload'); ?>/icons/4.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="box-section currency">
-                        <h4 class="title">Select your currency:</h4>
-                        <div class="inner">
-                            <a href="#"><i class="fa fa-usd"></i></a>
-                            <a class="current" href="#"><i class="fa fa-gbp"></i></a>
-                            <a href="#"><i class="fa fa-eur"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
 </div>
 <div class="container">
     <div class="main-header">
@@ -58,7 +25,6 @@
                     <li><a href="#">Cổng Thanh Toán</a></li>
                     <li><a href="#">Vận Chuyển</a></li>
                     <li><a href="#">Đổi Trả</a></li>
-                    <li><a href="#">Di Động: 01674717919 - 0905770963</a></li>
 
                 </ul>
                 <form class="advanced-search" method="get" action="<?php echo site_url('product/search') ?>">
@@ -66,7 +32,11 @@
                         <select name="catalog">
                             <option value="0">Danh Mục</option>
                         <?php foreach ($catalog_list as $row): ?>
+<<<<<<< HEAD
                             <option value="<?php echo $row->id_catalog; ?>" <?php echo $this->input->get('Category') == $row->id_catalog ? 'selected': '' ?> ><?php echo $row->name; ?></option>
+=======
+                            <option value="<?php echo $row->category_id; ?>" <?php echo $this->input->get('category') == $row->category_id ? 'selected': '' ?> ><?php echo $row->category_name; ?></option>
+>>>>>>> 7006a02f223b32e3b6b904cad2d22b9710f4647a
                         <?php endforeach; ?>
                         </select>
                     </div>

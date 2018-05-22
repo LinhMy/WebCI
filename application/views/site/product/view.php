@@ -4,16 +4,16 @@
     <div class="col-sm-6 col-md-6 col-lg-6" >
         <div class="images kt-images">
             <div class="kt-main-image">
-                <a title="<?php echo $product_info->site_title; ?>" class="zoom" href="<?php echo base_url('upload') ?>/products/<?php echo $product_info->image_link; ?>"><img style="width: 376px; height: 320px; margin-left: 8px;" src="<?php echo base_url('upload') ?>/products/<?php echo $product_info->image_link; ?>" alt="<?php echo $product_info->name; ?>"></a>
+                <a title="" class="zoom" href="<?php echo base_url('upload') ?>/products/<?php echo $product_info->image; ?>"><img style="width: 376px; height: 320px; margin-left: 8px;" src="<?php echo base_url('upload') ?>/products/<?php echo $product_info->image; ?>" alt="<?php echo $product_info->product_name; ?>"></a>
             </div>
             <div class="kt-thumbs" style="height: 80px;">
                 <div class="owl-carousel" data-items="1" data-nav="true" data-animateout="slideInUp" data-animatein="slideInUp">
-                    <?php $image_list = json_decode($product_info->image_list) ?>
-                    <?php if(is_array($image_list)){ ?>
+                    <?php $image = json_decode($product_info->image) ?>
+                    <?php if(is_array($image)){ ?>
 
                     <div class="page-thumb">
-                        <?php foreach ($image_list as $img): ?>
-                        <a class="item-thumb zoom" href="<?php echo base_url('upload') ?>/products/<?php echo $img ?>"><img style="width: 100px; height:100px;" src="<?php echo base_url('upload') ?>/products/<?php echo $img ?>" alt="<?php echo $product_info->name; ?>"></a>
+                        <?php foreach ($image as $img): ?>
+                        <a class="item-thumb zoom" href="<?php echo base_url('upload') ?>/products/<?php echo $img ?>"><img style="width: 100px; height:100px;" src="<?php echo base_url('upload') ?>/products/<?php echo $img ?>" alt="<?php echo $product_info->product_name; ?>"></a>
                         <?php endforeach; ?>
                     </div>
                     <?php } ?>
@@ -25,7 +25,7 @@
     </div>
     <div class="col-sm-6 col-md-6 col-lg-6"">
         <div class="summary">
-            <h1 title="<?php echo $product_info->site_title; ?>"  class="product_title entry-title"><?php echo $product_info->name; ?></h1>
+            <h1 title=""  class="product_title entry-title"><?php echo $product_info->product_name; ?></h1>
             <?php if($product_info->discount > 0){ ?>
                 <span class="price" style="font-size: 15px; color: #800000; float: left; padding-right: 8px;"><i style="color: #0b0b0b;">Giá:</i> <?php echo number_format($product_info->price - $product_info->discount); ?> VNĐ</span>
                 <span class="price" style="font-size: 15px;color: #666666; text-decoration: line-through;"><?php echo number_format($product_info->price); ?> VNĐ</span>
@@ -42,7 +42,7 @@
                 <span>(3 reviews)</span>
             </div>
             <div class="short-descript">
-                <p><strong>Thông tin:</strong><?php echo $product_info->content; ?></p>
+                <p><strong>Thông tin:</strong><br><?php echo $product_info->content; ?></p>
             </div>
             <form name="add_product" method="post" action="<?php echo base_url('cart/add/'.$product_info->product_id); ?>" enctype="multipart/form-data">
             <div class="quantity">
@@ -70,7 +70,11 @@
     </ul>
     <div class="tab-container" >
         <div id="tab-1" class="tab-panel active">
+<<<<<<< HEAD
             <div class="fb-comments" data-href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product_info->name_catalog).'/'.seoname($product_info->name).'/'.$product_info->product_id) ?>" data-colorscheme="light" data-numposts="5" data-width="500"></div>
+=======
+            <div class="fb-comments" data-href="<?php echo base_url('chi-tiet-san-pham/'.seoname($product_info->product_name).'/'.seoname($product_info->product_name).'/'.$product_info->product_id) ?>" data-colorscheme="light" data-numposts="5" data-width="500"></div>
+>>>>>>> 7006a02f223b32e3b6b904cad2d22b9710f4647a
         </div>
         <div id="tab-2" class="tab-panel" style="margin-bottom: 370px; ">
             <div id="tab-1" class="tab-panel active">
@@ -79,19 +83,32 @@
                         <li class="product-item style6" style="float: left; width: 233px; height: 390px;">
                             <div class="product-inner">
                                 <div class="thumb">
+<<<<<<< HEAD
                                     <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>">
                                         <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image_link; ?>" alt="<?php echo $row->name; ?>">
                                     </a>
                                     <div class="group-button">
                                         <a class="wishlist" href="">Yêu Thích</a>
                                         <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>">Chi Tiết</a>
+=======
+                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">
+                                        <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>" alt="<?php echo $row->product_name; ?>">
+                                    </a>
+                                    <div class="group-button">
+                                        <a class="wishlist" href="">Yêu Thích</a>
+                                        <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">Chi Tiết</a>
+>>>>>>> 7006a02f223b32e3b6b904cad2d22b9710f4647a
                                         <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->product_id); ?>">Thêm Vào Giỏ</a>
                                     </div>
 
                                 </div>
                                 <div class="info">
 
+<<<<<<< HEAD
                                     <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>" ><?php echo $row->name; ?></a></h3>
+=======
+                                    <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="" ><?php echo $row->product_name; ?></a></h3>
+>>>>>>> 7006a02f223b32e3b6b904cad2d22b9710f4647a
 												<span class="price">
                                                 <?php if($row->discount > 0){ ?>
                                                     <ins><?php echo number_format($row->price - $row->discount); ?> VNĐ</ins>

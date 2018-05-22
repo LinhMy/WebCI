@@ -3,16 +3,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:locale" content="vi_VN"/>
 <link rel="alternate" href="http://xuongtuidanang.net" hreflang="vi-vn"/>
-<title>Natulieshop,Túi xách nữ, Túi xách giá rẻ, Chất lượng - uy tín </title>
+<title>Natulieshop </title>
 <?php foreach ($catalog_name as $row): ?>
-<meta itemprop="name" content="<?php echo $row->name; ?>">
-<meta property="og:title" content="<?php echo $row->name; ?>"/>
+<meta itemprop="name" content="<?php echo $row->category_name; ?>">
+<meta property="og:title" content="<?php echo $row->category_name; ?>"/>
 <?php endforeach; ?>
 <meta name="keywords" content="tui, xach, nam, nu, tai, da, nang" />
 <?php
     if($name_description == 'chi-tiet-san-pham'){
 ?>
-<meta name="description" content="<?php echo $product_info->site_title; ?>" />
+<meta name="description" content="<?php echo $product_info->product_name; ?>" />
 <?php
     }else{
 ?>
