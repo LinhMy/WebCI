@@ -8,7 +8,7 @@ class Product extends MY_Controller{
     }
     function catalog(){
         //  lay ra id danh muc san pham
-        $this->load->model('catalog_model');
+        $this->load->model('Category_model');
         $category_id = $this->uri->rsegment('3');
         $category_id = intval($category_id);
         $catalog_info = $this->catalog_model->get_info($category_id);
@@ -19,7 +19,7 @@ class Product extends MY_Controller{
         $input = array();
         if($catalog_info->parent_id == 0){
             $input_catalog['where'] = array('parent_id' => $category_id);
-            $catalog_sub = $this->catalog_model->get_list($input_catalog);
+            $catalog_sub = $this->Category_model->get_list($input_catalog);
             $catalog_subs_id = array();
             if(!empty($catalog_sub)) {
                 foreach ($catalog_sub as $row) {
@@ -86,11 +86,11 @@ class Product extends MY_Controller{
         $input = array();
         if($this->input->get('category') > 0){
             $category_id = $this->input->get('category');
-            $this->load->model('catalog_model');
+            $this->load->model('Category_model');
             $input1['where'] = array('parent_id' => $category_id);
-            $catalog_list = $this->catalog_model->get_list($input1);
+            $category_list = $this->Category_model->get_list($input1);
             $id_catalog_subs = array();
-            foreach ($catalog_list as $row){
+            foreach ($category_list as $row){
                 $id_catalog_subs[] = $row->category_id;
             }
             $this->db->where_in('category_id', $id_catalog_subs);
