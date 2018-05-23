@@ -17,9 +17,6 @@ $this->load->view('admin/product/head', $this->data);
 
                 <ul class="tabs">
                     <li><a href="#tab1">Thông tin chung</a></li>
-                    <li><a href="#tab2">SEO Onpage</a></li>
-                    <li><a href="#tab3">Bài viết</a></li>
-
                 </ul>
 
                 <div class="tab_container">
@@ -42,16 +39,6 @@ $this->load->view('admin/product/head', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>
-
-                        <div class="formRow">
-                            <label class="formLeft">Ảnh kèm theo:</label>
-                            <div class="formRight">
-                                <input type="file" multiple="" name="image_list[]" id="image_list">
-
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-
                         <!-- Price -->
                         <div class="formRow">
                             <label for="param_price" class="formLeft">
@@ -87,47 +74,36 @@ $this->load->view('admin/product/head', $this->data);
                         </div>
 
 
+                         <!-- ngày -->
                         <div class="formRow">
-                            <label for="param_cat" class="formLeft">Danh mục:<span class="req">*</span></label>
-                            <div class="formRight">
-                                <select name="category">
-                                    <option value=""></option>
-                                    <!-- kiem tra danh muc co danh muc con hay khong -->
-                                    <?php foreach ($category_list as $row): ?>
-                                        <optgroup label="<?php echo $row->name; ?>">
-                                            <?php foreach ($row->subs as $subs){ ?>
-                                                <option value="<?php echo $subs->category_id; ?>">
-                                                    <?php echo $subs->name; ?>
-                                                </option>
-                                            <?php } ?>
-                                        </optgroup>
-                                    <?php endforeach; ?>
-                                </select>
-                                <span class="autocheck" name="cat_autocheck"></span>
-                                <div class="clear error" name="cat_error"><?php echo form_error('Category'); ?></div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-
-
-                        <!-- warranty -->
-                        <div class="formRow">
-                            <label for="param_warranty" class="formLeft">
-                                Bảo hành :
+                            <label for="param_date" class="formLeft">
+                                Ngày :
                             </label>
                             <div class="formRight">
-                                <span class="oneFour"><input type="text" id="param_warranty" name="warranty"></span>
-                                <span class="autocheck" name="warranty_autocheck"></span>
+                                <span class="oneFour"><input type="date" id="param_quantity" name="date"></span>
+                                <span class="autocheck" name="quantity_autocheck"></span>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <!-- quantity -->
+                        <div class="formRow">
+                            <label for="param_quantity" class="formLeft">
+                                Số lượng :
+                            </label>
+                            <div class="formRight">
+                                <span class="oneFour"><input type="text" id="param_quantity" name="quantity"></span>
+                                <span class="autocheck" name="quantity_autocheck"></span>
 
                             </div>
                             <div class="clear"></div>
                         </div>
 
                         <div class="formRow">
-                            <label for="param_sale" class="formLeft">Tặng quà:</label>
+                            <label for="param_content" class="formLeft">Ghi chú:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" id="param_sale" name="gifts"></textarea></span>
-                                <span class="autocheck" name="sale_autocheck"></span>
+                                <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="content"></textarea></span>
+                                <span class="autocheck" name="content_autocheck"></span>
 
                             </div>
                             <div class="clear"></div>
