@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="action_page.php" method="POST">
+  <form action="" method="POST">
 
     <label for="fname">Tên</label>
     <input type="text" id="name" name="name" placeholder="Tên của bạn...">
@@ -24,7 +24,7 @@
 <style type="text/css">
   /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
-    width: 100%; /* Full width */
+    width: 50%; /* Full width */
     padding: 12px; /* Some padding */  
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */

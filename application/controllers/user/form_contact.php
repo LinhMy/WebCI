@@ -1,16 +1,42 @@
 <?php
-class Form_contact extends CI_Controller {
+class Form_contact extends MY_Controller {
 
   public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');  
+        $this->load->helper('url'); 
+        $this->load->model('contact_model'); 
     }
 
 
   public function index()
   {
-    //hien thi form gui email
+    //hien thi view lien he
+    $this->load->view('user_view/form_contact_view');
+    //neu nhan submit
+    if($this->input->post('submit'))
+    {
+      //lay thong tin form lien he
+        $name = $this->input->post('name');
+        $namemail = $this->input->post('namemail');
+        $content = $this->input->post('content');
+        $data_insert = array('name' => $name, 'email' => $namemail, 'content'=> $content, 'reply'=> 'FALSE', 'date'=> date('Y-m-d H:i:s'));
+          //chen vao DB
+        if($this->contact_model->insert_contact($data_insert))
+        { 
+          //insert thanh cong
+          $url =$base_url."/";// quay lai trang lien he
+          redirect($url);
+        }
+        else
+        {
+          //insert khong thanh cong
+
+        }
+    }
+  }
+}
+ /*/hien thi form gui email
       $this->load->view('user_view/form_contact_view');
       //thu vien ho tro gui mail 
       $this->load->library('email');
@@ -40,7 +66,9 @@ class Form_contact extends CI_Controller {
           echo $this->email->print_debugger();
       }else{
           echo 'Gửi email thành công';
-      }
-  }
-}
+      }*/
+
 ?>
+
+   
+  
