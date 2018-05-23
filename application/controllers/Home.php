@@ -36,7 +36,8 @@
 
 
             // san pham giam gia
-            $input['limit'] = array(9,0);
+
+            $input['where'] = array('discount !='=> "0");
             $product_sale = $this->product_model->get_list($input);
             $this->data['product_sale'] = $product_sale;
             
