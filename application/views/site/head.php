@@ -4,7 +4,7 @@
 <meta property="og:locale" content="vi_VN"/>
 <link rel="alternate" href="http://xuongtuidanang.net" hreflang="vi-vn"/>
 <title>Natulieshop </title>
-<?php foreach ($catalog_name as $row): ?>
+<?php foreach ($category_name as $row): ?>
 <meta itemprop="name" content="<?php echo $row->category_name; ?>">
 <meta property="og:title" content="<?php echo $row->category_name; ?>"/>
 <?php endforeach; ?>

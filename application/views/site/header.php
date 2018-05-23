@@ -31,30 +31,26 @@
                     <div class="category-dropdwon">
                         <select name="catalog">
                             <option value="0">Danh Mục</option>
-                        <?php foreach ($catalog_list as $row): ?>
-<<<<<<< HEAD
-                            <option value="<?php echo $row->id_catalog; ?>" <?php echo $this->input->get('Category') == $row->id_catalog ? 'selected': '' ?> ><?php echo $row->name; ?></option>
-=======
-                            <option value="<?php echo $row->category_id; ?>" <?php echo $this->input->get('category') == $row->category_id ? 'selected': '' ?> ><?php echo $row->category_name; ?></option>
->>>>>>> 7006a02f223b32e3b6b904cad2d22b9710f4647a
-                        <?php endforeach; ?>
+                            <?php foreach ($category_list as $row): ?>
+                                <option value="<?php echo $row->category_id; ?>" <?php echo $this->input->get('category') == $row->category_id ? 'selected': '' ?> ><?php echo $row->category_name; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="search-text-box">
 
                         <input style="color: black;" type="text" aria-haspopup="true" aria-autocomplete="list" value="<?php echo isset($key) ? $key : '' ?>" role="textbox" autocomplete="off" class="input ui-autocomplete-input" placeholder="Tìm kiếm sản phẩm..."  name="key-search" id="text-search">
-                            <button type="submit" name="but" id="but" value="" class="btn-search"><span class="flaticon-magnifying-glass34"></span></button>
+                        <button type="submit" name="but" id="but" value="" class="btn-search"><span class="flaticon-magnifying-glass34"></span></button>
 
                     </div>
 
                 </form>
 
                 <div class="mini-cart">
-            
+
                     <a class="cart-link" href="<?php echo base_url('cart/index') ?>">
                         <span class="text"><?php echo $total_items; ?> Sản Phẩm</span>
 
-								<span class="menu-icon icon  pe-7s-shopbag">
+                        <span class="menu-icon icon  pe-7s-shopbag">
 									<span class="count"><?php echo $total_items; ?></span>
 								</span>
                     </a>
@@ -63,18 +59,18 @@
                         <div class="content-inner">
                             <h3 class="box-title">Bạn có <span class="count"><?php echo $total_items; ?> sản phẩm</span> trong giỏ hàng.</h3>
                             <ul class="list-item-cart">
-                            <?php $total_amount = 0; foreach ($carts as $row): $total_amount = $total_amount + $row['subtotal'];?>
-                                <li class="item-cart">
-                                    <div class="thumb">
-                                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name_catalog']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><img style="width: 101px; height: 135px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row['image_link'] ?>" alt=""></a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h4 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name_catalog']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><?php echo $row['name']; ?></a></h4>
-                                        <span class="price"><?php echo $row['qty']; ?> x <?php echo number_format($row['price']); ?> VNĐ</span>
-                                        <a href="<?php echo base_url('cart/del/'.$row['id']); ?>"  class="remove-item" ><i class="fa fa-close"></i></a>
-                                    </div>
-                                </li>
-                            <?php endforeach; ?>
+                                <?php $total_amount = 0; foreach ($carts as $row): $total_amount = $total_amount + $row['subtotal'];?>
+                                    <li class="item-cart">
+                                        <div class="thumb">
+                                            <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name_catalog']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><img style="width: 101px; height: 135px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row['image_link'] ?>" alt=""></a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name_catalog']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><?php echo $row['name']; ?></a></h4>
+                                            <span class="price"><?php echo $row['qty']; ?> x <?php echo number_format($row['price']); ?> VNĐ</span>
+                                            <a href="<?php echo base_url('cart/del/'.$row['id']); ?>"  class="remove-item" ><i class="fa fa-close"></i></a>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
                             </ul>
                             <div class="subtotal">
                                 Tổng Tiền: <span class="amout"><?php echo number_format($total_amount); ?> VNĐ</span>

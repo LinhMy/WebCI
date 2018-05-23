@@ -6,7 +6,7 @@
         <h4 class="title"><span class="text">Danh mục sản phẩm</span> <span class="bar"><i class="fa fa-bars"></i></span></h4>
         <div class="verticalmenu-content">
             <ul class="kt-nav verticalmenu-list" >
-            <?php $i = 12; foreach ($catalog_list as $row): ?>
+            <?php $i = 12; foreach ($category_list as $row): ?>
                 <li class="menu-item-has-children">
                     <a href="<?php echo base_url('san-pham/danh-muc/'.seoname($row->category_name).'/'.$row->category_id); ?>"><span class="menu-icon"><img src="<?php echo base_url('upload'); ?>/icons/<?php echo $i; ?>.png" alt=""></span><?php echo $row->category_name; ?></a>
                     <ul class="sub-menu" ">

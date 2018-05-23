@@ -31,11 +31,11 @@ class MY_Controller extends CI_Controller{
                 $this->load->model('product_model');
                 $input['where'] = array('parent_id' => 0);
                 $input['order'] = array('category_id', 'asc');
-                $category_list = $this->category_model->get_list($input);
+                $category_list = $this->Category_model->get_list($input);
                 foreach ($category_list as $row){
                     // lay danh sach san pham moi
                     $input['where'] = array('parent_id' => $row->category_id);
-                    $subs = $this->category_model->get_list($input);
+                    $subs = $this->Category_model->get_list($input);
                     $row->subs = $subs;
                     foreach ($subs as $sub_product){
 
@@ -61,7 +61,7 @@ class MY_Controller extends CI_Controller{
                 $input['where'] = array(
                     'category_id' => $category,
                 );
-                $category_name = $this->category_model->get_list($input);
+                $category_name = $this->Category_model->get_list($input);
                 $this->data['category_name'] = $category_name;
                 // end danh muc
                 // lay thong tin san pham
