@@ -55,7 +55,6 @@ class Product extends MY_Controller{
             $this->db->where_in('category_id', $catalog_subs_id);
         }
         $list = $this->product_model->get_list($input);
-        //pre($this->db->last_query($list));
         $this->data['list'] = $list;
         $this->data['temp'] = 'site/product/catalog';
         $this->load->view('site/layout', $this->data);

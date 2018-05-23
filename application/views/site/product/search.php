@@ -4,11 +4,6 @@
             <!-- tab product -->
             <div class="kt-tabs style4 kt-tab-fadeeffect">
                 <div class="shop-page-bar">
-                    <nav class="woocommerce-breadcrumb breadcrumbs">
-                        <a href="#">Trang Chủ</a>
-                        <a href="#">Túi Xách</a>
-                        Hàng Quảng Châu
-                    </nav>
 
                 </div>
                 <div class="tab-container" style="width: 1160px; z-index: 0;">

@@ -1,14 +1,12 @@
 <div class="container">
     <!-- Tab cat -->
-    <?php $i = 3; $c = 33; foreach ($category_list as $row): ?>
+    <?php $i = 3; $c = 43; foreach ($category_list as $row): ?>
         <div class="kt-category-tabs kt-tab-fadeeffect margin-top-50 " >
             <div class="tab-head">
                 <h3 class="title"><a href=""><img class="icon" src="<?php echo base_url('upload'); ?>/icons/<?php echo $c; ?>.png" alt=""><?php echo $row->category_name; ?> </a></h3>
                 <ul class="nav-tab">
                     <li class="active"><a data-animated="fadeInUp" data-toggle="tab" href="#tab-<?php echo $i; ?>">Mới Nhất</a></li>
                     <li><a data-animated="fadeInUp" data-toggle="tab" href="#tab-<?php echo $i+1; ?>">Xem Nhiều</a></li>
-
-
                 </ul>
                 <div class="floor-elevator">
                     <a class="btn-elevator up  fa fa-angle-up"></a>

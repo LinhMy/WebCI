@@ -19,7 +19,7 @@
 
             </div>
         </div>
-        <div class="coppyright">Copyrights © 2016 Natulieshop - Đà Nẵng. Túi xách & mỹ phẩm giá rẻ tại Đà Nẵng</div>
+        <div class="coppyright"></div>
 
 
         <div id="fb-root"></div>
@@ -31,7 +31,7 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
         <div class="support-icon-right" style="position:fixed; z-index:9999999; right:50px; bottom:10px;">
-            <h3><i class="fa fa-facebook"></i> Chat với NatulieShop</h3>
+
             <div class="online-support">
                 <div
                     class="fb-page"

@@ -12,12 +12,12 @@
                         <li class="product-item style6" style="float: left; width: 233px; height: 390px;">
                             <div class="product-inner">
                                 <div class="thumb">
-                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>">
-                                        <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image_link; ?>" alt="<?php echo $row->site_title; ?>">
+                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->category_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">
+                                        <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>" alt="">
                                     </a>
                                     <div class="group-button">
                                         <a class="wishlist" href="">Yêu Thích</a>
-                                        <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name_catalog).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="<?php echo $row->site_title; ?>">Chi Tiết</a>
+                                        <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->category_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">Chi Tiết</a>
                                     <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">
                                         <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>" alt="">
                                     </a>

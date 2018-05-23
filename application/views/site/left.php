@@ -49,7 +49,7 @@
             </ul>
         </li>
         <li class="menu-item-has-children item-megamenu">
-            <a href="<?php echo base_url(); ?>san-pham/danh-muc/tui-xach/1">Sản Phẩm</a>
+            <a href="<?php echo base_url(); ?>chi-tiet-san-pham/tui-gucci-1/tui-gucci-1/6">Sản Phẩm</a>
 
         </li>
 
