@@ -21,7 +21,7 @@ $this->load->view('admin/product/head', $this->data);
                                 <td class="item"><input type="text" style="width:55px;" id="filter_id" value="<?php echo $this->input->get('id'); ?>" name="id"></td>
 
                                 <td style="width:40px;" class="label"><label for="filter_id">Tên</label></td>
-                                <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('name'); ?>" name="name"></td>
+                                <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('product_name'); ?>" name="product_name"></td>
 
                                 <td style="width:60px;" class="label"><label for="filter_status">Thể loại</label></td>
                                 <td class="item">
@@ -29,11 +29,11 @@ $this->load->view('admin/product/head', $this->data);
                                         <option value=""></option>
                                         <!-- kiem tra danh muc co danh muc con hay khong -->
                                     <?php foreach ($category_list as $row): ?>
-                                        <optgroup label="<?php echo $row->name; ?>">
+                                        <optgroup label="<?php echo $row->product_name; ?>">
 
                                             <?php foreach ($row->subs as $subs){ ?>
                                             <option value="<?php echo $subs->category_id; ?>">
-                                                <?php echo $subs->name; ?>
+                                                <?php echo $subs->product_name; ?>
                                             </option>
                                             <?php } ?>
                                         </optgroup>
@@ -85,11 +85,11 @@ $this->load->view('admin/product/head', $this->data);
             <?php foreach ($list as $row): ?>
                 <tr class="row_<?php echo $row->product_id; ?>">
                     <td><input type="checkbox" name="id[]" value="<?php echo $row->product_id; ?>" /></td>
-                    <td ><?php echo $row->name; ?></td>
+                    <td ><?php echo $row->product_name; ?></td>
                     <td style="width: 200px;"><?php echo $row->category_name; ?></td>
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
                     <td><?php echo number_format($row->discount); ?> VNĐ</td>
-                    <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image_link); ?>" style="width: 100px; height: 70px;"></td>
+                    <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
                     <td><?php echo $row->view; ?></td>
 
                     <td class="option">

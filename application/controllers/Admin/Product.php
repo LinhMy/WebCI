@@ -74,67 +74,49 @@
             // load thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
-            // lay danh sach danh muc san pham
-            $this->load->model('Category_model');
-            $input['where'] = array('parent_id' => 0);
-            $input['order'] = array('category_id', 'asc');
-            $category_list = $this->category_model->get_list($input);
-            foreach ($category_list as $row){
-                $input['where'] = array('parent_id' => $row->category_id);
-                $subs = $this->category_model->get_list($input);
-                $row->subs = $subs;
-            }
-
-
-            $this->data['category_list'] = $category_list;
             // kiem tra xem co du lieu post len
             if($this->input->post()){
-                $this->form_validation->set_rules('name','Tên sản phẩm bắt buộc nhập','required');
+                $this->form_validation->set_rules('product_name','Tên sản phẩm bắt buộc nhập','required');
                 $this->form_validation->set_rules('price','Giá bắt buộc nhập','required|max_length[10]');
-                $this->form_validation->set_rules('Category','Danh mục bắt buộc nhập','required');
                 $this->form_validation->set_rules('content','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
-                    $name = $this->input->post('name');
-                    $price = $this->input->post('price');
-                    $price = str_replace(',', '', $price);
-                    $category = $this->input->post('Category');
-                    $this->load->model('Category_model');
-                    $category_info = $this->category_model->get_info($category);
-                    $content = $this->input->post('content');
-                    $discount = $this->input->post('discount');
-                    $discount = $discount = str_replace(',','',$discount);
-                    //  up anh minh hoa san pham
-                    $this->load->library('upload_library');
-                    $upload_path = './upload/products';
-                    $upload_data = $this->upload_library->upload($upload_path, 'image');
-                    $image_link = '';
-                    if(isset($upload_data['file_name'])){
-                        $image_link = $upload_data['file_name'];
+                    if (!empty($_FILES['image']['name'])) {
+                        $config['upload_path'] = 'upload/product';
+                        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                        $config['file_name'] = $_FILES['image']['name'];
 
+                        $this->load->library('upload', $config);
+                        $this->upload->initialize($config);
+
+                        if ($this->upload->do_upload('image')) {
+                            $uploadData = $this->upload->data();
+                            $image = $uploadData['file_name'];
+                        } else {
+                            $image = '';
+                        }
+
+                        //in cau truc du lieu cua file da upload
+                        echo "<pre>";
+                        print_r($image);
+                        echo "</pre>";
                     }
 
-
-                    // up load nhieu file anh cho san pham
-                    $image_list = array();
-                    $image_list = $this->upload_library->upload_file($upload_path, 'image_list');
-                    $image_list = json_encode($image_list);
+                    else {
+                        //hien thi lỗi nếu có
+                        $error = $this->upload->display_errors();
+                        echo $error;
+                    }
 
                     $data = array(
-                        'name' => $name,
-                        'image_link' => $image_link,
-                        'image_list' => $image_list,
-                        'created' => date('y-m-d'),
-                        'price' => $price,
-                        'discount' => $discount,
-                        'category_id' => $category,
-                        'category_name' => $category_info->name,
-                        'warranty' => $this->input->post('warranty'),
-                        'gifts' => $this->input->post('gifts'),
-                        'site_title' => $this->input->post('site_title'),
-                        'meta_desc' => $this->input->post('meta_desc'),
-                        'meta_key' => $this->input->post('meta_key'),
-                        'content' => $content,
+                        'product_name' => $this->input->post('product_name'),
+                        'image' => $image,
+                        'date' => $this->input->post('date'),
+                        'price' => $this->input->post('price'),
+                        'discount' => $this->input->post('discount'),
+                        'quantity' => $this->input->post('quantity'),
+                        'content' => $this->input->post('content'),
+
 
                     );
                     // them moi vao co so du lieu
@@ -160,7 +142,7 @@
             // load ra id san pham
             $product_id = $this->uri->rsegment('3');
             $product_info = $this->product_model->get_info($product_id);
-            $image_link = $product_info->image_link;
+            $image = $product_info->image;
             $this->data['product_info'] = $product_info;
             if(!$product_info){
                 // thong bao ko ton tai id nay
@@ -174,13 +156,13 @@
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
-                $this->form_validation->set_rules('name','Tên bắt buộc nhập','required');
+                $this->form_validation->set_rules('product_name','Tên bắt buộc nhập','required');
                 $this->form_validation->set_rules('price','Giá bắt buộc nhập','required|max_length[10]');
                 $this->form_validation->set_rules('Category','Danh mục bắt buộc nhập','required');
                 $this->form_validation->set_rules('content','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
-                    $name = $this->input->post('name');
+                    $product_name = $this->input->post('product_name');
                     $price = $this->input->post('price');
                     $price = str_replace(',', '', $price);
                     $category = $this->input->post('Category');
@@ -198,9 +180,9 @@
                     $this->load->library('upload_library');
                     $upload_path = './upload/products';
                     $upload_data = $this->upload_library->upload($upload_path, 'image');
-                    $image_link = '';
+                    $image = '';
                     if(isset($upload_data['file_name'])){
-                        $image_link = $upload_data['file_name'];
+                        $image = $upload_data['file_name'];
                     }
                     // upload kem anh minh hoa
                     $image_list = array();
@@ -209,25 +191,26 @@
                     // data du lieu insert
 
                     $data = array(
-                        'name' => $name,
+                        'product_name' => $product_name,
                         'price' => $price,
                         'discount' => $discount,
                         'category_id' => $category,
-                        'category_name' => $category_info->name,
-                        'warranty' => $this->input->post('warranty'),
-                        'gifts' => $this->input->post('gifts'),
+                        'category_name' => $category_info->product_name,
+                        'quantity' => $this->input->post('quantity'),
+                        'content' => $this->input->post('content'),
                         'site_title' => $this->input->post('site_title'),
                         'meta_desc' => $this->input->post('meta_desc'),
                         'meta_key' => $this->input->post('meta_key'),
+                        'date' => $this->input->post('date'),
                         'content' => $content,
 
                     );
-                    if($image_link != ''){
-                        $image_link_corner = $product_info->image_link;
-                        if(file_exists($image_link_corner)){
-                            unlink('./upload/products/'.$image_link_corner);
+                    if($image != ''){
+                        $image_corner = $product_info->image;
+                        if(file_exists($image_corner)){
+                            unlink('./upload/products/'.$image_corner);
                         }
-                        $data['image_link'] = $image_link;
+                        $data['image'] = $image;
 
                     }
                     if(!empty($image_list)){
@@ -290,9 +273,9 @@
                 }
             }
             //  xoa anh san pham
-            $image_link = './upload/products/'.$product->image_link;
-            if(file_exists($image_link)){
-                unlink($image_link);
+            $image = './upload/products/'.$product->image;
+            if(file_exists($image)){
+                unlink($image);
             }
             // xoa anh minh hoa kem theo cua san pham
             $image_list = json_decode($product->image_list);

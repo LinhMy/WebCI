@@ -32,7 +32,7 @@
                         <select name="catalog">
                             <option value="0">Danh Mục</option>
                             <?php foreach ($category_list as $row): ?>
-                                <option value="<?php echo $row->category_id; ?>" <?php echo $this->input->get('category') == $row->category_id ? 'selected': '' ?> ><?php echo $row->category_name; ?></option>
+                                <option value="<?php echo $row->category_id; ?>" <?php echo $this->input->get('category') == $row->category_name ? 'selected': '' ?> ><?php echo $row->category_name; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

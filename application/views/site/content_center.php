@@ -1,6 +1,6 @@
 <div class="container">
 <!-- Tab cat -->
-<?php $i = 3; $c = 33; foreach ($catalog_list as $row): ?>
+<?php $i = 3; $c = 33; foreach (category_list as $row): ?>
 <div class="kt-category-tabs kt-tab-fadeeffect margin-top-50 " >
     <div class="tab-head">
         <h3 class="title"><a href=""><img class="icon" src="<?php echo base_url('upload'); ?>/icons/<?php echo $c; ?>.png" alt=""><?php echo $row->name; ?> </a></h3>
