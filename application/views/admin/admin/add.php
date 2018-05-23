@@ -52,11 +52,20 @@ $this->load->view('admin/admin/head', $this->data);
                         </div>
 
                         <div class="formRow">
-                            <label for="param_name" class="formLeft">Họ và tên:<span class="req">*</span></label>
+                            <label for="param_information" class="formLeft">Thông tin:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_name" name="name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_information" name="information"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('information'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label for="param_position" class="formLeft">Chức vụ:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" name="position"></span>
+                                <span class="autocheck" name="name_autocheck"></span>
+                                <div class="clear error" name="name_error"><?php echo form_error('position'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>

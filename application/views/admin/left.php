@@ -45,6 +45,25 @@
             </ul>
 
         </li>
+        <li class="tran">
+
+            <a href="#" class=" exp">
+                <span>Quản lý kho</span>
+                <strong>2</strong>
+            </a>
+
+            <ul class="sub">
+                <li>
+                    <a href="<?php echo admin_url(''); ?>">
+                        Tải file ảnh zip							</a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url(''); ?>">
+                        Tải phai ex							</a>
+                </li>
+            </ul>
+
+        </li>
         <li class="product">
 
             <a href="admin/product.html" class=" exp">
@@ -61,10 +80,6 @@
                     <a href="<?php echo admin_url('Category'); ?>">
                         Danh mục							</a>
                 </li>
-                <li>
-                    <a href="admin/comment.html">
-                        Phản hồi							</a>
-                </li>
             </ul>
 
         </li>
@@ -80,14 +95,6 @@
                     <a href="<?php echo admin_url('admin')?>">
                         Ban quản trị							</a>
                 </li>
-                <li>
-                    <a href="admin/admin_group.html">
-                        Nhóm quản trị							</a>
-                </li>
-                <li>
-                    <a href="admin/user.html">
-                        Thành viên							</a>
-                </li>
             </ul>
 
         </li>
@@ -101,44 +108,15 @@
             <ul class="sub">
                 <li>
                     <a href="admin/support.html">
-                        Hỗ trợ							</a>
+                        Chat với khách hàng							</a>
                 </li>
                 <li>
                     <a href="admin/contact.html">
-                        Liên hệ							</a>
+                        xử lý yêu cầu							</a>
                 </li>
             </ul>
 
         </li>
-        <li class="content">
-
-            <a href="admin/content.html" class=" exp">
-                <span>Nội dung</span>
-                <strong>4</strong>
-            </a>
-
-            <ul class="sub">
-                <li>
-                    <a href="<?php echo admin_url('slide'); ?>">
-                        Slide							</a>
-                </li>
-                <li>
-                    <a href="<?php echo admin_url('news'); ?>">
-                        Tin tức
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/info.html">
-                        Trang thông tin							</a>
-                </li>
-                <li>
-                    <a href="admin/video.html">
-                        Video							</a>
-                </li>
-            </ul>
-
-        </li>
-
     </ul>
 
 </div>

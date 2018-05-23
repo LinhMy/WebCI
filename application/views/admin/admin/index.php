@@ -39,7 +39,8 @@ $this->load->view('admin/admin/head', $this->data);
                 <td style="width:10px;"><img src="<?php echo public_url(); ?>/admin/images/icons/tableArrows.png" /></td>
                 <td style="width: 100px;">Mã ID</td>
                 <td style="width: 100px;">username</td>
-                <td style="width: 100px;">Họ tên</td>
+                <td style="width: 100px;">Thông tin</td>
+                <td style="width: 100px;">Chức vụ</td>
                 <td style="width:100px;">Chức năng</td>
             </tr>
             </thead>
@@ -62,17 +63,18 @@ $this->load->view('admin/admin/head', $this->data);
 
             <tbody>
             <?php foreach ($list as $row): ?>
-                <tr class="row_<?php echo $row->id_admin; ?>">
-                    <td><input type="checkbox" name="id[]" value="<?php echo $row->id_admin; ?>" /></td>
-                    <td ><?php echo $row->id_admin; ?></td>
+                <tr class="row_<?php echo $row->admin_id; ?>">
+                    <td><input type="checkbox" name="id[]" value="<?php echo $row->admin_id; ?>" /></td>
+                    <td ><?php echo $row->admin_id; ?></td>
                     <td ><?php echo $row->username; ?></td>
-                    <td ><?php echo $row->name; ?></td>
+                    <td ><?php echo $row->information; ?></td>
+                    <td ><?php echo $row->position; ?></td>
                     <td class="option">
-                        <a href="<?php echo admin_url('admin/edit/'.$row->id_admin); ?>" title="Chỉnh sửa" class="tipS ">
+                        <a href="<?php echo admin_url('admin/edit/'.$row->admin_id); ?>" title="Chỉnh sửa" class="tipS ">
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/edit.png" />
                         </a>
 
-                        <a href="<?php echo admin_url('admin/delete/'.$row->id_admin); ?>" title="Xóa" class="tipS verify_action" >
+                        <a href="<?php echo admin_url('admin/delete/'.$row->admin_id); ?>" title="Xóa" class="tipS verify_action" >
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png" />
                         </a>
                     </td>
