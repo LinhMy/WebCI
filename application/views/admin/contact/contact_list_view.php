@@ -20,7 +20,7 @@
                     <td><input type="text" value="<?=$item->name?>" class="name_custormer"></td>
                     <td><input type="text" value="<?=$item->email?>" class="email"></td>
                     <td><input type="text" value="<?=$item->content?>" class="content"></td>
-                    <td><input type="text" value="<?=$item->date?>" class="date"></td>
+                    <td><input type="text" value="<?=$item->date_sent?>" class="date"></td>
                     <td><input type="checkbox" value="" class="reply" checked="<?=($item->reply?"checked": "")?>"></td>
                     <td>
                     	<a href="" style="text-decoration: none">

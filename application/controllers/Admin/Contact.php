@@ -1,5 +1,5 @@
 <?php
-class Form_contact extends CI_Controller {
+class Contact extends MY_Controller {
 
   public function __construct()
     {
@@ -38,7 +38,7 @@ class Form_contact extends CI_Controller {
       $this->email->to($this->input->post('email'));
        
       $this->email->subject('Trả lời về thắc mắc của bạn trên OnlineShop');
-      $this->email->message($this->input->post('reply'););
+      $this->email->message($this->input->post('reply'));
        
       //dinh kem file
       //$this->email->attach('/path/to/photo1.jpg');
@@ -53,5 +53,5 @@ class Form_contact extends CI_Controller {
 
   }
 }
-
+}
 ?>

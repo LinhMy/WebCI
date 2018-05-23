@@ -15,7 +15,7 @@ class Contact_model extends CI_Model {
         {
            // $this->db->select('username,fullname,city,password,id_user,phone');
             // sap xep theo thoi gian khach hang gui lien he
-           $this->db->order_by("date", "asc");
+           $this->db->order_by("date_sent", "asc");
            $query = $this->db->get('contact');
            return $query->result_array();
         }
@@ -23,7 +23,7 @@ class Contact_model extends CI_Model {
          public function get_contact($id_contact)
         {
            //điều kiện 
-            $this->db->where("id_contact", $id_contact);
+            $this->db->where("contact_id", $id_contact);
             // sap xep theo thoi gian khach hang gui lien he
            $query = $this->db->get('contact');
            return $query->result_array();
