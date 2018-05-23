@@ -22,11 +22,20 @@ $this->load->view('admin/product/head', $this->data);
                 <div class="tab_container">
                     <div class="tab_content pd0" id="tab1">
                         <div class="formRow">
-                            <label for="param_name" class="formLeft">Tên sản phẩm:<span class="req">*</span></label>
+                            <label for="param_product_name" class="formLeft">Tên sản phẩm:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_name" name="name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" name="product_name"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('product_name'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label for="param_category_id" class="formLeft">ID Danh mục:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_category_id" name="category_id"></span>
+                                <span class="autocheck" name="name_autocheck"></span>
+                                <div class="clear error" name="name_error"><?php echo form_error('category_id'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -109,53 +118,6 @@ $this->load->view('admin/product/head', $this->data);
                             <div class="clear"></div>
                         </div>					         <div class="formRow hide"></div>
                     </div>
-
-                    <div class="tab_content pd0" id="tab2">
-
-                        <div class="formRow">
-                            <label for="param_site_title" class="formLeft">Title:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" _autocheck="true" id="param_site_title" name="site_title"></textarea></span>
-                                <span class="autocheck" name="site_title_autocheck"></span>
-
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-
-                        <div class="formRow">
-                            <label for="param_meta_desc" class="formLeft">Meta description:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" _autocheck="true" id="param_meta_desc" name="meta_desc"></textarea></span>
-                                <span class="autocheck" name="meta_desc_autocheck"></span>
-
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-
-                        <div class="formRow">
-                            <label for="param_meta_key" class="formLeft">Meta keywords:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" _autocheck="true" id="param_meta_key" name="meta_key"></textarea></span>
-                                <span class="autocheck" name="meta_key_autocheck"></span>
-
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="formRow hide"></div>
-                    </div>
-
-                    <div class="tab_content pd0" id="tab3">
-                        <div class="formRow">
-                            <label class="formLeft">Nội dung:</label>
-                            <div class="formRight">
-                                <textarea class="editor" id="param_content" name="content"></textarea>
-                                <div class="clear error" name="content_error"><?php echo form_error('content'); ?></div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="formRow hide"></div>
-                    </div>
-
 
                 </div><!-- End tab_container-->
 

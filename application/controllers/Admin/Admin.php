@@ -41,16 +41,19 @@
                 $this->form_validation->set_rules('password','Mật khẩu bắt buộc','required|min_length[4]');
                 $this->form_validation->set_rules('password_rp','Nhập lại mật khẩu không đúng ','required|matches[password]');
                 $this->form_validation->set_rules('information','thông tin nhân viên','required|min_length[2]');
-                $this->form_validation->set_rules('','thông tin nhân viên','required|min_length[2]');
+                $this->form_validation->set_rules('position','chức vụ','required|min_length[2]');
                 if($this->form_validation->run()){
                     $username = $this->input->post('username');
                     $password = $this->input->post('password');
                     $password = md5($password);
-                    $name = $this->input->post('information');
+                    $information = $this->input->post('information');
+                    $position = $this->input->post('position');
+
                     $data = array(
                         'username' => $username,
                         'password' => $password,
-                        'name' => $name,
+                        'position' => $position,
+                        'information' => $information,
                     );
                     // insert du lieu
                     if($this->admin_model->create($data)){
@@ -87,18 +90,21 @@
             if($this->input->post()){
                 $this->form_validation->set_rules('name','Họ và tên','required|min_length[4]');
                 if($this->form_validation->run()){
-                    $name = $this->input->post('name');
+
                     $password = $this->input->post('password');
                     $password_rp = $this->input->post('password_rp');
                     $password_rp = md5($password_rp);
                     $password_corner = $admin_info->password;
+                    $information = $this->input->post('information');
+                    $position = $this->input->post('position');
                     $data = array();
                     if($password != ''){
                         $password = md5($password);
                         if($password_corner == $password_rp){
                             // bat dau insert du lieu
                             $data = array(
-                                'name' => $name,
+                                'position' => $position,
+                                'information' => $information,
                                 'password' => $password,
                             );
                         }else{
@@ -109,7 +115,6 @@
 
                     }else{
                         if($password_corner == $password_rp){
-                            $data['name'] = $name;
                         }
                         else{
                             // tao roi noi dung thong bao

@@ -70,53 +70,42 @@
             $this->load->view('admin/main', $this->data);
         }
         function add(){
-     
             // load thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
             // kiem tra xem co du lieu post len
             if($this->input->post()){
-                $this->form_validation->set_rules('product_name','Tên sản phẩm bắt buộc nhập','required');
+                $this->form_validation->set_rules('name','Tên sản phẩm bắt buộc nhập','required');
                 $this->form_validation->set_rules('price','Giá bắt buộc nhập','required|max_length[10]');
                 $this->form_validation->set_rules('content','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
-                    if (!empty($_FILES['image']['name'])) {
-                        $config['upload_path'] = 'upload/product';
-                        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-                        $config['file_name'] = $_FILES['image']['name'];
+                    $product_name = $this->input->post('product_name');
+                    $id_category = $this->input->post('id_category');
+                    $price = $this->input->post('price');
+                    $discount = $this->input->post('discount');
+                    $date = $this->input->post('date');
+                    $quantity =$this->input->post('quantity');
+                    $content = $this->input->post('content');
+                    //  up anh minh hoa san pham
+                    $this->load->library('upload_library');
+                    $upload_path = './upload/products';
+                    $upload_data = $this->upload_library->upload($upload_path, 'image');
+                    $image = '';
+                    if(isset($upload_data['file_name'])){
+                        $image = $upload_data['file_name'];
 
-                        $this->load->library('upload', $config);
-                        $this->upload->initialize($config);
-
-                        if ($this->upload->do_upload('image')) {
-                            $uploadData = $this->upload->data();
-                            $image = $uploadData['file_name'];
-                        } else {
-                            $image = '';
-                        }
-
-                        //in cau truc du lieu cua file da upload
-                        echo "<pre>";
-                        print_r($image);
-                        echo "</pre>";
-                    }
-
-                    else {
-                        //hien thi lỗi nếu có
-                        $error = $this->upload->display_errors();
-                        echo $error;
                     }
 
                     $data = array(
-                        'product_name' => $this->input->post('product_name'),
+                        'product_name' => $product_name,
+                        'id_category' => $id_category,
                         'image' => $image,
-                        'date' => $this->input->post('date'),
-                        'price' => $this->input->post('price'),
-                        'discount' => $this->input->post('discount'),
-                        'quantity' => $this->input->post('quantity'),
-                        'content' => $this->input->post('content'),
-
+                        'price' => $price,
+                        'discount' => $discount,
+                        'date' => $date,
+                        'quantity' => $quantity,
+                        'content' => $content,
 
                     );
                     // them moi vao co so du lieu
@@ -127,7 +116,6 @@
                     }else{
                         // in ra thong bao loi
                         $this->session->set_flashdata('message', 'Có lỗi khi thêm sản phẩm');
-                        redirect(admin_url('product'));
                     }
 
                 }

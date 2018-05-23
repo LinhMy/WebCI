@@ -22,11 +22,11 @@ $this->load->view('admin/category/head', $this->data);
                 <div class="tab_container">
                     <div class="tab_content pd0" id="tab1">
                         <div class="formRow">
-                            <label for="param_name" class="formLeft">Tên Danh Mục:<span class="req">*</span></label>
+                            <label for="param_category_name" class="formLeft">Tên Danh Mục:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_name" name="name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_category_name" name="category_name"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('category_name'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -38,7 +38,7 @@ $this->load->view('admin/category/head', $this->data);
                             <select name="parent_category_id" id="param_parent_id" _autocheck="true">
                                 <option value="0">Là danh mục cha: </option>
                                 <?php foreach ($list as $row): ?>
-                                    <option value="<?php echo $row->category_id ?>"><?php echo $row->name; ?></option>
+                                    <option value="<?php echo $row->category_id ?>"><?php echo $row->category_name; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </span>

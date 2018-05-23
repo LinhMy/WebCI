@@ -3,7 +3,7 @@
         function __construct()
         {
             parent::__construct();
-            $this->load->model('Category_model');
+            $this->load->model('category_model');
         }
         function index(){
             // gui bien temp
@@ -139,7 +139,7 @@
 
             // kiem tra xem danh muc nay co san pham hay ko
             $this->load->model('product_model');
-            $product = $this->product_model->get_info_rule(array('$category_id' => $category_id), 'product_id');
+            $product = $this->product_model->get_info_rule(array('category_id' => $category_id), 'product_id');
             if($product){
                 $this->session->set_flashdata('message', 'Danh mục ' .$category->category_name. ' có chứa sản phẩm, bạn cần xóa hết các sản phẩm trước khi xóa danh mục');
                 if($redirect) {

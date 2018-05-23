@@ -31,15 +31,6 @@ $this->load->view('admin/admin/head', $this->data);
                             <div class="clear"></div>
                         </div>
 
-                        <div class="formRow">
-                            <label for="param_name" class="formLeft">Họ và tên:<span class="req">*</span></label>
-                            <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_name" value="<?php echo $admin_info->name; ?>" name="name"></span>
-                                <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
 
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Password:</label>
@@ -57,6 +48,24 @@ $this->load->view('admin/admin/head', $this->data);
                                 <span class="oneTwo"><input type="password" _autocheck="true" id="param_password_rp" name="password_rp"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
                                 <div class="clear error" name="name_error"><?php echo form_error('password_rp'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label for="param_information" class="formLeft">Thông tin:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_information" name="information"></span>
+                                <span class="autocheck" name="name_autocheck"></span>
+                                <div class="clear error" name="name_error"><?php echo form_error('information'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label for="param_position" class="formLeft">Chức vụ:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" name="position"></span>
+                                <span class="autocheck" name="name_autocheck"></span>
+                                <div class="clear error" name="name_error"><?php echo form_error('position'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
