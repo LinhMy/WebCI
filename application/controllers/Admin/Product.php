@@ -80,7 +80,9 @@
                     $product_name = $this->input->post('product_name');
                     $category_id = $this->input->post('category_id');
                     $price = $this->input->post('price');
+                    $price = str_replace(',', '', $price);;
                     $discount = $this->input->post('discount');
+                    $discount = $discount = str_replace(',','',$discount);
                     $date = $this->input->post('date');
                     $quantity =$this->input->post('quantity');
                     $content = $this->input->post('content');
@@ -149,7 +151,9 @@
                     $product_name = $this->input->post('product_name');
                     $category_id = $this->input->post('category_id');
                     $price = $this->input->post('price');
+                    $price = str_replace(',', '', $price);
                     $discount = $this->input->post('discount');
+                    $discount = $discount = str_replace(',','',$discount);
                     $date = $this->input->post('date');
                     $quantity =$this->input->post('quantity');
                     $content = $this->input->post('content');
@@ -179,6 +183,7 @@
                     if($image != ''){
                         $image_corner = $product_info->image;
                         if(file_exists($image_corner)){
+                            $image_corner = $this->input->get('image');
                             unlink('./upload/products/'.$image_corner);
                         }
                         $data['image'] = $image;

@@ -1,12 +1,12 @@
 <div class="topNav">
     <div class="wrapper">
         <div class="welcome">
-            <span>Xin chào: <b>admin!</b></span>
+
         </div>
 
         <div class="userNav">
             <ul>
-                <li><a target="_blank" href="">
+                <li><a href="<?php echo site_url('Home/index'); ?>">
                         <img src="<?php echo public_url(); ?>/admin/images/icons/light/home.png" style="margin-top:7px;">
                         <span>Trang chủ</span>
                     </a></li>

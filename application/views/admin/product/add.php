@@ -82,7 +82,6 @@ $this->load->view('admin/product/head', $this->data);
                             <div class="clear"></div>
                         </div>
 
-
                          <!-- ngày -->
                         <div class="formRow">
                             <label for="param_date" class="formLeft">

@@ -1,7 +1,7 @@
 <div class="titleArea">
     <div class="wrapper">
         <div class="pageTitle">
-            <h5>sản phẩm</h5>
+            <h5>Sản phẩm</h5>
             <span>Quản lý các sản phẩm</span>
         </div>
 
