@@ -10,7 +10,7 @@ class Upload_model extends CI_Model {
         {
            return $this->db->insert('product', $data_insert);
         }
-        
+        // lay id danh muc tu ten cua danh muc
 
 }
 ?>

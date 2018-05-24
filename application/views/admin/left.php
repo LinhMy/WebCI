@@ -45,25 +45,25 @@
             </ul>
 
         </li>
-        <li class="tran">
+        <!--li class="tran">
 
-            <a href="#" class=" exp">
+            <a href="admin/depot.html" class=" exp">
                 <span>Quản lý kho</span>
                 <strong>2</strong>
             </a>
 
             <ul class="sub">
                 <li>
-                    <a href="<?php echo admin_url(''); ?>">
+                    <a href="<?php// echo admin_url('depot/addzip'); ?>">
                         Tải file ảnh zip							</a>
                 </li>
                 <li>
-                    <a href="<?php echo admin_url(''); ?>">
-                        Tải phai ex							</a>
+                    <a href="<?php //echo admin_url('depot/addexcel'); ?>">
+                        Tải file excel							</a>
                 </li>
             </ul>
 
-        </li>
+        </li-->
         <li class="product">
 
             <a href="admin/product.html" class=" exp">
@@ -76,10 +76,20 @@
                     <a href="<?php echo admin_url('product');?>">
                         Sản phẩm							</a>
                 </li>
+
                 <li>
                     <a href="<?php echo admin_url('Category'); ?>">
                         Danh mục							</a>
                 </li>
+                 <li>
+                    <a href="<?php echo admin_url('depot/addzip'); ?>">
+                        Tải file ảnh zip                            </a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('depot/addexcel'); ?>">
+                        Tải file excel                          </a>
+                </li>
+
             </ul>
 
         </li>

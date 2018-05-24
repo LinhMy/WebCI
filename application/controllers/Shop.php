@@ -15,12 +15,14 @@
 		        if($this->contact_model->insert_contact($data_insert))
 		        { 
 		          //insert thanh cong
-		          $url =$base_url."/";// quay lai trang lien he
+		          $url =$base_url."/Home";// quay lai trang lien he
 		          redirect($url);
 		        }
 		        else
 		        {
 		          //insert khong thanh cong
+		        	$url =$base_url."/Shop/adress";// quay lai trang lien he
+		          redirect($url);
 
 		        }
 		    }
