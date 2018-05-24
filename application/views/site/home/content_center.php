@@ -19,6 +19,7 @@
 
                     <div class="tab-content-products">
                         <div class="tab-container">
+                            <!-- bat dau phan moi nh -->
                             <div id="tab-<?php echo $i; ?>" class="tab-panel active">
                                 <ul class="owl-carousel" data-loop="true" data-nav="false" data-dots="false" data-margin="0" data-responsive='{"0":{"items":1,"nav":"false"},"480":{"items":2,"nav":"false"},"768":{"items":3},"1000":{"items":4}}'>
                                     <?php foreach ($row->subs as $subs){ ?>
@@ -52,6 +53,7 @@
                                         <?php }} ?>
                                 </ul>
                             </div>
+                            <!-- bat dau phan nhiều nh -->
                             <div id="tab-<?php echo $i+1; ?>" class="tab-panel">
                                 <ul class="owl-carousel" data-loop="true" data-nav="false" data-dots="false" data-margin="0" data-responsive='{"0":{"items":1,"nav":"false"},"480":{"items":2,"nav":"false"},"768":{"items":3},"1000":{"items":4}}'>
                                     <?php foreach ($row->subs as $sub ){ ?>

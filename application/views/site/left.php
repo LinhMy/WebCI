@@ -38,16 +38,6 @@
             <a href="<?php echo base_url(); ?>">Trang Chủ</a>
 
         </li>
-        <li class="menu-item-has-children">
-            <a >Shop</a>
-            <ul class="sub-menu">
-                <li class="menu-item-has-children">
-                    <a href="<?php echo base_url('shop/adress'); ?>">Địa Chỉ - Liên Hệ</a>
-
-                </li>
-
-            </ul>
-        </li>
         <li class="menu-item-has-children item-megamenu">
             <a href="<?php echo base_url(); ?>chi-tiet-san-pham/tui-gucci-1/tui-gucci-1/6">Sản Phẩm</a>
 
@@ -61,6 +51,8 @@
         <li><a href="<?php echo site_url('user/login') ?>">Đăng Nhập</a></li>
         <li><a href="<?php echo site_url('user/register')?>">Đăng Ký</a></li>
         <?php endif; ?>
+        <li class="menu-item-has-children">
+            <a href="<?php echo base_url('shop/adress'); ?>">Liên hệ</a>
     </ul>
 </div>
 </div>
