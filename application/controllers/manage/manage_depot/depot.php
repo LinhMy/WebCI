@@ -127,16 +127,21 @@ class Depot extends CI_Controller {
                 $flag =false;
                 continue;
               }
-              //gan gia tri insert theo tung cot trong excel
-              $inserdata[$i]['id_catagory'] = $value['A'];
-              $inserdata[$i]['id_product'] = $value['B'];
-              $inserdata[$i]['price'] = $value['C'];
-              $inserdata[$i]['soluong'] = $value['D'];
-              $inserdata[$i]['Anh'] = $value['E'];
+                           //gan gia tri insert theo tung cot trong excel
+              $inserdata[$i]['category_id'] = $value['A'];
+              $inserdata[$i]['product_name'] = $value['B'];
+              $inserdata[$i]['image'] = $value['C'];
+              $inserdata[$i]['price'] = $value['D'];
+              $inserdata[$i]['discount'] = $value['E'];
+              $inserdata[$i]['date'] = date('Y-m-d H:i:s');
+              $inserdata[$i]['view'] = "0";
+              $inserdata[$i]['quantity'] = $value['F'];
+              $inserdata[$i]['content'] = $value['G'];
               $i++;
+
             }               
-            //insert vao database
-            /*$result = $this->import->importdata($inserdata);   
+                        //insert vao database
+            $result = $this->upload_model->insert_product_excel($inserdata);   
             if($result)
             {
               echo "Imported successfully";
@@ -144,7 +149,8 @@ class Depot extends CI_Controller {
             else
             {
               echo "ERROR !";
-            }*/             
+            }             
+          
 
         }//bat exception khi doc file khong thanh cong 
         catch (Exception $e) {
