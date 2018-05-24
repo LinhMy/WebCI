@@ -35,9 +35,9 @@ $this->load->view('admin/admin/head', $this->data);
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Password:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><b style="color: red;">Làm mới password thì mời nhập liệu:</b><input type="password" _autocheck="true" id="param_password" name="password"></span>
-                                <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('password'); ?></div>
+                                <span class="oneTwo"><b style="color: red;">Làm mới password thì mời nhập liệu:</b><input type="password" _autocheck="true" id="param_password" value="<?php echo $admin_info->password; ?>" name="password"></span>
+                                <span class="autocheck" name="password_autocheck"></span>
+                                <div class="clear error" name="password_error"><?php echo form_error('password'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -45,27 +45,27 @@ $this->load->view('admin/admin/head', $this->data);
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Xác nhận mật khẩu:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="password" _autocheck="true" id="param_password_rp" name="password_rp"></span>
-                                <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('password_rp'); ?></div>
+                                    <span class="oneTwo"><input type="password" _autocheck="true" id="param_password_rp" name="password_rp"></span>
+                                    <span class="autocheck" name="password_rp_autocheck"></span>
+                                    <div class="clear error" name="password_rp_error"><?php echo form_error('password_rp'); ?></div>
+                                </div>
+                                <div class="clear"></div>
                             </div>
-                            <div class="clear"></div>
-                        </div>
                         <div class="formRow">
                             <label for="param_information" class="formLeft">Thông tin:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_information" name="information"></span>
-                                <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('information'); ?></div>
+                                <span class="oneTwo"><input type="information" _autocheck="true" id="param_information" value="<?php echo $admin_info->information; ?>" name="information"></span>
+                                <span class="autocheck" name="information_autocheck"></span>
+                                <div class="clear error" name="information_error"><?php echo form_error('information'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="formRow">
                             <label for="param_position" class="formLeft">Chức vụ:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" name="position"></span>
-                                <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('position'); ?></div>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" value="<?php echo $admin_info->position; ?>" name="position"></span>
+                                <span class="autocheck" name="position_autocheck"></span>
+                                <div class="clear error" name="position_error"><?php echo form_error('position'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>

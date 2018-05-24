@@ -22,25 +22,7 @@ $this->load->view('admin/product/head', $this->data);
 
                                 <td style="width:40px;" class="label"><label for="filter_id">Tên</label></td>
                                 <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('product_name'); ?>" name="product_name"></td>
-
-                                <td style="width:60px;" class="label"><label for="filter_status">Thể loại</label></td>
-                                <td class="item">
-                                    <select name="category">
-                                        <option value=""></option>
-                                        <!-- kiem tra danh muc co danh muc con hay khong -->
-                                    <?php foreach ($category_list as $row): ?>
-                                        <optgroup label="<?php echo $row->product_name; ?>">
-
-                                            <?php foreach ($row->subs as $subs){ ?>
-                                            <option value="<?php echo $subs->category_id; ?>">
-                                                <?php echo $subs->product_name; ?>
-                                            </option>
-                                            <?php } ?>
-                                        </optgroup>
-                                    <?php endforeach; ?>
-                                    </select>
-                                </td>
-
+                                
                                 <td style="width:150px">
                                     <input type="submit" value="Lọc" class="button blueB">
                                     <input type="reset" onclick="window.location.href = '<?php echo admin_url('product'); ?>'; " value="Reset" class="basic">
