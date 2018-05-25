@@ -67,7 +67,7 @@
 
             <a href="admin/product.html" class=" exp">
                 <span>Sản phẩm</span>
-                <strong>3</strong>
+                <strong>4</strong>
             </a>
 
             <ul class="sub">
@@ -96,7 +96,7 @@
 
             <a href="" class=" exp">
                 <span>Tài khoản</span>
-                <strong>3</strong>
+                <strong>1</strong>
             </a>
 
             <ul class="sub">
@@ -109,19 +109,19 @@
         </li>
         <li class="support">
 
-            <a href="admin/support.html" class=" exp">
+            <a href="admin/support" class=" exp">
                 <span>Hỗ trợ và liên hệ</span>
                 <strong>2</strong>
             </a>
 
             <ul class="sub">
                 <li>
-                    <a href="admin/support.html">
+                    <a href="<?php echo admin_url('support');?>">
                         Chat với khách hàng							</a>
                 </li>
                 <li>
-                    <a href="admin/contact.html">
-                        xử lý yêu cầu							</a>
+                    <a href="<?php echo admin_url('support');?>">
+                        Xử lý yêu cầu							</a>
                 </li>
             </ul>
 
