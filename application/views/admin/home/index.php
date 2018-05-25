@@ -4,7 +4,7 @@
             <h5>Bảng điều khiển</h5>
             <span>Trang quản lý hệ thống</span>
         </div>
-
+        
         <div class="clear"></div>
     </div>
 </div>
@@ -15,6 +15,11 @@
 
     <div class="widgets">
         <!-- Stats -->
+
+        <?php
+        // load ra file head
+        $this->load->view('admin/home/revenue', $this->data);
+        ?>
 
         <!-- Amount -->
         <div class="oneTwo">

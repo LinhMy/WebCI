@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/admin/css/css.css" media="screen" />
 
 
+
 <script type="text/javascript">
     var admin_url 	= '';
     var base_url 	= '';
@@ -53,3 +54,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/js/jquery/colorbox/colorbox.css" media="screen" />
 
 <script type="text/javascript" src="<?php echo public_url(); ?>/js/custom_admin.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="<?php echo public_url(); ?>/js/Chart.js" type="text/javascript"></script>
