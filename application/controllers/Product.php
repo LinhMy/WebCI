@@ -126,7 +126,7 @@ class Product extends MY_Controller{
         );
         $list = $this->product_model->get_list($input);
         $this->data['list'] = $list;
-        // load view
+        // load view product
         $this->data['temp'] = 'site/product/search';
         $this->load->view('site/layout', $this->data);
     }

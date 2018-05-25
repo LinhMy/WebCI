@@ -15,13 +15,13 @@ $price_to = $this->input->get('price_to');
     <form name="search_price" action="<?php echo base_url('product/search_price') ?>" method="get" enctype="multipart/form-data">
         <div class="tab-price" style="float: left; width: 60%; padding-bottom: 10px;">
             <select name="price_from">
-                <?php for ($i=0;$i <= 1000000;$i = $i + 50000): ?>
+                <?php for ($i=0;$i <= 2000000;$i = $i + 50000): ?>
                     <option <?php echo ($price_from == $i) ? 'selected' : ''; ?> value="<?php echo $i; ?>"><?php echo number_format($i); ?> VNĐ</option>
                 <?php endfor; ?>
             </select>
 
             <select name="price_to" >
-                <?php for ($i=0;$i <= 1000000;$i = $i + 50000): ?>
+                <?php for ($i=0;$i <= 2000000;$i = $i + 50000): ?>
                     <option <?php echo ($price_to == $i) ? 'selected' : ''; ?> value="<?php echo $i; ?>"><?php echo number_format($i); ?> VNĐ</option>
                 <?php endfor; ?>
             </select>
