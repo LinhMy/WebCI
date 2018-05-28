@@ -5,6 +5,43 @@ class Revenue_model extends CI_Model {
         {
                 $this->load->database();
         }
+
+        //tong so giao dich 
+        public function get_tran()
+        {
+           return $this->db->count_all('bill');
+            
+        }
+        //tong so thanh vien
+         public function get_member()
+        {
+           return $this->db->count_all('user');
+            
+        }
+        //tong so LIEN HE
+         public function get_user()
+        {
+           return $this->db->count_all('contact');
+            
+        }
+
+        //tong so san pham
+        public function get_product()
+        {
+           //return $this->db->count_all('product');
+            $this->db->select_sum('quantity');
+            $query = $this->db->get('product');
+            return $query->result(); 
+        }
+
+        //doanh so hom nay
+        public function get_revenue_now()
+        {
+            $this->db->select_sum('total');
+            $this->db->where('day(date_bill)',date("d") );
+            $query = $this->db->get('bill');
+            return $query->result(); 
+        }
         //lay doanh so theo tuan
          public function get_revenue_week()
         {

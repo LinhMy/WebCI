@@ -33,18 +33,32 @@
 
                     <tr>
                         <td class="fontB blue f13">Tổng doanh số</td>
-                        <td style="width:120px;" class="textR webStatsLink red">44,000,000 đ</td>
+                        <td style="width:120px;" class="textR webStatsLink red">
+                            <?php foreach ($year as $value) :
+                                if ($value->label_y =="2018") {
+                                    echo $value->total_sum;
+                                }
+                                endforeach; ?>.000 đ
+                            </td>
                     </tr>
 
                     <tr>
                         <td class="fontB blue f13">Doanh số hôm nay</td>
-                        <td style="width:120px;" class="textR webStatsLink red">0 đ</td>
+                        <td style="width:120px;" class="textR webStatsLink red">
+                            <?php foreach ($day_reve as $value) :
+                                    echo $value->total;
+                                endforeach; ?>.000 đ
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="fontB blue f13">Doanh số theo tháng</td>
                         <td style="width:120px;" class="textR webStatsLink red">
-                            0 đ
+                            <?php foreach ($month as $value) :
+                                if ($value->label_m =="May") {
+                                    echo $value->total_sum;
+                                }
+                                endforeach; ?>.000 đ
                         </td>
                     </tr>
 
@@ -72,7 +86,7 @@
                         </td>
 
                         <td class="textC webStatsLink">
-                            15					</td>
+                            <?php echo $tran; ?>					</td>
                     </tr>
 
                     <tr>
@@ -82,19 +96,13 @@
                         </td>
 
                         <td class="textC webStatsLink">
-                            8					</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <div class="left">Tổng số bài viết</div>
-                            <div class="right f11"><a href="admin/news.html">Chi tiết</a></div>
+                          <?php foreach ($prod as $value) :                            
+                                    echo $value->quantity;                            
+                                endforeach; ?>				
                         </td>
-
-                        <td class="textC webStatsLink">
-                            4					</td>
                     </tr>
 
+                    
                     <tr>
                         <td>
                             <div class="left">Tổng số thành viên</div>
@@ -102,7 +110,7 @@
                         </td>
 
                         <td class="textC webStatsLink">
-                            2					</td>
+                           <?php echo $user; ?>			</td>
                     </tr>
                     <tr>
                         <td>
@@ -111,7 +119,7 @@
                         </td>
 
                         <td class="textC webStatsLink">
-                            0					</td>
+                            <?php echo $member; ?>    			</td>
                     </tr>
                     </tbody>
                 </table>
