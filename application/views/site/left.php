@@ -1,6 +1,6 @@
 <div class="header-control">
 
-    <div class="vertical-menu-wapper">
+    <div class="vertical-menu-wapper" id="danhmuc">
         <div class="box-vertical-megamenus" data-items="10">
             <h4 class="title"><span class="text">Danh mục sản phẩm</span> <span class="bar"><i class="fa fa-bars"></i></span></h4>
             <div class="verticalmenu-content">

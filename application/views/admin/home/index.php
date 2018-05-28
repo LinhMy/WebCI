@@ -68,7 +68,7 @@
 
                     <tr>
                         <td>
-                            <div class="left">Tổng số gia dịch</div>
+                            <div class="left">Tổng số giao dịch</div>
                             <div class="right f11"><a href="admin/tran.html">Chi tiết</a></div>
                         </td>
 
@@ -123,7 +123,7 @@
 
         <!-- Giao dich thanh cong gan day nhat -->
 
-        <div class="widget">
+        <!--div class="widget">
             <div class="title">
                 <span class="titleIcon"><input type="checkbox" name="titleCheck" id="titleCheck"></span>
                 <h6>Danh sách Giao dịch</h6>
@@ -134,7 +134,7 @@
 
                 <thead>
                 <tr>
-                    <td style="width:10px;"><img src="<?php echo public_url(); ?>/admin/images/icons/tableArrows.png"></td>
+                    <td style="width:10px;"><img src="<?php //echo public_url(); ?>/admin/images/icons/tableArrows.png"></td>
                     <td style="width:60px;">Mã số</td>
                     <td style="width:75px;">Thành viên</td>
                     <td style="width:90px;">Số tiền</td>
@@ -181,11 +181,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/21.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/21.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -212,11 +212,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/20.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php// echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/20.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -243,11 +243,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/19.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/19.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -274,11 +274,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/18.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/18.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -305,11 +305,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/17.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/17.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -336,11 +336,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/16.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/16.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -367,11 +367,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/15.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/15.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php//echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -398,11 +398,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/14.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/14.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -429,11 +429,11 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/13.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/13.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
@@ -460,18 +460,18 @@
 
                     <td class="textC">
                         <a class="lightbox" href="admin/tran/view/12.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/view.png">
                         </a>
 
                         <a class="tipS verify_action" title="Xóa" href="admin/tran/del/12.html">
-                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png">
+                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/delete.png">
                         </a>
                     </td>
                 </tr>
                 </tbody>
 
             </table>
-        </div>
+        </div-->
 
     </div>
 

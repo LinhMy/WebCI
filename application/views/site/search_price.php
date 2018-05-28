@@ -3,7 +3,7 @@ $price_from = $this->input->get('price_from');
 $price_to = $this->input->get('price_to');
 
 ?>
-<div class="search-price" style=" width: 292px; height: auto; float: left; margin-top: 230px;">
+<div class="search-price" style=" width: 292px; height: auto; float: left; margin-top: 230px;" id = "search_price">
     <div class="category-dropdwon">
         <h4 style="padding: 15px 10px; border-bottom: 2px solid #f75757; font-size: 14px; background-color: #0b0b0b; color: #fff;">TÌM KIẾM THEO GIÁ SẢN PHẨM <i style="float: right; padding-right: 3px;" class="fa fa-refresh"></i></h4>
         <div class="price-from" style="width: 35%; float: left; padding-left: 10px; padding-top: 5px;">

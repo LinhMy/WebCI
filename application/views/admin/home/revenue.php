@@ -30,8 +30,8 @@
 </div>
 <div class="button_select" style="margin-left: 200px;">
 	<button style="color:#2E8B57" id="week">Thống kê theo tuần</button>
-	<button style="color:#2E8B57" id="year">Thống kê theo tháng</button>
-	<button style="color:#2E8B57" id="mount">Thống kê theo năm</button>
+	<button style="color:#2E8B57" id="year">Thống kê theo năm</button>
+	<button style="color:#2E8B57" id="mount">Thống kê theo tháng</button>
 	
 </div>
 </div>
@@ -119,10 +119,10 @@ var ctxy = document.getElementById("myChart_year").getContext('2d');
 var myChart_year = new Chart(ctxy, {
     type: 'bar',
     data: {
-        labels: ["1","2","3","4","5","6","7","8","9","10"],
+        labels: ["2015","2016","2017","2018","2019","2020"],
          datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3,10],
+            data: [12, 19, 3, 5, 0, 0],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
