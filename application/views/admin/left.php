@@ -115,13 +115,14 @@
             </a>
 
             <ul class="sub">
-                <li>
-                    <a href="<?php echo admin_url('support');?>">
-                        Chat với khách hàng							</a>
-                </li>
+                
                 <li>
                     <a href="<?php echo admin_url('support');?>">
                         Xử lý yêu cầu							</a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('support/chat');?>">
+                        Chat với khách hàng                         </a>
                 </li>
             </ul>
 

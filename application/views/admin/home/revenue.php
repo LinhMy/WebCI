@@ -34,16 +34,43 @@
 	<button style="color:#2E8B57" id="mount">Thống kê theo tháng</button>
 	
 </div>
+<?php
+    $data_week = array();
+    $data_month = array();
+    $data_year = array();
+
+    //lay doanh so theo tuan
+    foreach ($week as $value) :
+        $label_week[]=substr($value->day ,0,3);
+        $data_week[] = $value->total_sum;
+       // $label[] = $value->year;
+    endforeach;
+
+    //lay doanh so theo thang
+      foreach ($month as $value) :
+        $label_month[]=substr($value->label_m ,0,3);
+        $data_month[] = $value->total_sum;
+       // $label[] = $value->year;
+    endforeach;
+
+    //lay doanh so theo nam
+    foreach ($year as $value) :
+        $label_year[]=$value->label_y;
+        $data_year[] = $value->total_sum;
+       // $label[] = $value->year;
+    endforeach;
+
+?>
 </div>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+         labels: <?php echo json_encode($label_month);  ?>,
          datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Doanh thu theo tháng ',
+            data: <?php echo json_encode($data_month);  ?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -78,10 +105,12 @@ var ctxw = document.getElementById("myChart_week").getContext('2d');
 var myChart_week = new Chart(ctxw, {
     type: 'bar',
     data: {
-        labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+        labels: <?php echo json_encode($label_week);  ?>,
          datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3,10],
+            label: 'Doanh thu theo tuần',
+            data: <?php echo json_encode($data_week);
+           
+             ?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -119,10 +148,12 @@ var ctxy = document.getElementById("myChart_year").getContext('2d');
 var myChart_year = new Chart(ctxy, {
     type: 'bar',
     data: {
-        labels: ["2015","2016","2017","2018","2019","2020"],
+        labels: <?php echo json_encode($label_year);  ?>,
          datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 0, 0],
+            label: 'Doanh thu theo năm',
+            data: <?php echo json_encode($data_year);
+           
+             ?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -155,6 +186,7 @@ var myChart_year = new Chart(ctxy, {
     }
 });
 
+//chart theo tuan
 new Chart(document.getElementById("myChartline"), {
   type: 'line',
   data: {
@@ -195,7 +227,6 @@ new Chart(document.getElementById("myChartline"), {
   }
 });
 //chart theo tuan
-
 new Chart(document.getElementById("myChartline_week"), {
   type: 'line',
   data: {

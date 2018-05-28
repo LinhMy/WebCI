@@ -15,7 +15,6 @@
 
     <div class="widgets">
         <!-- Stats -->
-
         <?php
         // load ra file head
         $this->load->view('admin/home/revenue', $this->data);
