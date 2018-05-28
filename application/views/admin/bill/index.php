@@ -1,6 +1,6 @@
 <?php
 // load ra file head
-$this->load->view('admin/transaction/head', $this->data);
+$this->load->view('admin/bill/head', $this->data);
 ?>
 <div class="line"></div>
 <div class="wrapper">
@@ -21,7 +21,7 @@ $this->load->view('admin/transaction/head', $this->data);
                                 <td class="item"><input type="text" style="width:55px;" id="filter_id" value="<?php echo $this->input->get('id'); ?>" name="id"></td>
                                 <td style="width:150px">
                                     <input type="submit" value="Lọc" class="button blueB">
-                                    <input type="reset" onclick="window.location.href = '<?php echo admin_url('transaction'); ?>'; " value="Reset" class="basic">
+                                    <input type="reset" onclick="window.location.href = '<?php echo admin_url('bill'); ?>'; " value="Reset" class="basic">
                                 </td>
 
                             </tr>
@@ -45,7 +45,7 @@ $this->load->view('admin/transaction/head', $this->data);
             <tr>
                 <td colspan="8">
                     <div class="list_action itemActions">
-                        <a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('transaction/delete_all'); ?>">
+                        <a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('bill/delete_all'); ?>">
                             <span style='color:white;'>Xóa hết</span>
                         </a>
                     </div>
@@ -79,11 +79,11 @@ $this->load->view('admin/transaction/head', $this->data);
                         <?php echo $row->created; ?>
                     </td>
                     <td class="option textC">
-                        <a title="Xem chi tiết giao dịch" class="tipS lightbox" target="_blank" href="<?php echo admin_url('transaction/view/'.$row->id_transaction) ?>">
+                        <a title="Xem chi tiết giao dịch" class="tipS lightbox" target="_blank" href="<?php echo admin_url('bill/view/'.$row->id_transaction) ?>">
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png" />
                         </a>
 
-                        <a href="<?php echo admin_url('transaction/delete/'.$row->id_transaction); ?>" title="Xóa" class="tipS verify_action" >
+                        <a href="<?php echo admin_url('bill/delete/'.$row->id_transaction); ?>" title="Xóa" class="tipS verify_action" >
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png" />
                         </a>
                     </td>

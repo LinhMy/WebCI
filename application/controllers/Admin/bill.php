@@ -1,21 +1,21 @@
 <?php
-class Transaction extends MY_Controller{
+class bill extends MY_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('transaction_model');
+        $this->load->model('bill_model');
     }
     // hien thi danh sach giao dich cua website
     function index(){
         //lay tong so luong ta ca cac giao dich trong websit
-        $total_rows = $this->transaction_model->get_total();
+        $total_rows = $this->bill_model->get_total();
         $this->data['total_rows'] = $total_rows;
 
         //load ra thu vien phan trang
         $this->load->library('pagination');
         $config = array();
         $config['total_rows'] = $total_rows;//tong tat ca cac giao dich tren website
-        $config['base_url']   = admin_url('transaction/index'); //link hien thi ra danh sach giao dich
+        $config['base_url']   = admin_url('bill/index'); //link hien thi ra danh sach giao dich
         $config['per_page']   = 10;//so luong giao dich hien thi tren 1 trang
         $config['uri_segment'] = 4;//phan doan hien thi ra so trang tren url
         $config['next_link']   = 'Trang kế tiếp';
@@ -30,31 +30,31 @@ class Transaction extends MY_Controller{
         $input['limit'] = array($config['per_page'], $segment);
 
         //kiem tra co thuc hien loc du lieu hay khong
-        $id_transaction = $this->input->get('id');
-        $id_transaction = intval($id_transaction);
+        $bill_id = $this->input->get('id');
+        $bill_id = intval($bill_id);
         $input['where'] = array();
-        if($id_transaction > 0)
+        if($bill_id > 0)
         {
-            $input['where']['id_transaction'] = $id_transaction;
+            $input['where']['bill_id'] = $bill_id;
         }
 
 
         //lay danh sach giao dich
-        $list = $this->transaction_model->get_list($input);
+        $list = $this->bill_model->get_list($input);
         $this->data['list'] = $list;
         //lay nội dung của biến message
         $message = $this->session->flashdata('message');
         $this->data['message'] = $message;
 
         //load view
-        $this->data['temp'] = 'admin/transaction/index';
+        $this->data['temp'] = 'admin/bill/index';
         $this->load->view('admin/main', $this->data);
     }
     function view(){
         //lay id cua giao dịch ma ta muon xoa
         $id = $this->uri->rsegment('3');
         //lay thong tin cua giao dịch
-        $info = $this->transaction_model->get_info($id);
+        $info = $this->bill_model->get_info($id);
         if(!$info)
         {
             return false;
@@ -75,7 +75,7 @@ class Transaction extends MY_Controller{
         //lấy danh sách đơn hàng  của giao dịch này
         $this->load->model('order_model');
         $input = array();
-        $input['where'] = array('transaction_id' => $id);
+        $input['where'] = array('bill_id' => $id);
         $orders = $this->order_model->get_list($input);
         if(!$orders)
         {
@@ -111,14 +111,14 @@ class Transaction extends MY_Controller{
                 $row->_can_cancel = false;//không thể kích hoạt
             }
             //link hủy bỏ đơn hàng
-            $row->_url_cancel = admin_url('transaction/cancel/'.$row->id);
-            $row->_url_active = admin_url('transaction/active/'.$row->id);//link kích hoạt đơn hàng
+            $row->_url_cancel = admin_url('bill/cancel/'.$row->id);
+            $row->_url_active = admin_url('bill/active/'.$row->id);//link kích hoạt đơn hàng
         }
 
         $this->data['info']   = $info;
         $this->data['orders'] = $orders;
         // Tai file thanh phan
-        $this->load->view('admin/transaction/view', $this->data);
+        $this->load->view('admin/bill/view', $this->data);
     }
     // xoa  dao dich
     function delete(){
@@ -127,7 +127,7 @@ class Transaction extends MY_Controller{
         $this->_del($id_transaction);
         // thong bao xoa thanh cong
         $this->session->set_flashdata('message', 'Xóa thành công giao dịch này');
-        redirect(admin_url('transaction'));
+        redirect(admin_url('bill'));
 
     }
     // xoa nhieu giao dich
@@ -145,7 +145,7 @@ class Transaction extends MY_Controller{
             // in ra thong bao loi
             $this->session->set_flashdata('message', 'Không tồn tại giao dịch này');
             if($redirect){
-                redirect (admin_url('transaction'));
+                redirect (admin_url('bill'));
             }else{
                 return false;
             }
