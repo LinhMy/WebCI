@@ -34,7 +34,7 @@
 
             <ul class="sub">
                 <li>
-                    <a href="<?php echo admin_url('transaction'); ?>">
+                    <a href="<?php echo admin_url('bill'); ?>">
                         Giao dịch							</a>
                 </li>
                 <li>
@@ -77,7 +77,7 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo admin_url('Category'); ?>">
+                    <a href="<?php echo admin_url('category'); ?>">
                         Danh mục							</a>
                 </li>
                  <li>
