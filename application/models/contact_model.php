@@ -28,6 +28,13 @@ class Contact_model extends CI_Model {
            $query = $this->db->get('contact');
            return $query->result();
         }
+        //
+        //cap nhat da tra loi
+        public function update_reply()
+        {
+                $this->db->set('reply',1);
+               $this->db->update('contact');
+        }
 
 }
 ?>

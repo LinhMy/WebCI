@@ -5,6 +5,7 @@
             parent::__construct();
             $this->load->model('category_model');
             $this->load->model('upload_model');
+            
         }
         function index(){
             // gui bien temp
@@ -77,7 +78,7 @@
             $params = array('success' => 'Extracted successfully!');
             //xoa file zip co tren server khi tai len
             unlink($full_path);
-             $url =$base_url."/admin/depot/success";// chuyen ve trang khac khi upload file thanh cong
+             $url =$base_url."/admin/depot/succeed";// chuyen ve trang khac khi upload file thanh cong
                 redirect($url);  
         }
         else
@@ -178,7 +179,7 @@
                 }  */   
                 $full_path = $data['upload_data']['full_path'];
                 unlink($full_path);
-               $url =$base_url."/admin/depot/success";// chuyen ve trang khac khi upload file thanh cong
+               $url =$base_url."/admin/depot/succeed";// chuyen ve trang khac khi upload file thanh cong
                 redirect($url);  
 
             }//bat exception khi doc file khong thanh cong 

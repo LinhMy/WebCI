@@ -24,10 +24,10 @@ class Support extends MY_Controller {
   }
   //ham bao gui mail thanh cong
  public function succeed()
-        {            
-           $this->data['temp'] = 'admin/support/succeed';
-            $this->load->view('admin/main', $this->data);
-        }
+  {            
+     $this->data['temp'] = 'admin/support/succeed';
+      $this->load->view('admin/main', $this->data);
+  }
   //tra loi thac mac cua khach hang
   public function reply_contact($id_contact)
   {
@@ -66,17 +66,25 @@ class Support extends MY_Controller {
       //dinh kem file
       //$this->email->attach('/path/to/photo1.jpg');
       //thuc hien gui
-      if ( ! $this->email->send())
+      if ( ! $this->email->send() )
       {
           // Generate error
           echo $this->email->print_debugger();
       }else{
           echo 'Gửi email thành công';
+          $this->contact_model->update_reply();
           $url =$base_url."/admin/support/succeed";// chuyen ve trang khac khi upload file thanh cong
           redirect($url);
       }
 
+    }
   }
-}
+
+  //chat vs khach hang = chuyen qua fb nhan tin
+  public function chat()
+  {
+     $this->data['temp'] = 'admin/support/chat';
+     $this->load->view('admin/main', $this->data);
+  }
 }
 ?>

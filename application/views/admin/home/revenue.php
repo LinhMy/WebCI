@@ -1,4 +1,4 @@
-<div class="revenue">
+﻿<div class="revenue">
 <div class="content" id="content_mount" style="">
 	<div class="left" style="float: left; border-bottom: 2px solid #003399; ">
 		<canvas id="myChart" width="500" height="400"></canvas>
@@ -201,12 +201,7 @@ new Chart(document.getElementById("myChartline"), {
         label: "Quần",
         borderColor: "#8e5ea2",
         fill: true
-      }, { 
-        data: [168,170,178,190,203,276],
-        label: "Kính mắt",
-        borderColor: "#3cba9f",
-        fill: true
-      }, { 
+      }, {  
         data: [40,20,10,16,24,38],
         label: "Túi xách",
         borderColor: "#e8c3b9",
@@ -280,11 +275,6 @@ new Chart(document.getElementById("myChartline_year"), {
         data: [282,350,411,502,635,809,113],
         label: "Quần",
         borderColor: "#8e5ea2",
-        fill: true
-      }, { 
-        data: [168,170,178,190,203,276,114],
-        label: "Kính mắt",
-        borderColor: "#3cba9f",
         fill: true
       }, { 
         data: [40,20,10,16,24,38,25],

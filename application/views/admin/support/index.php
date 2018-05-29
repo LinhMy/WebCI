@@ -28,7 +28,7 @@ $this->load->view('admin/support/head', $this->data);
                     <td><?=$item->email?></td>
                     <td><?=$item->content?></td>
                     <td><?=$item->date_sent?></td>
-                    <td><input type="checkbox" value="" class="reply" checked="<?=($item->reply?"checked": "")?>"></td>
+                    <td><input type="checkbox" value="" class="reply" <?=(($item->reply==0)?"none": "checked")?>></td>
                     <td>
                     	<a href="<?php $base_url ?>/WebCI/admin/support/reply_contact/<?=$item->contact_id ?>" style="text-decoration: none">
                     	<input type="image" alt="Trả lời" id="image" src="http://icons.iconarchive.com/icons/seanau/email/256/Reply-icon.png" style="width:5%">  
