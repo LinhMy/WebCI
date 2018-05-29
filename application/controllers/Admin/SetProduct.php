@@ -70,7 +70,7 @@
                     $sale = $this->input->post('sale');
                     $date_set = $this->input->post('date');
                     $quantity =$this->input->post('quantity');
-                    $display = $this->input->post('display');
+                    $display = $this->input->post('checkbox');
 
                     // lay ten file anh minh hoa dc upload
                     $this->load->library('upload_library');
@@ -88,7 +88,8 @@
                         'price' => $price,
                         'sale' => $sale,
                         'date_set' => $date_set,
-                        'quantity' => $quantity
+                        'quantity' => $quantity,
+                        'display' => $display
 
 
                     );
@@ -166,8 +167,15 @@
             $this->setproduct_model->delete($set_id);
 
         }
+        //thay doi thuoc tinh display
+        public function change($set_id, $display)
+        {
+            $this->setproduct_model->change($set_id, $display);
+        }
+
         //ham add set moi
         function add(){
+            
             // load thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
@@ -219,6 +227,7 @@
             }
 
             // load view
+            $this->data['list'] = $this->setproduct_model->get_list_product();
             $this->data['temp'] = 'admin/product/addset';
             $this->load->view('admin/main', $this->data);
         }

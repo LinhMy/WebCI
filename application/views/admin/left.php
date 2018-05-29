@@ -115,7 +115,7 @@
 
             <a href="admin/support" class=" exp">
                 <span>Hỗ trợ và liên hệ</span>
-                <strong>2</strong>
+                <strong>1</strong>
             </a>
 
             <ul class="sub">
@@ -124,10 +124,10 @@
                     <a href="<?php echo admin_url('support');?>">
                         Xử lý yêu cầu							</a>
                 </li>
-                <li>
-                    <a href="<?php echo admin_url('support/chat');?>">
+                <!--li>
+                    <a href="?php echo admin_url('support/chat');?>">
                         Chat với khách hàng                         </a>
-                </li>
+                </li-->
             </ul>
 
         </li>

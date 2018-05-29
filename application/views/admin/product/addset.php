@@ -99,11 +99,36 @@ $this->load->view('admin/product/head', $this->data);
                         </div>
 
                         <div class="formRow">
-                            <label for="param_content" class="formLeft">Ghi chú:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="content"></textarea></span>
-                                <span class="autocheck" name="content_autocheck"></span>
+                            <label for="param_content" class="formLeft">Chọn sản phẩm thêm vào set:</label>
+                            <div class="table" stype="backgroud: white; ">
+                            <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll" stype="border-collapse: collapse;">
+           
+            <tr>
+                <td style="width:10px;"><img src="<?php echo public_url(); ?>/admin/images/icons/tableArrows.png" /></td>
 
+                <td style="width: 100px;">Tên sản phẩm</td>
+                <td style="width: 100px;">Danh mục</td>
+                <td style="width: 100px;">Giá bán gốc</td>
+                <td style="width: 50px;">Giảm giá</td>
+                <td style="width: 50px;">Hình ảnh</td>
+                <td style="width: 20px;">Lượt xem</td>
+            </tr>
+
+            <tbody>
+            <?php foreach ($list as $row): ?>
+                <tr class="row_<?php echo $row->product_id; ?>">
+                    <td><input type="checkbox" name="id[]" value="<?php echo $row->product_id; ?>" /></td>
+                    <td ><?php echo $row->product_name; ?></td>
+                    <td style="width: 200px;"><?php echo $row->category_name; ?></td>
+                    <td><?php echo number_format($row->price); ?> VNĐ</td>
+                    <td><?php echo number_format($row->discount); ?> VNĐ</td>
+                    <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
+                    <td><?php echo $row->view; ?></td>
+                    
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
                             </div>
                             <div class="clear"></div>
                         </div>					         <div class="formRow hide"></div>

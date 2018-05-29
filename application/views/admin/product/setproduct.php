@@ -21,11 +21,11 @@ $this->load->view('admin/product/head', $this->data);
                                 <td class="item"><input type="text" style="width:55px;" id="filter_id" value="<?php echo $this->input->get('id'); ?>" name="id"></td>
 
                                 <td style="width:40px;" class="label"><label for="filter_id">Tên</label></td>
-                                <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('product_name'); ?>" name="product_name"></td>
+                                <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('set_name'); ?>" name="set_name"></td>
                                 
                                 <td style="width:150px">
                                     <input type="submit" value="Lọc" class="button blueB">
-                                    <input type="reset" onclick="window.location.href = '<?php echo admin_url('product'); ?>'; " value="Reset" class="basic">
+                                    <input type="reset" onclick="window.location.href = '<?php echo admin_url('setproduct'); ?>'; " value="Reset" class="basic">
                                 </td>
 
                             </tr>
@@ -78,7 +78,10 @@ $this->load->view('admin/product/head', $this->data);
                     <td><?php echo number_format($row->sale); ?> VNĐ</td>
                     <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
                     <td><?php echo $row->view; ?></td>
-                    <td><input type ="checkbox" name = "display"  <?=(($row->display==1)?"checked":""); ?> ></td>
+                    <td><a href="<?php echo admin_url('setproduct/change/'.$row->set_id); ?>">
+                    <input type ="checkbox" id="action"  name = "display"  <?=(($row->display==1)?"checked":""); ?> >
+                    </a>
+                    </td>
 
                     <td class="option">
                         <a href="<?php echo admin_url('setproduct/edit/'.$row->set_id); ?>" title="Chỉnh sửa" class="tipS ">
@@ -99,3 +102,13 @@ $this->load->view('admin/product/head', $this->data);
 </div>
 
 <div class="clear mt30"></div>
+<!--script language="javascript">
+            document.getElementById('action').onclick = function(e){
+                if (this.checked){
+                 
+                }
+                else{
+                 
+                }
+            };
+</script-->

@@ -92,7 +92,7 @@ $this->load->view('admin/product/head', $this->data);
                         <!-- warranty -->
                         <div class="formRow">
                             <label for="param_quantity" class="formLeft">
-                                Số lương :
+                                Số lượng :
                             </label>
                             <div class="formRight">
                                 <span class="oneFour"><input type="text" id="param_quantity" value="<?php echo $set_info->view ?>" name="quantity"></span>
@@ -101,7 +101,17 @@ $this->load->view('admin/product/head', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>
+                        <div class="formRow">
+                    <label for="param_date" class="formLeft">
+                        Cho phép bán :
+                    </label>
+                    <div class="formRight">
+                        <span class="oneFour"><input type="checkbox" id="check" "<?php echo ($set_info->display==1)?"checked":""?>" value = "<?php echo $set_info->display?>" name="checkbox"></span>
+                        <span class="autocheck" name="quantity_autocheck"></span>
 
+                    </div>
+                    <div class="clear"></div>
+                </div>
                         <div class="formRow hide"></div>
                     </div>
                 </div><!-- End tab_container-->
@@ -115,3 +125,13 @@ $this->load->view('admin/product/head', $this->data);
         </fieldset>
     </form>
 </div>
+<script language="javascript">
+            document.getElementById('check').onclick = function(e){
+                if (this.checked){
+                 this.value="1";
+                }
+                else{
+                this.value="0";
+                }
+            };
+</script>
