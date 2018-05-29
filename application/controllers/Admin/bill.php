@@ -72,21 +72,13 @@ class bill extends MY_Controller{
         {
             $info->_status = 'cancel';//hủy bỏ
         }
-        //lấy danh sách đơn hàng  của giao dịch này
-        $this->load->model('order_model');
-        $input = array();
-        $input['where'] = array('bill_id' => $id);
-        $orders = $this->order_model->get_list($input);
-        if(!$orders)
-        {
-            return false;
-        }
+
         //load model sản phẩm product_model
         $this->load->model('product_model');
-        foreach ($orders as $row)
+
         {
             //thông tin sản phẩm
-            $product = $this->product_model->get_info($row->product_id);
+            $product = $this->product_model->get_info(product_id);
             $product->image = base_url('upload/product/'.$product->image);
             $product->_url_view = site_url('product/view/'.$product->id);
 
@@ -116,44 +108,9 @@ class bill extends MY_Controller{
         }
 
         $this->data['info']   = $info;
-        $this->data['orders'] = $orders;
         // Tai file thanh phan
         $this->load->view('admin/bill/view', $this->data);
     }
-    // xoa  dao dich
-    function delete(){
-        // lay ra id giao dich
-        $id_transaction = $this->uri->rsegment('3');
-        $this->_del($id_transaction);
-        // thong bao xoa thanh cong
-        $this->session->set_flashdata('message', 'Xóa thành công giao dịch này');
-        redirect(admin_url('bill'));
 
-    }
-    // xoa nhieu giao dich
-    function delete_all(){
-        $ids = $this->input->post('ids');
-        foreach ($ids as $id_transaction){
-            $this->_del($id_transaction);
-        }
-
-    }
-    private function _del($id_transaction, $redirect = true){
-        // lay ra thong tin giao dich
-        $transaction = $this->transaction_model->get_info($id_transaction);
-        if(!$transaction){
-            // in ra thong bao loi
-            $this->session->set_flashdata('message', 'Không tồn tại giao dịch này');
-            if($redirect){
-                redirect (admin_url('bill'));
-            }else{
-                return false;
-            }
-        }
-
-        // thuc hien xoa giao dich
-        $this->transaction_model->delete($id_transaction);
-
-    }
 }
 ?>
