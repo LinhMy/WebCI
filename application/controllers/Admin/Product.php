@@ -83,7 +83,7 @@
                     $price = str_replace(',', '', $price);;
                     $discount = $this->input->post('discount');
                     $discount = $discount = str_replace(',','',$discount);
-                    $date = $this->input->post('date');
+                    $date_product = $this->input->post('date');
                     $quantity =$this->input->post('quantity');
                     $content = $this->input->post('content');
                     //  up anh minh hoa san pham
@@ -102,7 +102,7 @@
                         'image' => $image,
                         'price' => $price,
                         'discount' => $discount,
-                        'date' => $date,
+                        'date_product' => $date_product,
                         'quantity' => $quantity,
                         'content' => $content,
 
@@ -174,7 +174,7 @@
                         'image' => $image,
                         'price' => $price,
                         'discount' => $discount,
-                        'date' => $date,
+                        'date_product' => $date,
                         'quantity' => $quantity,
                         'content' => $content,
 

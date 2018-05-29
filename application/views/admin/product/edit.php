@@ -98,7 +98,7 @@ $this->load->view('admin/product/head', $this->data);
                         Ngày :
                     </label>
                     <div class="formRight">
-                        <span class="oneFour"><input type="date" id="param_date" value="<?php echo $product_info->date ?>" name="date"></span>
+                        <span class="oneFour"><input type="date" id="param_date" value="<?php echo $product_info->date_product ?>" name="date"></span>
                         <span class="autocheck" name="quantity_autocheck"></span>
 
                     </div>
