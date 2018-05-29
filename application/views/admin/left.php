@@ -67,18 +67,22 @@
 
             <a href="admin/product.html" class=" exp">
                 <span>Sản phẩm</span>
-                <strong>4</strong>
+                <strong>5</strong>
             </a>
 
             <ul class="sub">
                 <li>
                     <a href="<?php echo admin_url('product');?>">
-                        Sản phẩm							</a>
+                        Danh sách sản phẩm							</a>
                 </li>
 
                 <li>
                     <a href="<?php echo admin_url('category'); ?>">
                         Danh mục							</a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('setproduct'); ?>">
+                        Tạo set sản phẩm					</a>
                 </li>
                  <li>
                     <a href="<?php echo admin_url('depot/addzip'); ?>">
