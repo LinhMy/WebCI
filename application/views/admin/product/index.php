@@ -21,7 +21,7 @@ $this->load->view('admin/product/head', $this->data);
 
                                 <td style="width:40px;" class="label"><label for="filter_id">Tên</label></td>
                                 <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('product_name'); ?>" name="product_name"></td>
-                                
+
                                 <td style="width:150px">
                                     <input type="submit" value="Lọc" class="button blueB">
                                     <input type="reset" onclick="window.location.href = '<?php echo admin_url('product'); ?>'; " value="Reset" class="basic">
@@ -70,7 +70,11 @@ $this->load->view('admin/product/head', $this->data);
                     <td style="width: 200px;"><?php echo $row->category_name; ?></td>
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
                     <td><?php echo number_format($row->discount); ?> VNĐ</td>
-                    <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
+                    <td style="text-align: center;">
+                        <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="" >
+                        <img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;">
+                        </a>
+                    </td>
                     <td><?php echo $row->view; ?></td>
 
                     <td class="option">

@@ -108,6 +108,10 @@
                     <a href="<?php echo admin_url('admin')?>">
                         Ban quản trị							</a>
                 </li>
+                <li>
+                    <a href="<?php echo admin_url('user')?>">
+                        Thành viên							</a>
+                </li>
             </ul>
 
         </li>

@@ -1,3 +1,5 @@
+<script src="<?php echo public_url()?>/site/rateit/scripts/jquery.rateit.js"></script>
+<link type="text/css" href="<?php echo public_url()?>/site/rateit/scripts/rateit.css" rel="stylesheet">
 <div class="tab-catalog" style="width: 1340px; margin: 0px auto; height: auto;">
     <div class="single-product" style="width: 877px; margin-left: 378px;">
         <div class="row" style="padding-left: 40px;">
@@ -33,13 +35,21 @@
                     Giá: <span class="price" style="font-size: 15px; color: #800000; "><?php echo number_format($product_info->price - $product_info->discount); ?> VNĐ</span>
                 <?php }?>
                 <p class="stock out-of-stock"><label>Tình Trạng:</label> <i class="fa fa-check"></i> Còn Hàng </p>
-                <div class="rating" title="Rated 3 out of 5">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <span>(3 reviews)</span>
+                <div class="rateit">
+                <div id="rateit_srar1"  data-productid="123"></div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#rateit_star1').rateit({min: 1, max: 10, step: 1});
+                        $('#rateit_star1').bind('rated', function (e) {
+                            var ri = $(this);
+                            var value = ri.rateit('value');
+                            var productID = ri.data('productid');
+                            alert('Bạn đã đánh giá '+value +' sao cho sản phẩm có id là:'+productID );
+                            //không cho phép đánh giá,sau khi đã đánh giá xong
+                            ri.rateit('readonly', true);
+                        });
+                    });
+                </script>
                 </div>
                 <div class="short-descript">
                     <p><strong>Thông tin:</strong><br><?php echo $product_info->content; ?></p>

@@ -85,7 +85,7 @@
             $user_info = $this->user_model->get_info($user_id);
             if(!$user_info){
                 // in ra thong bao loi
-                $this->session->set_flashdata('message', 'Không tồn tại user này');
+                $this->session->set_flashdata('message', 'Không tồn tại admin này');
                 redirect(admin_url('user'));
             }
             $this->data['user_info'] = $user_info;
@@ -96,13 +96,15 @@
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
-                $this->form_validation->set_rules('username','Tên tài khoản bắt buộc','required|min_length[4]|callback_check_username');
+
                 $this->form_validation->set_rules('password','Mật khẩu bắt buộc','required|min_length[4]');
                 $this->form_validation->set_rules('password_rp','Nhập lại mật khẩu không đúng ','required|matches[password]');
-                $this->form_validation->set_rules('email','thông tin nhân viên','required|min_length[2]');
-                $this->form_validation->set_rules('phone','chức vụ','required|min_length[2]');
+                $this->form_validation->set_rules('email','email','required|min_length[2]');
+                $this->form_validation->set_rules('phone','Số điện thoại','required|min_length[2]');
+                $this->form_validation->set_rules('address','Địa chỉ','required|min_length[2]');
+
                 if($this->form_validation->run()){
-                    $username = $this->input->post('username');
+
                     $password = $this->input->post('password');
                     $password = md5($password);
                     $email = $this->input->post('email');
@@ -110,9 +112,7 @@
                     $address = $this->input->post('address');
                     $note = $this->input->post('note');
 
-
                     $data = array(
-                        'username' => $username,
                         'password' => $password,
                         'phone' => $phone,
                         'email' => $email,
