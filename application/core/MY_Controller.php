@@ -7,7 +7,6 @@ class MY_Controller extends CI_Controller{
         parent::__construct();
         $this->load->helper('admin_helper');
         $this->load->helper('name_helper');
-        $this->load->library('session');
         $controller = $this->uri->segment('1');
         switch ($controller){
             case 'admin':
@@ -86,12 +85,14 @@ class MY_Controller extends CI_Controller{
         $controller = strtolower($controller);
         // kiem tra xem da ton tai session login hay chua
         $login = $this->session->userdata('login');
-        if($login && $controller != 'login'){
-            redirect(admin_url('login'));
 
-        }
         if($login && $controller == 'login'){
-            redirect('admin/home');
+            redirect(admin_url('home'));
         }
+
     }
+
+
+   
+
 }

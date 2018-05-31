@@ -26,6 +26,7 @@ $this->load->view('admin/user/head', $this->data);
                 <td style="width:100px;">Chức năng</td>
             </tr>
             </thead>
+
             <tbody>
             <?php foreach ($list as $row): ?>
                 <tr class="row_<?php echo $row->user_id; ?>">
