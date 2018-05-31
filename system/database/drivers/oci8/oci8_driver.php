@@ -380,7 +380,7 @@ class CI_DB_oci8_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Begin bill
+	 * Begin Transaction
 	 *
 	 * @return	bool
 	 */
@@ -393,7 +393,7 @@ class CI_DB_oci8_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Commit bill
+	 * Commit Transaction
 	 *
 	 * @return	bool
 	 */
@@ -407,7 +407,7 @@ class CI_DB_oci8_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rollback bill
+	 * Rollback Transaction
 	 *
 	 * @return	bool
 	 */

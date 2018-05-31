@@ -39,8 +39,8 @@ class BaoKim_payment{
      */
 	/**
 	 * Chuyen den payment
-	 * @$tran_id : id cua bang bill, cho biết thanh toán cho giao dịch nào trên website
-	 * @amount: số tiền khách cần thanh toán, là cột amount trong bảng bill
+	 * @$tran_id : id cua bang transaction, cho biết thanh toán cho giao dịch nào trên website
+	 * @amount: số tiền khách cần thanh toán, là cột amount trong bảng transaction
 	 * @$return_url: Đường link trả về khi thanh toán xong,hoặc hủy bỏ
 	 */
 	function payment($tran_id, $amount, $return_url = '')
@@ -60,15 +60,15 @@ class BaoKim_payment{
 	 */
 	function result($tran_id, $amount)
 	{
-		// Luu du lieu tra ve,luu vào cột payment_info trong bảng bill
+		// Luu du lieu tra ve,luu vào cột payment_info trong bảng transaction
 		$result = $this->CI->input->post();
 
 
 
-		$this->CI->load->model('bill_model');
+		$this->CI->load->model('transaction_model');
 		$data = array();
 		$data['payment_info'] = serialize($result);
-		$this->CI->bill_model->update($tran_id, $data);
+		$this->CI->transaction_model->update($tran_id, $data);
 
 		// Neu la link user chuyen ve tu baokim sau khi thanh toan xong
 		if (!$this->CI->input->post('order_id'))
@@ -97,7 +97,7 @@ class BaoKim_payment{
 		}
 
 		// Kiem tra trang thai giao dich
-		if ($this->CI->input->post('bill_status') != 4)
+		if ($this->CI->input->post('transaction_status') != 4)
 		{
 			return NULL;
 		}
