@@ -1,5 +1,5 @@
 <?php
-    class Order extends MY_Controller{
+    class bill extends MY_Controller{
         function __construct()
         {
             parent::__construct();
@@ -18,11 +18,11 @@
             }
             $this->data['total_amount'] = $total_amount;
             // neu thanh vien da dang nhap thi lay thong tin cua thanh vien
-            $id_user = 0;
+            $user_id = 0;
             $user_info = '';
             if($this->session->userdata('id_user_login')){
-                $id_user = $this->session->userdata('id_user_login');
-                $user_info = $this->user_model->get_info($id_user);
+                $user_id = $this->session->userdata('id_user_login');
+                $user_info = $this->user_model->get_info($user_id);
 
             }
 
@@ -32,21 +32,21 @@
             $this->load->helper('form');
             if($this->input->post()){
                 $this->form_validation->set_rules('email', 'Email nhận hàng', 'required|valid_email' );
-                $this->form_validation->set_rules('name', 'Nhập Họ tên ', 'required' );
+                $this->form_validation->set_rules('username', 'Nhập Họ tên ', 'required' );
                 $this->form_validation->set_rules('phone', 'Nhập Số Điện Thoại ', 'required' );
                 $this->form_validation->set_rules('message', 'Ghi chú', 'required' );
                 $this->form_validation->set_rules('payment', 'Cổng thanh toán', 'required' );
                 if($this->form_validation->run()){
-                    $name = $this->input->post('name');
+                    $username = $this->input->post('username');
                     $email = $this->input->post('email');
                     $phone = $this->input->post('phone');
                     $mesage = $this->input->post('message');
                     $payment = $this->input->post('payment');
                     $data = array(
                         'status' => 0,
-                        'id_user' => $id_user,
+                        'id_user' => $user_id,
                         'email' => $email,
-                        'name' => $name,
+                        'name' => $username,
                         'phone' => $phone,
                         'message' => $mesage,
                         'amount' => $total_amount,
@@ -58,8 +58,8 @@
                     $this->transaction_model->create($data);
                     $id_transaction = $this->db->insert_id();// lay ra id giao dich moi them vao
 
-                    // them vao bang order
-                    $this->load->model('order_model');
+                    // them vao bang bill
+                    $this->load->model('bill_model');
                     foreach ($carts as $rows){
                         $data = array(
                             'id_transaction' => $id_transaction,
@@ -68,7 +68,7 @@
                             'amount' => $rows['subtotal'],
                             'status' => '0',
                         );
-                        $this->order_model->create($data);
+                        $this->bill_model->create($data);
                     }
                     // xoa toan bo gio ghang
                     $this->cart->destroy();
@@ -95,7 +95,7 @@
         function result(){
             $this->load->library('payment/baokim_payment');
             // id cua giao dich
-            $transactrion_id = $this->input->post('order_id');
+            $transactrion_id = $this->input->post('bill_id');
             $this->load->model('transaction_model');
             $transactrion = $this->transaction_model->get_info($transactrion_id);
             if(!$transactrion){

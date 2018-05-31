@@ -34,7 +34,6 @@
             $this->data['product_news'] = $product_news;
 
 
-
             // san pham giam gia
 
             $input['where'] = array('discount !='=> "0");

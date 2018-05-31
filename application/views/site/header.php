@@ -62,10 +62,10 @@
                                 <?php $total_amount = 0; foreach ($carts as $row): $total_amount = $total_amount + $row['subtotal'];?>
                                     <li class="item-cart">
                                         <div class="thumb">
-                                            <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name_catalog']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><img style="width: 101px; height: 135px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row['image_link'] ?>" alt=""></a>
+                                            <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><img style="width: 101px; height: 135px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row['image_link'] ?>" alt=""></a>
                                         </div>
                                         <div class="product-info">
-                                            <h4 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name_catalog']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><?php echo $row['name']; ?></a></h4>
+                                            <h4 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row['name']).'/'.seoname($row['name']).'/'.$row['id']) ?>"><?php echo $row['name']; ?></a></h4>
                                             <span class="price"><?php echo $row['qty']; ?> x <?php echo number_format($row['price']); ?> VNĐ</span>
                                             <a href="<?php echo base_url('cart/del/'.$row['id']); ?>"  class="remove-item" ><i class="fa fa-close"></i></a>
                                         </div>

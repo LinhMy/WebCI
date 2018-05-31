@@ -31,7 +31,7 @@
                                         <td class="product">
                                             <img alt="" style="width: 101px; height: 126px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $rows['image_link']; ?>" class="product-thumb">
                                             <div class="product-info">
-                                                <h3 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($rows['name_catalog']).'/'.seoname($rows['name']).'/'.$rows['id']) ?>"><?php echo $rows['name']; ?></a></h3>
+                                                <h3 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($rows['name']).'/'.seoname($rows['name']).'/'.$rows['id']) ?>"><?php echo $rows['name']; ?></a></h3>
                                                 <span class="product-price"><?php echo number_format($rows['price']); ?> VNĐ</span>
                                             </div>
                                         </td>
@@ -40,7 +40,7 @@
                                         </td>
                                         <td>
                                             <div class="quantity">
-                                                <input name="qty_<?php echo $rows['id']; ?>" type="text" size="4" class="input-text qty text" title="Qty" value="<?php echo $rows['qty']; ?>" data-max="" data-min="0" data-step="1" vk_123a3="subscribed">
+                                                <input name="qty_<?php echo $rows['id']; ?>" type="number" size="4" class="input-text qty text" title="Qty" value="<?php echo $rows['qty']; ?>" data-max="" data-min="0" data-step="1" vk_123a3="subscribed">
                                             </div>
                                         </td>
                                         <td class="product-subtotal">
