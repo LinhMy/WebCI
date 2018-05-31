@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'codeigniter2.training.fgct.net',
-    'username' => 'dev@codeigniter2',
-    'password' => '123456',
-    'database' => 'training_codeigniter2_training_fgct_net',
+    'hostname' => 'localhost',
+    'username' => 'root',
+    'password' => '',
+    'database' => 'ci',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,

@@ -24,23 +24,6 @@ $this->load->view('admin/admin/head', $this->data);
                 <td style="width:100px;">Chức năng</td>
             </tr>
             </thead>
-
-            <tfoot>
-            <tr>
-                <td colspan="8">
-                    <div class="list_action itemActions">
-                        <a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('admin/delete_all'); ?>">
-                            <span style='color:white;'>Xóa hết</span>
-                        </a>
-                    </div>
-
-                    <div class='pagination'>
-
-                    </div>
-                </td>
-            </tr>
-            </tfoot>
-
             <tbody>
             <?php foreach ($list as $row): ?>
                 <tr class="row_<?php echo $row->admin_id; ?>">

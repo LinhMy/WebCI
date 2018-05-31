@@ -58,6 +58,6 @@
 <script src="<?php echo public_url()?>/js/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="<?php echo public_url()?>/js/jquery/jquery-ui.min.js" type="text/javascript"></script>
 <link type="text/css" href="<?php echo public_url()?>/js/jquery/jquery-ui/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet">
-<script src="<?php echo public_url()?>/site/rateit/scripts/jquery.rateit.js"></script>
-<link type="text/css" href="<?php echo public_url()?>/site/rateit/scripts/rateit.css" rel="stylesheet">
-<link rel="stylesheet" href="<?php echo public_url('site')?>/font/css/font-awesome.min.css">
+<script src="<?php echo public_url()?>/site/raty/jquery.rateit.js"></script>
+<script src="<?php echo public_url()?>/site/raty/jquery.rateit.min.js"></script>
+<link type="text/css" href="<?php echo public_url()?>/site/raty/rateit.css" rel="stylesheet">

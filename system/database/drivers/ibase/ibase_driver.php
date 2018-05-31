@@ -69,7 +69,7 @@ class CI_DB_ibase_driver extends CI_DB {
 	protected $_random_keyword = array('RAND()', 'RAND()');
 
 	/**
-	 * IBase Transaction status flag
+	 * IBase bill status flag
 	 *
 	 * @var	resource
 	 */
@@ -132,7 +132,7 @@ class CI_DB_ibase_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Begin Transaction
+	 * Begin bill
 	 *
 	 * @return	bool
 	 */
@@ -150,7 +150,7 @@ class CI_DB_ibase_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Commit Transaction
+	 * Commit bill
 	 *
 	 * @return	bool
 	 */
@@ -168,7 +168,7 @@ class CI_DB_ibase_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rollback Transaction
+	 * Rollback bill
 	 *
 	 * @return	bool
 	 */

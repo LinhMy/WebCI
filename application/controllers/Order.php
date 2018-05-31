@@ -53,7 +53,7 @@
                         'payment' => $payment,
                         'created' => date('y-m-d'),
                     );
-                    $this->load->model('transaction_model');
+                    $this->load->model('bill_model');
                     // them vao bang transactrion
                     $this->transaction_model->create($data);
                     $id_transaction = $this->db->insert_id();// lay ra id giao dich moi them vao
@@ -96,7 +96,7 @@
             $this->load->library('payment/baokim_payment');
             // id cua giao dich
             $transactrion_id = $this->input->post('order_id');
-            $this->load->model('transaction_model');
+            $this->load->model('bill_model');
             $transactrion = $this->transaction_model->get_info($transactrion_id);
             if(!$transactrion){
                 redirect();

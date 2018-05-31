@@ -29,13 +29,7 @@ class Cart extends MY_Controller{
         $data['price'] = $price;
         // in sert du lieu vao thu vien cart
         $this->cart->insert($data);
-        $carts= $this->cart->contents();// lay toan bo gio hang
-        $this->data['carts'] = $carts;
-        $total_items = $this->cart->total_items();//lay tong so sp trong gio hang
-        $this->data['total_items'] = $total_items;
-        // load view
-        $this->data['temp'] = 'site/cart/index';
-        $this->load->view('site/layout', $this->data);
+        redirect(base_url('cart/index'));
     }
     function index(){
 
