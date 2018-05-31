@@ -37,7 +37,7 @@
                 <a href="<?php echo base_url(); ?>">Trang Chủ</a>
             </li>
             <li class="menu-item-has-children item-megamenu">
-                <a href="<?php echo base_url(); ?>chi-tiet-san-pham/tui-gucci-1/tui-gucci-1/6">Sản Phẩm</a>
+                <a href="<?php echo base_url(); ?>product/view_product">Sản Phẩm</a>
             </li>
             <?php if(isset($user_info) && $user_info !=  ''): ?>
                 <li><a style="text-transform: capitalize;" href="<?php echo site_url('user/index'); ?>">Xin chào:<?php echo $user_info->name; ?></a></li>

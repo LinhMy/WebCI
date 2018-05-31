@@ -6,6 +6,48 @@ class Product extends MY_Controller{
         $this->load->model('product_model');
         $this->load->helper('name_helper');
     }
+    function view_product()
+    {
+        if ($this->uri->rsegment('3') == 1) {
+            // lay du lieu tu auto tim kiem
+            $key = $this->input->get('term');
+        } else {
+            $key = $this->input->get('key-search');
+        }
+        $this->data['key'] = trim($key);
+        $input = array();
+        if ($this->input->get('category') > 0) {
+            $category_id = $this->input->get('category');
+            $this->load->model('Category_model');
+            $input1['where'] = array('parent_id' => $category_id);
+            $category_list = $this->Category_model->get_list($input1);
+            $id_catalog_subs = array();
+            foreach ($category_list as $row) {
+                $id_catalog_subs[] = $row->category_id;
+            }
+            $this->db->where_in('category_id', $id_catalog_subs);
+        }
+        $input['like'] = array('product_name', $key);
+        $list = $this->product_model->get_list($input);
+        $this->data['list'] = $list;
+        if ($this->uri->rsegment('3') == 1) {
+            // auto tim kiem
+            $result = array();
+            foreach ($list as $row) {
+                $item = array();
+                $item['id'] = $row->product_id;
+                $item['label'] = $row->product_name;
+                $item['value'] = $row->product_name;
+                $result[] = $item;
+            }
+            // du lieu tra ve duoi dang json
+            die(json_encode($result));
+        } else {
+            // load view
+            $this->data['temp'] = 'site/product/search';
+            $this->load->view('site/layout', $this->data);
+        }
+    }
     function catalog(){
         //  lay ra id danh muc san pham
         $this->load->model('Category_model');
