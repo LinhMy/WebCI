@@ -40,7 +40,7 @@ $this->load->view('admin/product/head', $this->data);
                 <td style="width: 100px;">Tên set</td>
                 <td style="width: 100px;">Giá bán gốc</td>
                 <td style="width: 50px;">Giảm giá</td>
-                <td style="width: 50px;">Hình ảnh</td>
+                <td style="width: 20px;">Hình ảnh</td>
                 <td style="width: 20px;">Lượt xem</td>
                 <td style="width: 20px;">Hiển thị</td>
                 <td style="width:100px;">Chức năng</td>
@@ -78,12 +78,18 @@ $this->load->view('admin/product/head', $this->data);
                     <td><?php echo number_format($row->sale); ?> VNĐ</td>
                     <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
                     <td><?php echo $row->view; ?></td>
+                  
                     <td><a href="<?php echo admin_url('setproduct/change/'.$row->set_id); ?>">
                     <input type ="checkbox" id="action"  name = "display"  <?=(($row->display==1)?"checked":""); ?> >
                     </a>
                     </td>
 
                     <td class="option">
+                        <!-- -->
+                        <a href="<?php echo admin_url('setproduct/viewproduct/'.$row->set_id); ?>" title="Xem các sản phẩm có trong set" class="tipS" >
+                                <img src="<?php echo public_url(); ?>/admin/images/icons/color/view.png" />
+                            </a>
+                        
                         <a href="<?php echo admin_url('setproduct/edit/'.$row->set_id); ?>" title="Chỉnh sửa" class="tipS ">
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/edit.png" />
                         </a>

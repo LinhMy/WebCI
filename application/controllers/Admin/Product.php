@@ -12,7 +12,8 @@
             $this->load->library('pagination');
             $config = array();
             $config['total_rows'] = $total_rows;// tong so dong
-            $config['base_url'] = admin_url('product/index'); // link hien thi du lieu
+            $config['base_url'] = admin_url('product/index');
+            $config['base_url'] = admin_url('set_product/add');// link hien thi du lieu
             $config['per_page'] = 10; // so luong san pham hien thi tren 1 trang
             $config['uri__segment'] = 4; // phan doan hien thi ra so trang tren url. !
             $config['next_link'] = 'Trang kế tiếp';
@@ -47,6 +48,7 @@
             $query=$this->db->get();
             $data = $query->result();
             $this->data['list'] = $data;
+            $this->data['lists'] = $data;
             // lay danh muc san pham
             $this->load->model('category_model');
             $input1['where'] = array('parent_id' => 0);
@@ -68,6 +70,8 @@
         }
         function add(){
             // load thu vien validation
+            $this->load->model('category_model');
+            $this->data['category_name']= $this->category_model->get_category_name();
             $this->load->library('form_validation');
             $this->load->helper('form');
             // kiem tra xem co du lieu post len
@@ -78,12 +82,16 @@
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
                     $product_name = $this->input->post('product_name');
-                    $category_id = $this->input->post('category_id');
                     $price = $this->input->post('price');
-                    $price = str_replace(',', '', $price);;
+                    $price = str_replace(',', '', $price);
+                    $category_name = $this->input->post('category_name') ;
+
+                    $category_id = $this->category_model->get_category_id($category_name);
+
+
                     $discount = $this->input->post('discount');
                     $discount = $discount = str_replace(',','',$discount);
-                    $date_product = $this->input->post('date');
+                    $date_product = $this->input->post('date_product');
                     $quantity =$this->input->post('quantity');
                     $content = $this->input->post('content');
                     //  up anh minh hoa san pham
@@ -98,7 +106,7 @@
 
                     $data = array(
                         'product_name' => $product_name,
-                        'category_id' => $category_id,
+                        'category_id' => $category_id['category_id'],
                         'image' => $image,
                         'price' => $price,
                         'discount' => $discount,
@@ -136,10 +144,10 @@
                 $this->session->set_flashdata('message', 'Không tồn tại sản phẩm này');
                 redirect(admin_url('product'));
             }
+
+            // load thu vien validation
             $this->load->model('category_model');
-            $category_list = $this->category_model->get_list();
-            $this->data['category_list'] = $category_list;
-            // load ra thu vien validation
+            $this->data['category_name']= $this->category_model->get_category_name();
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
@@ -149,12 +157,14 @@
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
                     $product_name = $this->input->post('product_name');
-                    $category_id = $this->input->post('category_id');
+                    $category_name = $this->input->post('category_name') ;
+
+                    $category_id = $this->category_model->get_category_id($category_name);
                     $price = $this->input->post('price');
                     $price = str_replace(',', '', $price);
                     $discount = $this->input->post('discount');
                     $discount = $discount = str_replace(',','',$discount);
-                    $date = $this->input->post('date');
+                    $date_product = $this->input->post('date_product');
                     $quantity =$this->input->post('quantity');
                     $content = $this->input->post('content');
 
@@ -170,11 +180,11 @@
 
                     $data = array(
                         'product_name' => $product_name,
-                        'category_id' => $category_id,
+                        'category_id' => $category_id['category_id'],
                         'image' => $image,
                         'price' => $price,
                         'discount' => $discount,
-                        'date_product' => $date,
+                        'date_product' => $date_product,
                         'quantity' => $quantity,
                         'content' => $content,
 

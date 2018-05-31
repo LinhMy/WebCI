@@ -176,6 +176,8 @@
         //ham add set moi
         function add(){
             
+            
+
             // load thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
@@ -185,6 +187,11 @@
                 $this->form_validation->set_rules('price','Giá bắt buộc nhập','required');
                 $this->form_validation->set_rules('sale','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
+
+                    //lay du lieu da chon trong bang sp
+                    $ids = $this->input->post('id');
+
+
                     // bat dau insert du lieu
                     $set_name = $this->input->post('set_name');
                     $price = $this->input->post('price');
@@ -216,6 +223,11 @@
                     // them moi vao co so du lieu
                     if($this->setproduct_model->create($data)){
                         // neu them thanh cong
+                        $set_id = $this->setproduct_model->get_set_name($set_name);
+                        foreach ($ids as $product_id){
+                            //$this->_del($product_id);
+                            $this->setproduct_model->insert_setproduct_child($product_id,$set_id->set_id);
+                        }
                         $this->session->set_flashdata('message', 'Thêm mới thành công sản phẩm');
                         redirect(admin_url('setproduct'));
                     }else{
@@ -231,5 +243,64 @@
             $this->data['temp'] = 'admin/product/addset';
             $this->load->view('admin/main', $this->data);
         }
+        public function viewproduct($set_id)
+        {
+            $this->load->model('product_model');
+            $total_rows =  $this->product_model->get_total();
+            $this->data['total_rows'] = $total_rows;
+            // load ra thu vien phan trang
+            $this->load->library('pagination');
+            $config = array();
+            $config['total_rows'] = $total_rows;// tong so dong
+            $config['base_url'] = admin_url('product/index'); // link hien thi du lieu
+            $config['per_page'] = 10; // so luong san pham hien thi tren 1 trang
+            $config['uri__segment'] = 4; // phan doan hien thi ra so trang tren url. !
+            $config['next_link'] = 'Trang kế tiếp';
+            $config['prev_link'] = 'Trang trước';
+
+            // khoi tao cac cau hinh cua phan trang
+            $this->pagination->initialize($config);
+            $segment = $this->uri->segment(4);
+            $segment = intval($segment);
+            $input = array();
+            $input['limit'] = array($config['per_page'], $segment);
+
+            // end phan trang
+
+            // tim kiem san pham thong qua bien get
+            if($this->input->get('id') > 0){
+                $product_id = $this->input->get('id');
+                $product_id = intval($product_id);
+                $this->db->where('product_id', $product_id);
+            }
+            if($this->input->get('product_name') != null){
+                $product_name = $this->input->get('product_name');
+                $this->db->like('product.product_name', $product_name);
+            }
+
+            // eng search
+            // lay danh muc san pham
+            $this->load->model('category_model');
+            $input1['where'] = array('parent_id' => 0);
+            $category_list = $this->category_model->get_list($input1);
+
+            foreach ($category_list as $row){
+                $input['where'] = array('parent_id' => $row->category_id);
+                $subs = $this->category_model->get_list($input);
+                $row->subs = $subs;
+            }
+            $this->data['category_list'] = $category_list;
+            // lay ra noi dung thong bao message
+            $message = $this->session->flashdata('message');
+            $this->data['message'] = $message;
+            //tra ve cac san pham co trong set hien thi len
+            
+            $this->data['list']=$this->setproduct_model->get_list_product_in_set($set_id);
+            $this->data['setname']= $this->setproduct_model->get_set_name($set_id);
+            $this->data['temp'] = 'admin/product/viewproductset';
+            $this->load->view('admin/main', $this->data);
+        }
+        //ham xem chi tiet cac san pham co trong set
+
     }
 ?>

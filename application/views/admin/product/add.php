@@ -31,11 +31,16 @@ $this->load->view('admin/product/head', $this->data);
                             <div class="clear"></div>
                         </div>
                         <div class="formRow">
-                            <label for="param_category_id" class="formLeft">ID Danh mục:<span class="req">*</span></label>
+                            <label for="param_cat" class="formLeft">Danh mục:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_category_id" name="category_id"></span>
-                                <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('category_id'); ?></div>
+                                <select name="category_name">
+                                    <!-- kiem tra danh muc co danh muc con hay khong -->
+                                    <?php foreach ($category_name as $row): ?>
+                                    <option value="<?= $row->category_name?>"><?= $row->category_name?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <span class="autocheck" name="cat_autocheck"></span>
+                                <div class="clear error" name="cat_error"><?php echo form_error('category'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -88,7 +93,7 @@ $this->load->view('admin/product/head', $this->data);
                                 Ngày :
                             </label>
                             <div class="formRight">
-                                <span class="oneFour"><input type="date" id="param_quantity" name="date"></span>
+                                <span class="oneFour"><input type="date" id="param_quantity" name="date_product"></span>
                                 <span class="autocheck" name="quantity_autocheck"></span>
 
                             </div>

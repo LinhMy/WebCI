@@ -19,7 +19,7 @@
 
         <?php $this->load->view($temp, $this->data); ?>
       
-        <footer class="footer style4">
+        <footer class="footer style4" style="background: white">
             <?php $this->load->view('site/footer'); ?>
         </footer>
       

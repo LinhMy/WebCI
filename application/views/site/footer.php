@@ -1,3 +1,5 @@
+<script src="<?php echo public_url()?>/site/rateit/scripts/jquery.rateit.js"></script>
+<link type="text/css" href="<?php echo public_url()?>/site/rateit/scripts/rateit.css" rel="stylesheet">
 
     <div class="container">
 
@@ -19,8 +21,45 @@
 
             </div>
         </div>
-        <div class="coppyright"></div>
+    <div class="top" style= height: 400px">
+        <div id="footer-info">
+            <img style="margin-left: -10px" width="100px" height="50px" src="<?php echo base_url('upload'); ?>/logos/2.png"  title="logo"/><br>
+            <br>
+            <p>Copyright 2014 CompanyName. All rights reservedCopyright 2014 CompanyName. All rights reserved.Copyright 2014 CompanyName. All rights reserved.</p><br>
+            <br>
+            <br>
+            <p>Phone: &nbsp &nbsp &nbsp &nbsp<span style="font-size: 30px">01699807884</span></p><br>
+            <p>Email: &nbsp &nbsp &nbsp &nbsp<span style="font-size: 30px">info@modu.vn</span></p>
 
+        </div>
+        <div id="footer-info2">
+            <ul>
+
+                <li><a href="#"> Vận chuyển </a></li>
+                <li><a href="#"> Đổi trả </a></li>
+                <li><a href="#"> Cổng thanh toán  </a></li>
+                <li><a href="#">  Thông tin </a></li>
+
+            </ul>
+        </div>
+        <div id="footer-info3">
+            <h2>from the <b>BLOG</b></h2>
+            <p><img style="width: 50px ; margin-right: 20px" src="<?php echo base_url ();?>css/images/features-icon-1.png">A fixed element does not leave a gap in the page where it would normally have been located</p>
+            <p><img style="width: 50px ; margin-right: 20px" src="<?php echo base_url ();?>css/images/features-icon-1.png">A fixed element does not leave a gap in the page where it would normally have been located</p>
+
+        </div>
+    </div>
+
+        <div class="coppyright"></div>
+    <div class="bottom">
+        <p style="float: left; margin-left: 146px; color: #888">Natuliesop</p>
+        <div id="linkbottom">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+        </div>
+    </div>
 
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -102,6 +141,95 @@
             }
             .online-support {
                 display: none;
+            }
+            #footer-info{
+                float: left;
+                margin-top: 15px;
+                margin-left: 17px;
+                width: 32%;
+                color: #888;
+
+            }
+            #footer-info p {
+                padding: 0px;
+                margin: 0px;
+            }
+            #footer-info2{
+                float: left;
+                margin-top: 60px;
+
+                width: 40%;
+                color: #888;
+
+            }
+            #footer-info2 a{
+                text-decoration: none;
+                color: #888;
+            }
+            #footer-info2 ul {
+                width: 100px;
+                float: left;
+                margin-left: 68px;
+
+            }
+
+            #footer-info2 ul li {
+                margin: 10px 0;
+
+            }
+            #footer-info3{
+                float: left;
+                margin-top: 60px;
+
+                width: 25%;
+                color: #888;
+            }
+            #footer-info3 p{
+                overflow: auto
+            }
+            #footer-info3 img{
+                float: left;
+            }
+            .bottom{
+                background: white;
+
+                height: 75px;
+                float: bottom;
+                margin-top: 347px;
+            }
+            .fa {
+                font-size: 29px;
+                width: 70px;
+                float: right;
+                margin-right: 10px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+                border-radius: 50%;
+
+
+            }
+            #linkbottom{
+                margin-right:-10px ;
+            }
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+            .fa-facebook {
+                color: #888;
+            }
+
+            .fa-twitter {
+                color: #888;
+            }
+
+            .fa-google {
+                color: #888;
+            }
+
+            .fa-youtube {
+                color: #888;
             }
         </style>
 
