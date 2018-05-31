@@ -31,7 +31,6 @@ $this->load->view('admin/bill/head', $this->data);
 
             <thead>
             <tr>
-                <td style="width:10px;"><img src="<?php echo public_url(); ?>/admin/images/icons/tableArrows.png" /></td>
                 <td>Mã Số</td>
                 <td>ID User</td>
                 <td>Ngày Tạo</td>
@@ -48,8 +47,9 @@ $this->load->view('admin/bill/head', $this->data);
             <tbody>
             <?php foreach ($list as $row): ?>
                 <tr class="row_<?php echo $row->bill_id; ?>">
-                    <td><input type="checkbox" name="id[]" value="<?php echo $row->bill_id; ?>" /></td>
-                    <td><?php echo $row->bill_id; ?></td>
+                    <td>
+                        <?php echo $row->bill_id; ?>
+                    </td>
                     <td>
                         <?php echo $row->user_id; ?>
                     </td>
