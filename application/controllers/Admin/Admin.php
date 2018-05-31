@@ -4,6 +4,7 @@
         {
             parent::__construct();
             $this->load->model('admin_model');
+            $this->load->library("session");
         }
         function index(){
             // lay tong danh sach admin
@@ -46,7 +47,7 @@
                 if($this->form_validation->run()){
                     $username = $this->input->post('username');
                     $password = $this->input->post('password');
-                    $password = ($password);
+                    $password = md5($password);
                     $information = $this->input->post('information');
                     $position = $this->input->post('position');
 
@@ -94,7 +95,7 @@
                 $this->form_validation->set_rules('position','chức vụ','required|min_length[2]');
                 if($this->form_validation->run()){
                     $password = $this->input->post('password');
-                    $password = ($password);
+                    $password = md5($password);
                     $information = $this->input->post('information');
                     $position = $this->input->post('position');
 

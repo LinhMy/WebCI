@@ -233,28 +233,28 @@ abstract class CI_DB_driver {
 	public $data_cache		= array();
 
 	/**
-	 * Transaction enabled flag
+	 * bill enabled flag
 	 *
 	 * @var	bool
 	 */
 	public $trans_enabled		= TRUE;
 
 	/**
-	 * Strict transaction mode flag
+	 * Strict bill mode flag
 	 *
 	 * @var	bool
 	 */
 	public $trans_strict		= TRUE;
 
 	/**
-	 * Transaction depth level
+	 * bill depth level
 	 *
 	 * @var	int
 	 */
 	protected $_trans_depth		= 0;
 
 	/**
-	 * Transaction status flag
+	 * bill status flag
 	 *
 	 * Used with transactions to determine if a rollback should occur.
 	 *
@@ -263,9 +263,9 @@ abstract class CI_DB_driver {
 	protected $_trans_status	= TRUE;
 
 	/**
-	 * Transaction failure flag
+	 * bill failure flag
 	 *
-	 * Used with transactions to determine if a transaction has failed.
+	 * Used with transactions to determine if a bill has failed.
 	 *
 	 * @var	bool
 	 */
@@ -682,7 +682,7 @@ abstract class CI_DB_driver {
 					$this->trans_complete();
 					if ($trans_depth === $this->_trans_depth)
 					{
-						log_message('error', 'Database: Failure during an automated transaction commit/rollback!');
+						log_message('error', 'Database: Failure during an automated bill commit/rollback!');
 						break;
 					}
 				}
@@ -772,7 +772,7 @@ abstract class CI_DB_driver {
 	/**
 	 * Simple Query
 	 * This is a simplified version of the query() function. Internally
-	 * we only use it when running transaction commands since they do
+	 * we only use it when running bill commands since they do
 	 * not require all the features of the main query() function.
 	 *
 	 * @param	string	the sql query
@@ -807,7 +807,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Enable/disable Transaction Strict Mode
+	 * Enable/disable bill Strict Mode
 	 *
 	 * When strict mode is enabled, if you are running multiple groups of
 	 * transactions, if one group fails all subsequent groups will be
@@ -827,7 +827,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Start Transaction
+	 * Start bill
 	 *
 	 * @param	bool	$test_mode = FALSE
 	 * @return	bool
@@ -845,7 +845,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Complete Transaction
+	 * Complete bill
 	 *
 	 * @return	bool
 	 */
@@ -869,7 +869,7 @@ abstract class CI_DB_driver {
 				$this->_trans_status = TRUE;
 			}
 
-			log_message('debug', 'DB Transaction Failure');
+			log_message('debug', 'DB bill Failure');
 			return FALSE;
 		}
 
@@ -879,7 +879,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Lets you retrieve the transaction flag to determine if it has failed
+	 * Lets you retrieve the bill flag to determine if it has failed
 	 *
 	 * @return	bool
 	 */
@@ -891,7 +891,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Begin Transaction
+	 * Begin bill
 	 *
 	 * @param	bool	$test_mode
 	 * @return	bool
@@ -909,7 +909,7 @@ abstract class CI_DB_driver {
 			return TRUE;
 		}
 
-		// Reset the transaction failure flag.
+		// Reset the bill failure flag.
 		// If the $test_mode flag is set to TRUE transactions will be rolled back
 		// even if the queries produce a successful result.
 		$this->_trans_failure = ($test_mode === TRUE);
@@ -926,7 +926,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Commit Transaction
+	 * Commit bill
 	 *
 	 * @return	bool
 	 */
@@ -949,7 +949,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rollback Transaction
+	 * Rollback bill
 	 *
 	 * @return	bool
 	 */

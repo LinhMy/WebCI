@@ -180,7 +180,7 @@ class CI_DB_mssql_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Begin Transaction
+	 * Begin bill
 	 *
 	 * @return	bool
 	 */
@@ -192,7 +192,7 @@ class CI_DB_mssql_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Commit Transaction
+	 * Commit bill
 	 *
 	 * @return	bool
 	 */
@@ -204,7 +204,7 @@ class CI_DB_mssql_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rollback Transaction
+	 * Rollback bill
 	 *
 	 * @return	bool
 	 */

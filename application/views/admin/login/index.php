@@ -6,6 +6,7 @@
 <div style="top:45%;" class="loginWrapper">
 
     <div style="height:auto; margin:auto;" id="admin_login" class="widget">
+        <?php if($this->session->message!='') ?>
         <div class="title"><img class="titleIcon" alt="" src="<?php echo public_url(); ?>/admin/images/icons/dark/laptop.png">
             <h6>Đăng nhập</h6>
         </div>
