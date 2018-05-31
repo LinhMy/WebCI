@@ -159,7 +159,7 @@
                   $inserdata['image'] = $value['C'];
                   $inserdata['price'] = (int)$value['D'];
                   $inserdata['discount'] =(int)$value['E'];
-                  $inserdata['date'] = date('Y-m-d H:i:s');
+                  $inserdata['date_product'] = date('Y-m-d H:i:s');
                   //$inserdata[$i]['view'] = 0;
                   $inserdata['quantity'] =(int)$value['F'];
                   $inserdata['content'] = $value['G'];

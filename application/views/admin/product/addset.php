@@ -111,7 +111,6 @@ $this->load->view('admin/product/head', $this->data);
                 <td style="width: 100px;">Giá bán gốc</td>
                 <td style="width: 50px;">Giảm giá</td>
                 <td style="width: 50px;">Hình ảnh</td>
-                <td style="width: 20px;">Lượt xem</td>
             </tr>
 
             <tbody>
@@ -123,7 +122,6 @@ $this->load->view('admin/product/head', $this->data);
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
                     <td><?php echo number_format($row->discount); ?> VNĐ</td>
                     <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
-                    <td><?php echo $row->view; ?></td>
                     
                 </tr>
             <?php endforeach; ?>
@@ -137,7 +135,7 @@ $this->load->view('admin/product/head', $this->data);
                 </div><!-- End tab_container-->
 
                 <div class="formSubmit">
-                    <input type="submit" class="redB" value="Thêm mới">
+                    <input type="submit" class="button blueB" id ="submit" value="Thêm mới">
                     <input type="reset" class="basic" value="Hủy bỏ">
                 </div>
                 <div class="clear"></div>

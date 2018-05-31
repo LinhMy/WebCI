@@ -13,7 +13,58 @@ class Support extends MY_Controller {
 
   public function index()
   {
-  	//lay du lieu o db 
+    //lay du lieu o db 
+    if($this->input->post()){
+     
+          $info_shop = $this->input->post('info_shop');
+          $facebook = $this->input->post('facebook');
+          $message = $this->input->post('message');
+          $address = $this->input->post('address');
+          $phone = $this->input->post('phone');
+
+          // lay ten file anh minh hoa dc upload
+          $this->load->library('upload_library');
+          $upload_path = './upload/logos';
+          $upload_data = $this->upload_library->upload($upload_path, 'image');
+          $image = '';
+          if(isset($upload_data['file_name'])){
+              $image = $upload_data['file_name'];
+          }
+          // data du lieu insert
+
+          $data = array(
+              'info_shop' => $info_shop,
+              'facebook' => $facebook,
+              'message' => $message,
+              'address' => $address,
+              'image_shop' => $image,
+              'phone' => $phone
+
+
+          );
+          if($image != ''){
+              $image_corner = $product_info->image;
+              if(file_exists($image_corner)){
+                  $image_corner = $this->input->get('image');
+                  unlink('./upload/products/'.$image_corner);
+              }
+              $data['image'] = $image;
+
+          }
+          // them moi vao co so du lieu
+          if($this->contact_model->update( $data)){
+              // neu them thanh cong
+              $this->session->set_flashdata('message', 'Cập nhật thành công danh muc');
+              redirect(admin_url('support'));
+          }else{
+              // in ra thong bao loi
+              $this->session->set_flashdata('message', 'Có lỗi khi cập nhật');
+              redirect(admin_url('support'));
+          }
+
+        }
+
+    $this->data['shop_info']=$this->contact_model->get_info_shop();
     $this->data['contact_list']=$this->contact_model->get_list_contact();
     $this->data['temp'] = 'admin/support/index';
     $this->load->view('admin/main', $this->data);

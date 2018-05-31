@@ -7,15 +7,16 @@
 
         </div>
         <div class="row" >
-            <br />
-            <h2 class="fa fa-spinner"> Thông tin shop <i>NatulieShop</i></h2><br />
-            <h3 class="fa fa-facebook-square"> facebook: https://www.facebook.com</h3><br />
-            <h3 class="fa fa-check-square"> Chuyên cung cấp túi xách xỉ và lẻ, mỹ phẩm xuất xứ thailand 100%.
-            <br /> Giá cả và chất lượng luôn cam kết tốt nhất cho khách hàng</h3><br />
-            <i class="fa fa-volume-control-phone"> Điện thoại: 0905770963 - 01674717919</i><br />
-            <img src="<?php echo base_url('upload/logos/2.png') ?>">
+            <br />      <?php foreach ($shop_info as  $shop) {?>
+            <?php ?>
+            <h2 class="fa fa-spinner"> Thông tin shop <i><?=$shop->info_shop ?></i></h2><br />
+            <h3 class="fa fa-facebook-square"> facebook: <?=$shop->facebook ?></h3><br />
+            <h3 class="fa fa-check-square"> <?=$shop->message ?></h3><br />
+            <i class="fa fa-volume-control-phone"> Điện thoại:<?=$shop->phone ?></i><br />
+            <?php $url ="upload/logos/".$shop->image_shop ?>
+            <img src="<?php echo base_url($url) ?>">
         </div>
-
+            <?php }?>
 
         <div class="contact" >
             <form action="" method="POST">

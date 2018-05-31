@@ -82,7 +82,7 @@
                 </li>
                 <li>
                     <a href="<?php echo admin_url('setproduct'); ?>">
-                        Tạo set sản phẩm					</a>
+                        Danh sách set sản phẩm					</a>
                 </li>
                  <li>
                     <a href="<?php echo admin_url('depot/addzip'); ?>">

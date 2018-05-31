@@ -10,6 +10,21 @@ class Contact_model extends CI_Model {
         {
            return $this->db->insert('contact', $data_insert);
         }
+        //lay thong tin shop 
+
+        public function get_info_shop()
+        {
+           // $this->db->select('username,fullname,city,password,id_user,phone');
+           $query = $this->db->get('shop');
+           return $query->result();
+        }
+
+        // cap nhat thong tin shop 
+        public function update($data)
+        {
+           return $this->db->update('shop',$data);
+        }
+        
         //lay danh sach cac lien he khach hang da gui
         public function get_list_contact()
         {
