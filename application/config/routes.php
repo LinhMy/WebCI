@@ -58,7 +58,7 @@ $route['tui-xach-da-nang'] = 'Home/index';
 $route['san-pham/danh-muc/(:any)/(:num)'] = 'product/category/$2';
 $route['san-pham/danh-muc/(:any)/(:num)/(:num)'] = 'product/category/$2/$3';
 $route['chi-tiet-san-pham/(:any)/(:any)/(:num)'] = 'product/view/$3';
-
+$route['sanpham'] = 'product/view_product';
 
 
 
