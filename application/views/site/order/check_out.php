@@ -24,7 +24,7 @@
                 <table>
                     <tr>
                         <td>Tổng số tiền cần thanh toán:</td>
-                        <td><?php echo  number_format($total_amount);  ?> VNĐ
+                        <td style="color: red"><?php echo  number_format($total_amount);  ?> VNĐ
 
                         </td>
 

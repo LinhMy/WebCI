@@ -57,7 +57,7 @@
                 <form name="add_product" method="post" action="<?php echo base_url('cart/add/'.$product_info->product_id); ?>" enctype="multipart/form-data">
                     <div class="quantity">
                         <span>Số Lượng Mua:</span>
-                        <input type="text" data-step="1" data-min="" data-max="" name="qty" value="01" title="Qty" class="input-text qty text" size="4">
+                        <input type="number" data-step="1" data-min="" data-max="" name="qty" value="01" title="Qty" class="input-text qty text" size="4">
                     </div>
                     <button type="submit" class="single_add_to_cart_button button alt">Thêm Vào Giỏ Hàng</button>
                 </form>
