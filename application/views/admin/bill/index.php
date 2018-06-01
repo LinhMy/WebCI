@@ -32,10 +32,11 @@ $this->load->view('admin/bill/head', $this->data);
             <thead>
             <tr>
                 <td>Mã Số</td>
-                <td>ID User</td>
-                <td>Ngày Tạo</td>
-                <td> Tổng Số Tiền </td>
-                <td>Địa chỉ</td>
+                <td>Khách Hàng</td>
+                <td>Email</td>
+                <td>Tổng tiền</td>
+                <td>Ghi Chú</td>
+                <td>Thanh Toán</td>
 
 
             </tr>
@@ -46,21 +47,24 @@ $this->load->view('admin/bill/head', $this->data);
 
             <tbody>
             <?php foreach ($list as $row): ?>
-                <tr class="row_<?php echo $row->bill_id; ?>">
+                <tr class="row_<?php echo $row->id; ?>">
                     <td>
-                        <?php echo $row->bill_id; ?>
+                        <?php echo $row->id; ?>
                     </td>
                     <td>
-                        <?php echo $row->user_id; ?>
+                        <?php echo $row->username; ?>
                     </td>
                     <td>
-                        <?php echo $row->date_bill; ?>
+                        <?php echo $row->user_email; ?>
                     </td>
                     <td>
-                        <?php echo $row->total; ?>
+                        <?php echo $row->amount; ?>
                     </td>
                     <td>
-                        <?php echo $row->address; ?>
+                        <?php echo $row->message; ?>
+                    </td>
+                    <td>
+                        <?php echo $row->payment; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -29,7 +29,7 @@
 
             <a href="#" class=" exp">
                 <span>Quản lý bán hàng</span>
-                <strong>2</strong>
+                <strong>1</strong>
             </a>
 
             <ul class="sub">
@@ -37,10 +37,7 @@
                     <a href="<?php echo admin_url('bill'); ?>">
                         Giao dịch							</a>
                 </li>
-                <li>
-                    <a href="<?php echo admin_url('order'); ?>">
-                        Đơn hàng sản phẩm							</a>
-                </li>
+
             </ul>
 
         </li>

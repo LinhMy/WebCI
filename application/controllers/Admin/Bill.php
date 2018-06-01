@@ -3,12 +3,12 @@ class bill extends MY_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('bill_model');
+        $this->load->model('transaction_model');
     }
     // hien thi danh sach giao dich cua website
     function index(){
         //lay tong so luong ta ca cac giao dich trong websit
-        $total_rows = $this->bill_model->get_total();
+        $total_rows = $this->transaction_model->get_total();
         $this->data['total_rows'] = $total_rows;
 
         //load ra thu vien phan trang
@@ -30,17 +30,17 @@ class bill extends MY_Controller{
         $input['limit'] = array($config['per_page'], $segment);
 
         //kiem tra co thuc hien loc du lieu hay khong
-        $bill_id = $this->input->get('id');
-        $bill_id = intval($bill_id);
+        $id = $this->input->get('id');
+        $id = intval($id);
         $input['where'] = array();
-        if($bill_id > 0)
+        if($id > 0)
         {
-            $input['where']['bill_id'] = $bill_id;
+            $input['where']['id'] = $id;
         }
 
 
         //lay danh sach giao dich
-        $list = $this->bill_model->get_list($input);
+        $list = $this->transaction_model->get_list($input);
         $this->data['list'] = $list;
         //lay nội dung của biến message
         $message = $this->session->flashdata('message');
@@ -54,7 +54,7 @@ class bill extends MY_Controller{
         //lay id cua giao dịch ma ta muon xoa
         $id = $this->uri->rsegment('3');
         //lay thong tin cua giao dịch
-        $info = $this->bill_model->get_info($id);
+        $info = $this->transaction_model->get_info($id);
         if(!$info)
         {
             return false;
