@@ -197,18 +197,7 @@
                 float: bottom;
                 margin-top: 347px;
             }
-            .fa {
-                font-size: 29px;
-                width: 70px;
-                float: right;
-                margin-right: 10px;
-                text-align: center;
-                text-decoration: none;
-                margin: 5px 2px;
-                border-radius: 50%;
 
-
-            }
             #linkbottom{
                 margin-right:-10px ;
             }
