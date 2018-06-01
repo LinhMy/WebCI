@@ -118,7 +118,7 @@ var myChart_week = new Chart(ctxw, {
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(220, 185, 234, 0.2)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -127,7 +127,7 @@ var myChart_week = new Chart(ctxw, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(220, 185, 234,1)'
             ],
             borderWidth: 1
         }]
@@ -161,7 +161,7 @@ var myChart_year = new Chart(ctxy, {
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(220, 185, 234, 0.2)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -170,7 +170,7 @@ var myChart_year = new Chart(ctxy, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(220, 185, 234, 1)'
             ],
             borderWidth: 1
         }]
@@ -192,7 +192,7 @@ new Chart(document.getElementById("myChartline"), {
   data: {
     labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
     datasets: [{ 
-        data: [86,114,106,106,107,111],
+        data: [86,114,106,106,107,11],
         label: "Áo",
         borderColor: "#3e95cd",
         fill: true
