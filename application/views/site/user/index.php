@@ -18,7 +18,7 @@
             <table>
                 <tr>
                     <td>Họ Tên:</td>
-                    <td><?php echo $user_info->name; ?></td>
+                    <td><?php echo $user_info->username; ?></td>
                 </tr>
                 <tr>
                     <td>Email</td>
@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td>adress:</td>
-                    <td><?php echo $user_info->adress; ?></td>
+                    <td><?php echo $user_info->address; ?></td>
                 </tr>
 
             </table>

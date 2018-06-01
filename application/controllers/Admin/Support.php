@@ -28,7 +28,7 @@ class Support extends MY_Controller {
           $upload_data = $this->upload_library->upload($upload_path, 'image');
           $image = '';
           if(isset($upload_data['file_name'])){
-              $image = $upload_data['file_name'];
+              $image_shop = $upload_data['file_name'];
           }
           // data du lieu insert
 
@@ -37,7 +37,7 @@ class Support extends MY_Controller {
               'facebook' => $facebook,
               'message' => $message,
               'address' => $address,
-              'image_shop' => $image,
+              'image_shop' => $image_shop,
               'phone' => $phone
 
 

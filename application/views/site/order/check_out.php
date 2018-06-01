@@ -31,7 +31,7 @@
                     </tr
                     <tr>
                         <td>Họ Tên:</td>
-                        <td><input type="text" name="name" value="<?php echo isset($user_info->name) ? $user_info->name : '' ?>">
+                        <td><input type="text" name="name" value="<?php echo isset($user_info->username) ? $user_info->username : '' ?>">
                             <i><?php echo form_error('name'); ?></i>
                         </td>
 
@@ -64,8 +64,7 @@
                             <select name="payment">
                                 <option value="" >-- Chọn cổng thanh toán --</option>
                                 <option value="offline">Thanh toán khi nhận hàng</option>
-                                <option value="baokim">Bảo Kim</option>
-                                <option value="nganluong">Ngân Lượng</option>
+                                <option value="baokim">Paypal</option>
                             </select>
                             <i><?php echo form_error('payment'); ?></i>
                         </td>

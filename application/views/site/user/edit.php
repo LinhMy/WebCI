@@ -24,7 +24,7 @@
             <table>
                 <tr>
                     <td>Họ Tên:</td>
-                    <td><input type="text" name="name" value="<?php echo $user_info->name; ?>">
+                    <td><input type="text" name="name" value="<?php echo $user_info->username; ?>">
                         <i><?php echo form_error('name'); ?></i>
                     </td>
 
@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>adress:</td>
-                    <td><input type="text" name="adress" value="<?php echo $user_info->adress; ?>">
+                    <td><input type="text" name="adress" value="<?php echo $user_info->address; ?>">
                         <i><?php echo form_error('adress'); ?></i>
                     </td>
 
