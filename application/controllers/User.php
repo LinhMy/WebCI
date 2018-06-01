@@ -110,7 +110,7 @@
             if(!$this->session->userdata('id_user_login')){
                 redirect();
             }
-            $user_id = $this->session->userdata('id_user_login');
+            $user_id= $this->session->userdata('id_user_login');
             $user_info = $this->user_model->get_info($user_id);
             if(!$user_info){
                 redirect();
@@ -122,11 +122,11 @@
 
         }
         function edit(){
-            $id_user = $this->session->userdata('id_user_login');
-            if(!$id_user){
+            $user_id = $this->session->userdata('id_user_login');
+            $user_info = $this->user_model->get_info($user_id);
+            if(!$user_info){
                 redirect();
             }
-            $user_info = $this->user_model->get_info($id_user);
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
@@ -134,24 +134,23 @@
                 if($password){
                     $this->form_validation->set_rules('password', 'Nhập password ', 'required|min_length[4]' );
                 }
-                $this->form_validation->set_rules('name', 'Nhập Họ tên ', 'required' );
+                $this->form_validation->set_rules('username', 'Nhập Họ tên ', 'required' );
                 $this->form_validation->set_rules('phone', 'Nhập Số Điện Thoại ', 'required' );
-                $this->form_validation->set_rules('adress', 'Nhập Địa Chỉ', 'required' );
+                $this->form_validation->set_rules('', 'Nhập Địa Chỉ', 'required' );
                 if($this->form_validation->run()){
-                    $name = $this->input->post('name');
+                    $username = $this->input->post('username');
                     $phone = $this->input->post('phone');
-                    $adress = $this->input->post('adress');
-                    $data = array();
+                    $address = $this->input->post('address');
                     $data = array(
-                        'name' => $name,
+                        '$username' => $username,
                         'phone' => $phone,
-                        'adress' => $adress,
+                        'address' => $address,
                     );
                     if($password){
                         $password = md5($password);
                         $data['password'] = $password;
                     }
-                    if($this->user_model->update($id_user, $data)){
+                    if($this->user_model->update($user_id, $data)){
                         $this->session->set_flashdata('message_update', 'Cập nhật thành công');
                     }else{
                         $this->session->set_flashdata('message_update', 'Có lỗi khi cập nhật');

@@ -16,7 +16,7 @@
         <div class="row main-header-wapper">
             <div class="col-sm-12 col-md-3">
                 <div class="logo">
-                    <a href="#"><img src="<?php echo base_url('upload'); ?>/logos/2.png" alt="" ></a>
+                    <a href="<?php echo base_url('home/index');?>"><img src="<?php echo base_url('upload'); ?>/logos/2.png" alt="" ></a>
                 </div>
             </div>
             <div class="col-sm-12 col-md-9">
@@ -47,7 +47,7 @@
 
                 <div class="mini-cart">
 
-                    <a class="cart-link" href="<?php echo base_url('cart/index') ?>">
+                    <a class="cart-link" href="<?php echo base_url('cart/view_cart') ?>">
                         <span class="text"><?php echo $total_items; ?> Sản Phẩm</span>
 
                         <span class="menu-icon icon  pe-7s-shopbag">
