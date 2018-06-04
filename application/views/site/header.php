@@ -21,10 +21,6 @@
             </div>
             <div class="col-sm-12 col-md-9">
                 <ul class="main-header-menu">
-                    <li><a href="#">Thông Tin</a></li>
-                    <li><a href="#">Cổng Thanh Toán</a></li>
-                    <li><a href="#">Vận Chuyển</a></li>
-                    <li><a href="#">Đổi Trả</a></li>
 
                 </ul>
                 <form class="advanced-search" method="get" action="<?php echo site_url('product/search') ?>">
