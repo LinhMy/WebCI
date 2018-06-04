@@ -1,16 +1,22 @@
 <div class="top" style="background: #f6f6f6; height: 500px">
     <div class="container">
         <div id="footer-info">
+            <h5>KÊNH MUA SẮM TRỰC TUYẾN HÀNG ĐẦU VIỆT NAM!</h5>
+            <br>
+            <p>Mua hàng trực tuyến (mua hàng online) mang lại sự tiện lợi, lựa chọn đa dạng hơn và các dịch vụ tốt hơn cho người tiêu dùng, thế nhưng người tiêu dùng Việt Nam vẫn chưa tận hưởng được những tiện ích đó. Chính vì vậy  Việt Nam được triển khai với mong muốn trở thành trung tâm mua sắm trực tuyến số 1 tại Việt Nam, nơi bạn có thể chọn lựa mọi thứ, từ các mặt hàng điện tử như laptop, điện thoại di động giá rẻ, thiết bị gia dụng như máy lạnh, máy lọc không khí, máy hút bụi mini gia đình, nội thất phòng ngủ… Chúng tôi có tất cả!
 
-            <br>
-            <p>Copyright 2014 CompanyName. All rights reservedCopyright 2014 CompanyName. All rights reserved.Copyright 2014 CompanyName. All rights reserved.</p><br>
-            <br>
-            <br>
-            <p>Phone: &nbsp &nbsp &nbsp &nbsp<span style="font-size: 30px">01699807884</span></p><br>
-            <p>Email: &nbsp &nbsp &nbsp &nbsp<span style="font-size: 30px">info@modu.vn</span></p>
+                Tại .vn bạn có thể mua đồ điện tử giá rẻ, cũng như  </p><br>
+
 
         </div>
         <div id="footer-info2">
+            <p>các loại mặt hàng khác với rất nhiều các chương trình khuyến mãi hàng tháng. Ngoài ra bạn cũng có thể tham gia bán hàng trực tuyến thông qua hệ thống marketplace của  với rất nhiều hỗ trợ và dịch vụ hấp dẫn. Bây giờ bạn có thể trải nghiệm mua hàng online thỏa thích mà  mang lại chỉ với 1 click chuột. Dù bạn là một nhà quản lý bận rộn với công việc hay là người nội trợ với danh sách dài việc phải làm, chắc chắn bạn cũng sẽ yêu thích trải nghiệm mua hàng tại  Việt Nam - mua hàng trực tuyến dễ dàng hơn, thuận tiện hơn và tiết kiệm thời gian.
+
+                Bạn muốn bán hàng trực tuyến online trên ? Hãy đăng ký tại đây:  </p><br>
+
+
+        </div>
+        <div id="footer-info3">
             <ul>
 
                 <li><a href="#"> Vận chuyển </a></li>
@@ -20,63 +26,49 @@
 
             </ul>
         </div>
-        <div id="footer-info3">
-            <h2>from the <b>BLOG</b></h2>
-            <p><img style="width: 50px ; margin-right: 20px" src="<?php echo base_url ();?>css/images/features-icon-1.png">A fixed element does not leave a gap in the page where it would normally have been located</p>
-            <p><img style="width: 50px ; margin-right: 20px" src="<?php echo base_url ();?>css/images/features-icon-1.png">A fixed element does not leave a gap in the page where it would normally have been located</p>
-
+        <div id="footer-info4">
+            <h5>LIÊN HỆ VỚI CHÚNG TÔI</h5>
+            <p>Thứ 2 đến CN: 9h - 18h (Hotline), 7h - 22h (chat trực tuyến)</p>
+            <p>Số Điện Thoại: 01242088997</p>
+            <p>Email: tranphu9615@gmail.com</p>
         </div>
     </div>
     <style>
         #footer-info{
             float: left;
-            margin-top: 15px;
+            margin-top: 50px;
             margin-left: 17px;
-            width: 32%;
+            width: 24%;
             color: #888;
 
         }
-        #footer-info p {
-            padding: 0px;
-            margin: 0px;
-        }
+
         #footer-info2{
             float: left;
             margin-top: 60px;
-
-            width: 40%;
+            margin-left: 62px;
+            width: 20%;
             color: #888;
-
-        }
-
-        #footer-info2 a{
-            text-decoration: none;
-            color: #888;
-        }
-        #footer-info2 ul {
-            width: 100px;
-            float: left;
-            margin-left: 68px;
-
-        }
-
-        #footer-info2 ul li {
-            margin: 10px 0;
-
         }
         #footer-info3{
             float: left;
             margin-top: 60px;
-
-            width: 25%;
+            margin-left: 66px;
+            width: 20%;
             color: #888;
         }
-        #footer-info3 p{
-            overflow: auto
-        }
-        #footer-info3 img{
+        #footer-info4{
             float: left;
+            margin-top: 60px;
+            width: 20%;
+            color: #888;
         }
+        #footer-info4 p{
+            margin: 0px;
+        }
+
+
+
     </style>
 </div>
 <div class="container">
@@ -182,64 +174,4 @@
     }
 
 </style>
-</div>
-<div class="top" style="background: #f6f6f6; height: 100px">
-    <div class="container">
-        <h2 style="float: left;color: #888; padding:33px">Natuliesop</h2>
-        <div id="linkbottom">
-            <a href="#" class="fa fa-facebook" style=" padding: 20px;
-            font-size: 30px;
-            width: 20px;
-            float: right;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px 2px;
-            border-radius: 50%;
-            color: #888;"></a>
-            <a href="#" class="fa fa-youtube"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-google"></a>
-        </div>
-    </div>
-    <style>
-        #linkbottom{
-            float: right;
-        }
-
-        .fa-twitter {
-            padding: 20px;
-            font-size: 30px;
-            width: 20px;
-            float: right;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px 2px;
-            border-radius: 50%;
-            color: #888;
-        }
-
-        .fa-google {
-            padding: 20px;
-            font-size: 30px;
-            width: 20px;
-            float: right;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px 2px;
-            border-radius: 50%;
-            color: #888;
-        }
-
-        .fa-youtube {
-            padding: 20px;
-            font-size: 30px;
-            width: 20px;
-            float: right;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px 2px;
-            border-radius: 50%;
-            color: #888;
-        }
-    </style>
 </div>
