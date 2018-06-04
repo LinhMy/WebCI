@@ -46,9 +46,14 @@
             margin-left: 62px;
             width: 20%;
             color: #888;
-
         }
-
+        #footer-info3{
+            float: left;
+            margin-top: 60px;
+            margin-left: 62px;
+            width: 20%;
+            color: #888;
+        }
 
 
     </style>
