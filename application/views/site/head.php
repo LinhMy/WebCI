@@ -1,8 +1,11 @@
+<head>
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:locale" content="vi_VN"/>
 <link rel="alternate" href="http://xuongtuidanang.net" hreflang="vi-vn"/>
+<link rel="shortcut icon" href="<?php echo public_url(); ?>/admin/images/diamond.png" type="image/x-icon"/>
+
 <title>Natulieshop </title>
 <?php foreach ($category_name as $row): ?>
 <meta itemprop="name" content="<?php echo $row->category_name; ?>">
@@ -34,6 +37,10 @@
 
 
 <meta content="width=device-width, initial-scale=1" name="viewport">
+
+<link type="text/css" rel="stylesheet" href="style.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <link href="<?php echo public_url('site') ?>/css/responsive.css" type="text/css" rel="stylesheet">
 <link href="<?php echo public_url('site') ?>/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 <link href="<?php echo public_url('site') ?>/css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -61,3 +68,4 @@
 <script src="<?php echo public_url()?>/site/rateit/scripts/jquery.rateit.js"></script>
 <link type="text/css" href="<?php echo public_url()?>/site/rateit/scripts/rateit.css" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo public_url('site')?>/font/css/font-awesome.min.css">
+</head>
