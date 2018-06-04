@@ -10,7 +10,7 @@
             <br />      <?php foreach ($shop_info as  $shop) {?>
             <?php ?>
             <h2 class="fa fa-spinner"> Thông tin shop <i><?=$shop->info_shop ?></i></h2><br />
-            <h3 class="fa fa-facebook-square"> facebook: <?=$shop->facebook ?></h3><br />
+            <h3 class="fa fa-facebook-square"> facebook:<a href="<?=$shop->facebook ?>"><?=$shop->facebook ?></a></h3><br />
             <h3 class="fa fa-check-square"> <?=$shop->message ?></h3><br />
             <i class="fa fa-volume-control-phone"> Điện thoại:<?=$shop->phone ?></i><br />
             <?php $url ="upload/logos/".$shop->image_shop ?>
