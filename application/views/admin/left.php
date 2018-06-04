@@ -93,11 +93,31 @@
             </ul>
 
         </li>
+<!--chuyen huong phan tin tuc -->
+         <li class="product">
+
+            <a href="admin/blog" class=" exp">
+                <span>Tin tức</span>
+                <strong>2</strong>
+            </a>
+
+            <ul class="sub">
+                <li>
+                    <a href="<?php echo admin_url('blog')?>">
+                        Quản lí bài viết							</a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('blog/posting')?>">
+                       Viết bài						</a>
+                </li>
+            </ul>
+
+            </li>
         <li class="account">
 
             <a href="" class=" exp">
                 <span>Tài khoản</span>
-                <strong>1</strong>
+                <strong>2</strong>
             </a>
 
             <ul class="sub">

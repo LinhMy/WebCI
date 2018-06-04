@@ -43,7 +43,7 @@
                 <a href="<?php echo base_url('shop/adress'); ?>">Liên hệ</a>
             </li>
             <li class="menu-item-has-children">
-                <a href="<?php echo base_url('shop/adress'); ?>">Tin Tức</a>
+                <a href="<?php echo base_url('blog'); ?>">Tin Tức</a>
             </li>
             <?php if(isset($user_info) && $user_info !=  ''): ?>
                 <li><a style="text-transform: capitalize;" href="<?php echo site_url('user/index'); ?>">Xin chào:<?php echo $user_info->username; ?></a></li>
