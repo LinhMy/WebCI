@@ -79,6 +79,7 @@
         js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+<body>
 <div class="support-icon-right" style="position:fixed; z-index:9999999; right:50px; bottom:10px;">
     <h3><i class="fa fa-facebook"></i> Chat với NatulieShop</h3>
     <div class="online-support">
@@ -96,7 +97,8 @@
         </div>
     </div>
 </div>
-
+</body>
+<script lang="javascript">var _vc_data = {id : 5670112, secret : '213cc27bccdcab55c33fdca2b4958191'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
 <script>
     $(document).ready(function(){
         $('.online-support').hide();
