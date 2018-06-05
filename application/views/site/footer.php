@@ -116,7 +116,7 @@
     </div>
 </div>
 </body>
-<script lang="javascript">var _vc_data = {id : 5670112, secret : '213cc27bccdcab55c33fdca2b4958191'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+<script lang="javascript">var _vc_data = {id : 5678468, secret : '0b9d67c26ed42606ff0d5cd0d552af0a'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
 <script>
     $(document).ready(function(){
         $('.online-support').hide();

@@ -12,8 +12,7 @@
             $this->load->library('pagination');
             $config = array();
             $config['total_rows'] = $total_rows;// tong so dong
-            $config['base_url'] = admin_url('product/index');
-            $config['base_url'] = admin_url('set_product/add');// link hien thi du lieu
+            $config['base_url'] = admin_url('product/index');// link hien thi du lieu
             $config['per_page'] = 10; // so luong san pham hien thi tren 1 trang
             $config['uri__segment'] = 4; // phan doan hien thi ra so trang tren url. !
             $config['next_link'] = 'Trang kế tiếp';
