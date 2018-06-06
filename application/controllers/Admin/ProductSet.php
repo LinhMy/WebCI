@@ -275,11 +275,11 @@
             // eng search
             // lay danh muc san pham
             $this->load->model('category_model');
-            $input1['where'] = array('parent_id' => 0);
+            $input1['where'] = array('parent' => 0);
             $category_list = $this->category_model->get_list($input1);
 
             foreach ($category_list as $row){
-                $input['where'] = array('parent_id' => $row->category_id);
+                $input['where'] = array('parent' => $row->category_id);
                 $subs = $this->category_model->get_list($input);
                 $row->subs = $subs;
             }
@@ -289,8 +289,9 @@
             $this->data['message'] = $message;
             //tra ve cac san pham co trong set hien thi len
             
-            $this->data['list']=$this->setproduct_model->get_list_product_in_set($set_id);
-            $this->data['setname']= $this->setproduct_model->get_set_name($set_id);
+            $this->data['list']=$this->productset_model->get_list_product_in_set($set_id);
+            // lay ten cua set
+            $this->data['setname']= $this->productset_model->get_set_name($set_id);
             $this->data['temp'] = 'admin/product/viewproductset';
             $this->load->view('admin/main', $this->data);
         }

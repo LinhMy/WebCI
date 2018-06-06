@@ -39,7 +39,7 @@
             }
 
             // eng search
-            $this->db->select('category.name as name, product.*');
+            $this->db->select('category.name as category_name, product.*');
             $this->db->from('product');
             $this->db->join('category','product.category_id = category.category_id');
             $this->db->order_by('product_id','desc');

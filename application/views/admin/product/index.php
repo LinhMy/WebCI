@@ -67,7 +67,7 @@ $this->load->view('admin/product/head', $this->data);
                 <tr class="row_<?php echo $row->product_id; ?>">
                     <td><input type="checkbox" name="id[]" value="<?php echo $row->product_id; ?>" /></td>
                     <td ><?php echo $row->name; ?></td>
-                    <td style="width: 200px;"><?php echo $row->name; ?></td>
+                    <td style="width: 200px;"><?php echo $row->category_name; ?></td>
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
                     <td><?php echo number_format($row->discount); ?> VNĐ</td>
                     <td style="text-align: center;">

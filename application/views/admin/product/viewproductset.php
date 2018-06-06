@@ -1,6 +1,6 @@
 <?php
 // load ra file head
-$this->load->view('admin/product/head', $this->data);
+$this->load->view('admin/product/headset', $this->data);
 ?>
 <div class="line"></div>
 <div class="wrapper">
@@ -68,12 +68,12 @@ $this->load->view('admin/product/head', $this->data);
             <?php foreach ($list as $row): ?>
                 <tr class="row_<?php echo $row->product_id; ?>">
                     <td><input type="checkbox" name="id[]" value="<?php echo $row->product_id; ?>" /></td>
-                    <td ><?php echo $row->product_name; ?></td>
+                    <td ><?php echo $row->name; ?></td>
                     <td style="width: 200px;"><?php echo $row->category_name; ?></td>
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
-                    <td><?php echo number_format($row->discount); ?> VNĐ</td>
                     <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;" title="Click để xem chi tiết sản phẩm"></td>
-                    <td><?php echo $row->view; ?></td>
+                    <td><?php echo $row->quantity; ?></td>
+                    <td></td>
 
                     
                 </tr>
