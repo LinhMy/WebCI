@@ -64,7 +64,7 @@ class Support extends MY_Controller {
 
         }
 
-    $this->data['shop_info']=$this->contact_model->get_info_shop();
+   // $this->data['shop_info']=$this->contact_model->get_info_shop();
     $this->data['contact_list']=$this->contact_model->get_list_contact();
     $this->data['temp'] = 'admin/support/index';
     $this->load->view('admin/main', $this->data);
