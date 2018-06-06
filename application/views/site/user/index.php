@@ -18,7 +18,7 @@
             <table>
                 <tr>
                     <td>Họ Tên:</td>
-                    <td><?php echo $user_info->username; ?></td>
+                    <td><?php echo $user_info->name; ?></td>
                 </tr>
                 <tr>
                     <td>Email</td>
@@ -38,7 +38,7 @@
                 </tr>
 
             </table>
-            <h4><a href="<?php echo base_url('user/edit'); ?>">Chỉnh Sửa</a></h4>
+           
         </div>
     </div>
 </div>

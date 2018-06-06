@@ -40,7 +40,7 @@
                                         </td>
                                         <td>
                                             <div class="quantity">
-                                                <input name="qty_<?php echo $rows['id']; ?>" type="number" size="4" class="input-text qty text" title="Qty" value="<?php echo $rows['qty']; ?>" data-max="" data-min="0" data-step="1" vk_123a3="subscribed">
+                                                <input name="qty_<?php echo $rows['id']; ?>" type="number" min="1" max="" size="4" class="input-text qty text" title="Qty" value="<?php echo $rows['qty']; ?>" data-step="1" vk_123a3="subscribed">
                                             </div>
                                         </td>
                                         <td class="product-subtotal">

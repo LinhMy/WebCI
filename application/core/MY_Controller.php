@@ -29,12 +29,12 @@ class MY_Controller extends CI_Controller{
                 // lay danh sach danh muc san pham
                 $this->load->model('Category_model');
                 $this->load->model('product_model');
-                $input['where'] = array('parent_id' => 0);
+                $input['where'] = array('parent' => 0);
                 $input['order'] = array('category_id', 'asc');
                 $category_list = $this->Category_model->get_list($input);
                 foreach ($category_list as $row){
                     // lay danh sach san pham moi
-                    $input['where'] = array('parent_id' => $row->category_id);
+                    $input['where'] = array('parent' => $row->category_id);
                     $subs = $this->Category_model->get_list($input);
                     $row->subs = $subs;
                     foreach ($subs as $sub_product){

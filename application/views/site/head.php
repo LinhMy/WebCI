@@ -8,14 +8,14 @@
 
 <title>Natulieshop </title>
 <?php foreach ($category_name as $row): ?>
-<meta itemprop="name" content="<?php echo $row->category_name; ?>">
-<meta property="og:title" content="<?php echo $row->category_name; ?>"/>
+<meta itemprop="name" content="<?php echo $row->name; ?>">
+<meta property="og:title" content="<?php echo $row->name; ?>"/>
 <?php endforeach; ?>
 <meta name="keywords" content="tui, xach, nam, nu, tai, da, nang" />
 <?php
     if($name_description == 'chi-tiet-san-pham'){
 ?>
-<meta name="description" content="<?php echo $product_info->product_name; ?>" />
+<meta name="description" content="<?php echo $product_info->name; ?>" />
 <?php
     }else{
 ?>

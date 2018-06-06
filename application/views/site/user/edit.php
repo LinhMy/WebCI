@@ -24,7 +24,7 @@
             <table>
                 <tr>
                     <td>Họ Tên:</td>
-                    <td><input type="text" name="name" value="<?php echo $user_info->username; ?>">
+                    <td><input type="text" name="name" value="<?php echo $user_info->name; ?>">
                         <i><?php echo form_error('name'); ?></i>
                     </td>
 

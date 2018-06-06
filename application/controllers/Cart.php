@@ -10,7 +10,7 @@ class Cart extends MY_Controller
     }
 
     /*
-     * phuowng thuc them san pham
+     * phuong thuc them san pham
      * */
     function add()
     {
@@ -23,9 +23,9 @@ class Cart extends MY_Controller
         }
         //tong so san pham
         $qty = 1;
-        /*  if ($this->input->post('quantity')) {
+          if ($this->input->post('quantity')) {
               $qty = $this->input->post('quantity');
-          }*/
+          }
         $price = $product_info->price;
         if ($product_info->discount > 0) {
             $price = $product_info->price - $product_info->discount;
@@ -34,7 +34,7 @@ class Cart extends MY_Controller
         $data = array(
             'id' => $product_info->product_id,
             'qty' => $qty,
-            'name'  => $product_info->product_name,
+            'name'  => $product_info->name,
             'price' => $price,
             'image_link'  => $product_info->image,
        );
