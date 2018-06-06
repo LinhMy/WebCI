@@ -1,19 +1,37 @@
 <?php
-    class SetProduct_model extends MY_Model{
-        var $table = 'set_product';
-        var $key = 'set_id';
+    class ProductSet_model extends MY_Model{
+        var $table = 'product_set';
+        var $key = 'product_set_id';
 
-        public function get_setproduct()
+        // tim kiem theo id product set
+
+        public function search_product_set_id($product_set_id)
+        {            
+            $this->db->where('product_set_id', $product_set_id);  
+        }
+
+        // tim kiem theo name set
+        public function search_product_set_name($name)
+        {                        
+           $this->db->like('product_set.name', $name);
+        }
+
+        //ham lay cot set_product trong bang product set
+        public function get_product_set()
         {
-           $query = $this->db->get('set_product');
+           $query = $this->db->get('product_set');
            return $query->result();
         }
-        public function change($set_id, $display)
+        // cho phep ban hay khong ban san pham
+        public function change($product_set_id, $display)
         {
-            $this->db->where('set_id', $set_id);
+            $this->db->where('product_set_id', $product_set_id);
             $this->db->update('display', $display);
-            $this->db->get('set_product');
+            $this->db->get('product_set');
         }
+        /*
+            lay tat ca cac set sp
+        */
         public function get_list_product()
         {
             $this->db->select('category.category_name as category_name, product.*');
@@ -41,19 +59,19 @@
         $query=$this->db->get();
         return $query->result();*/
         }
-        public function get_set_name($set_id)
+        public function get_set_name($product_set_id)
         {
-        $sql= "select set_id from set_product where set_name = \"".$set_id."\"";
+        $sql= "select set_id from set_product where name = \"".$product_set_id."\"";
         $query = $this->db->query($sql);
         return $query->row();
         }
-        public function insert_setproduct_child($product_id,$set_id)
+        public function insert_product_set_item($product_id,$set_id)
         {
             $data = array(
                 'product_id' => $product_id,
-                'set_id' => $set_id
+                'product_set_id' => $product_set_id
             );
-            $this->db->insert('set_product_child',$data);
+            $this->db->insert('product_set_item',$data);
         }
     }
 ?>

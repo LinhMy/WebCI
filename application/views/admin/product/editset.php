@@ -25,7 +25,7 @@ $this->load->view('admin/product/head', $this->data);
                         <div class="formRow">
                             <label for="param_product_name" class="formLeft">Tên sản phẩm:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" value="<?php echo $set_info->set_name; ?>" name="set_name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" value="<?php echo $set_info->name; ?>" name="name"></span>
                                 <span class="autocheck" name="product_name_autocheck"></span>
                                 <div class="clear error" name="product_name_error"><?php echo form_error('product_name'); ?></div>
                             </div>
@@ -58,22 +58,7 @@ $this->load->view('admin/product/head', $this->data);
                             <div class="clear"></div>
                         </div>
 
-                        <!-- Price -->
-                        <div class="formRow">
-                            <label for="param_discount" class="formLeft">
-                                Giảm giá (VND)
-                                <span></span>:
-                            </label>
-                            <div class="formRight">
-		<span>
-			<input type="text" class="format_number" value="<?php echo number_format($set_info->sale); ?>" id="param_discount" style="width:100px" name="sale">
-			<img src="<?php echo public_url(); ?>/admin/crown/images/icons/notifications/information.png" style="margin-bottom:-8px" title="Số tiền giảm giá" class="tipS">
-		</span>
-                                <span class="autocheck" name="discount_autocheck"></span>
-                                <div class="clear error" name="discount_error"></div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+                       
 
 
                 <div class="formRow">
@@ -81,7 +66,7 @@ $this->load->view('admin/product/head', $this->data);
                         Ngày :
                     </label>
                     <div class="formRight">
-                        <span class="oneFour"><input type="date" id="param_date" value="<?php echo $set_info->date_set?>" name="date"></span>
+                        <span class="oneFour"><input type="date" id="param_date" value="<?php echo $set_info->create_date?>" name="create_date"></span>
                         <span class="autocheck" name="quantity_autocheck"></span>
 
                     </div>
@@ -95,7 +80,7 @@ $this->load->view('admin/product/head', $this->data);
                                 Số lượng :
                             </label>
                             <div class="formRight">
-                                <span class="oneFour"><input type="text" id="param_quantity" value="<?php echo $set_info->view ?>" name="quantity"></span>
+                                <span class="oneFour"><input type="text" id="param_quantity" value="<?php echo $set_info->quantity ?>" name="quantity"></span>
                                 <span class="autocheck" name="quantity_autocheck"></span>
 
                             </div>
