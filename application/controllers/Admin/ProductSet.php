@@ -1,13 +1,16 @@
 <?php
-    class SetProduct extends MY_Controller{
+    class Productset extends MY_Controller{
         function __construct()
         {
             parent::__construct();
-            $this->load->model('setproduct_model');            
+            $this->load->model('productset_model');            
         }
+        /*
+         hien thi danh sach product set
+        */
         function index(){
-            $this->load->model('setproduct_model');
-            $total_rows =  $this->setproduct_model->get_total();
+            //lay tong so hang 
+            $total_rows =  $this->productset_model->get_total();
             $this->data['total_rows'] = $total_rows;
             // load ra thu vien phan trang
             $this->load->library('pagination');
@@ -30,45 +33,44 @@
 
             // tim kiem san pham thong qua bien get
             if($this->input->get('id') > 0){
-                $setproduct_id = $this->input->get('id');
-                $setproduct_id = intval($setproduct_id);
-                $this->db->where('set_id', $setproduct_id);
+                $productset_id = $this->input->get('id');
+                $productset_id = intval($productset_id);
+                $this->productset_model->search_product_set($productset_id);
             }
             if($this->input->get('set_name') != null){
-                $set_name = $this->input->get('set_name');
-                $this->db->like('set_product.set_name', $set_name);
+                $name = $this->input->get('set_name');
+                $this->productset_model->search_product_set_name($name);
             }
-
-            $this->data['set_list']= $this->setproduct_model->get_setproduct();
+            $this->data['set_list']= $this->productset_model->get_product_set();
              // load view
-             $this->data['temp'] = 'admin/product/setproduct';
+             $this->data['temp'] = 'admin/product/productset';
              $this->load->view('admin/main', $this->data);
         }
-        //chinh sua set 
+
+        //chinh sua set san pham
         function edit(){
             // load ra id san pham
             $set_id = $this->uri->rsegment('3');
-            $set_info = $this->setproduct_model->get_info($set_id);
+            $set_info = $this->productset_model->get_info($set_id);
             $image = $set_info->image;
             $this->data['set_info'] = $set_info;
             if(!$set_info){
                 // thong bao ko ton tai id nay
                 $this->session->set_flashdata('message', 'Không tồn tại set sản phẩm này');
-                redirect(admin_url('setproduct'));
+                redirect(admin_url('productset'));
             }
             // load ra thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
-                $this->form_validation->set_rules('set_name','Tên bắt buộc nhập','required');
-                $this->form_validation->set_rules('sale','Nội dung bắt buộc nhập','required');
+                $this->form_validation->set_rules('name','Tên bắt buộc nhập','required');
+                $this->form_validation->set_rules('price','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
-                    $set_name = $this->input->post('set_name');
+                    $name = $this->input->post('name');
                     $price = $this->input->post('price');
                     $price = str_replace(',', '', $price);
-                    $sale = $this->input->post('sale');
-                    $date_set = $this->input->post('date');
+                    $create_date = $this->input->post('create_date');
                     $quantity =$this->input->post('quantity');
                     $display = $this->input->post('checkbox');
 
@@ -83,11 +85,10 @@
                     // data du lieu insert
 
                     $data = array(
-                        'set_name' => $set_name,
+                        'name' => $name,
                         'image' => $image,
                         'price' => $price,
-                        'sale' => $sale,
-                        'date_set' => $date_set,
+                        'create_date' => $create_date,
                         'quantity' => $quantity,
                         'display' => $display
 
@@ -103,14 +104,14 @@
 
                     }
                     // them moi vao co so du lieu
-                    if($this->setproduct_model->update($set_id, $data)){
+                    if($this->productset_model->update($set_id, $data)){
                         // neu them thanh cong
                         $this->session->set_flashdata('message', 'Cập nhật thành công danh muc');
-                        redirect(admin_url('setproduct'));
+                        redirect(admin_url('productset'));
                     }else{
                         // in ra thong bao loi
                         $this->session->set_flashdata('message', 'Có lỗi khi cập nhật');
-                        redirect(admin_url('product'));
+                        redirect(admin_url('productset'));
                     }
                 }
             }
@@ -129,7 +130,7 @@
             unlink("upload/products".$image);
             // thong bao xoa thanh cong
             $this->session->set_flashdata('message', 'Xóa thành công sản phẩm này');
-            redirect(admin_url('setproduct'));
+            redirect(admin_url('productset'));
 
         }
         // xoa nhieu san pham
@@ -146,12 +147,12 @@
         //ham thuc hien xoa
         private function _del($set_id, $redirect = true){
             // lay ra thong tin san pham
-            $set = $this->setproduct_model->get_info($set_id);
+            $set = $this->productset_model->get_info($set_id);
             if(!$set){
                 // in ra thong bao loi
                 $this->session->set_flashdata('message', 'Không tồn tại sản phẩm này');
                 if($redirect){
-                    redirect (admin_url('setproduct'));
+                    redirect (admin_url('productset'));
                 }else{
                     return false;
                 }
@@ -164,7 +165,7 @@
 
 
             // thuc hien xoa san pham
-            $this->setproduct_model->delete($set_id);
+            $this->productset_model->delete($set_id);
 
         }
         //thay doi thuoc tinh display
@@ -174,32 +175,25 @@
         }
 
         //ham add set moi
-        function add(){
-            
-            
-
+        function add()
+        {
             // load thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
             // kiem tra xem co du lieu post len
             if($this->input->post()){
-                $this->form_validation->set_rules('set_name','Tên sản phẩm bắt buộc nhập','required');
+                $this->form_validation->set_rules('name','Tên sản phẩm bắt buộc nhập','required');
                 $this->form_validation->set_rules('price','Giá bắt buộc nhập','required');
-                $this->form_validation->set_rules('sale','Nội dung bắt buộc nhập','required');
-                if($this->form_validation->run()){
+                 if($this->form_validation->run()){
 
                     //lay du lieu da chon trong bang sp
                     $ids = $this->input->post('id');
-
-
                     // bat dau insert du lieu
-                    $set_name = $this->input->post('set_name');
+                    $name = $this->input->post('name');
                     $price = $this->input->post('price');
-                    $price = str_replace(',', '', $price);;
-                    $sale = $this->input->post('sale');
-                    $sale = $sale = str_replace(',','',$sale);
+                    $price = str_replace(',', '', $price);
                     $quantity =$this->input->post('quantity');
-                    $date_set = $this->input->post('date');
+                    $create_date = $this->input->post('create_date');
                     //  up anh minh hoa san pham
                     $this->load->library('upload_library');
                     $upload_path = './upload/products';
@@ -211,25 +205,25 @@
                     }
 
                     $data = array(
-                        'set_name' => $set_name,
+                        'name' => $name,
                         'image' => $image,
                         'price' => $price,
-                        'sale' => $sale,
-                        'date_set' => $date_set,
+                        'view' =>0,
+                        'create_date' => $create_date,
                         'quantity' => $quantity,
                         'display' =>0 
 
                     );
                     // them moi vao co so du lieu
-                    if($this->setproduct_model->create($data)){
+                    if($this->productset_model->create($data)){
                         // neu them thanh cong
-                        $set_id = $this->setproduct_model->get_set_name($set_name);
-                        foreach ($ids as $product_id){
+                      //  $set_id = $this->productset_model->get_set_name($set_name);
+                       // foreach ($ids as $product_id){
                             //$this->_del($product_id);
-                            $this->setproduct_model->insert_setproduct_child($product_id,$set_id->set_id);
-                        }
+                      //      $this->productset_model->insert_product_set_item($product_id,$set_id->product_set_id);
+                      //  }
                         $this->session->set_flashdata('message', 'Thêm mới thành công sản phẩm');
-                        redirect(admin_url('setproduct'));
+                        redirect(admin_url('productset'));
                     }else{
                         // in ra thong bao loi
                         $this->session->set_flashdata('message', 'Có lỗi khi thêm sản phẩm');
@@ -239,7 +233,7 @@
             }
 
             // load view
-            $this->data['list'] = $this->setproduct_model->get_list_product();
+            //$this->data['list'] = $this->productset_model->get_list_product();
             $this->data['temp'] = 'admin/product/addset';
             $this->load->view('admin/main', $this->data);
         }

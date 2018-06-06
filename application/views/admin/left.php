@@ -78,7 +78,7 @@
                         Danh mục							</a>
                 </li>
                 <li>
-                    <a href="<?php echo admin_url('setproduct'); ?>">
+                    <a href="<?php echo admin_url('productset'); ?>">
                         Danh sách set sản phẩm					</a>
                 </li>
                  <li>

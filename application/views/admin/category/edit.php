@@ -24,7 +24,7 @@ $this->load->view('admin/category/head', $this->data);
                         <div class="formRow">
                             <label for="param_category_name" class="formLeft">Tên Danh Mục:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" value="<?php echo $category_list->category_name; ?>" id="param_name" name="category_name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" value="<?php echo $category_list->name; ?>" id="param_name" name="category_name"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
                                 <div class="clear error" name="name_error"><?php echo form_error('category_name'); ?></div>
                             </div>

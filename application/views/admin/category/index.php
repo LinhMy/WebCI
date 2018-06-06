@@ -38,7 +38,7 @@ $this->load->view('admin/category/head', $this->data);
             <?php foreach ($list as $row): ?>
                 <tr class="row_<?php echo $row->category_id; ?>">
                     <td><input type="checkbox" name="id[]" value="<?php echo $row->category_id; ?>" /></td>
-                    <td style="color:red;"><?php echo $row->category_name; ?>
+                    <td style="color:red;"><?php echo $row->name; ?>
 
                     </td>
 
@@ -55,7 +55,7 @@ $this->load->view('admin/category/head', $this->data);
             <?php foreach ($row->subs as $sub): ?>
                 <tr class="row_<?php echo $sub->category_id; ?>">
                     <td><input type="checkbox" name="id[]" value="<?php echo $row->category_id; ?>" /></td>
-                    <td style="padding-left: 20px;"><?php echo $sub->category_name; ?>
+                    <td style="padding-left: 20px;"><?php echo $sub->name; ?>
 
                     </td>
 

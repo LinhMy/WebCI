@@ -5,7 +5,7 @@ class Upload_model extends CI_Model {
         {
                 $this->load->database();
         }
-        //chen du lieu khi khach hang nhap lien he
+        //chen du lieu khi khach hang tai file excel len
         public function insert_product_excel($data_insert)
         {
            return $this->db->insert('product', $data_insert);

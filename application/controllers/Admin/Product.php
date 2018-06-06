@@ -12,8 +12,7 @@
             $this->load->library('pagination');
             $config = array();
             $config['total_rows'] = $total_rows;// tong so dong
-            $config['base_url'] = admin_url('product/index');
-            $config['base_url'] = admin_url('set_product/add');// link hien thi du lieu
+            $config['base_url'] = admin_url('product/index');// link hien thi du lieu
             $config['per_page'] = 10; // so luong san pham hien thi tren 1 trang
             $config['uri__segment'] = 4; // phan doan hien thi ra so trang tren url. !
             $config['next_link'] = 'Trang kế tiếp';
@@ -40,7 +39,7 @@
             }
 
             // eng search
-            $this->db->select('category.category_name as category_name, product.*');
+            $this->db->select('category.name as name, product.*');
             $this->db->from('product');
             $this->db->join('category','product.category_id = category.category_id');
             $this->db->order_by('product_id','desc');
@@ -51,11 +50,11 @@
             $this->data['lists'] = $data;
             // lay danh muc san pham
             $this->load->model('category_model');
-            $input1['where'] = array('parent_id' => 0);
+            $input1['where'] = array('parent' => 0);
             $category_list = $this->category_model->get_list($input1);
 
             foreach ($category_list as $row){
-                $input['where'] = array('parent_id' => $row->category_id);
+                $input['where'] = array('parent' => $row->category_id);
                 $subs = $this->category_model->get_list($input);
                 $row->subs = $subs;
             }
@@ -68,6 +67,7 @@
             $this->data['temp'] = 'admin/product/index';
             $this->load->view('admin/main', $this->data);
         }
+        //them moi san pham
         function add(){
             // load thu vien validation
             $this->load->model('category_model');
@@ -81,7 +81,7 @@
                 $this->form_validation->set_rules('content','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
-                    $product_name = $this->input->post('product_name');
+                    $name = $this->input->post('product_name');
                     $price = $this->input->post('price');
                     $price = str_replace(',', '', $price);
                     $category_name = $this->input->post('category_name') ;
@@ -93,7 +93,7 @@
                     $discount = $discount = str_replace(',','',$discount);
                     $date_product = $this->input->post('date_product');
                     $quantity =$this->input->post('quantity');
-                    $content = $this->input->post('content');
+                    $note = $this->input->post('content');
                     //  up anh minh hoa san pham
                     $this->load->library('upload_library');
                     $upload_path = './upload/products';
@@ -105,14 +105,14 @@
                     }
 
                     $data = array(
-                        'product_name' => $product_name,
+                        'name' => $product_name,
                         'category_id' => $category_id['category_id'],
                         'image' => $image,
                         'price' => $price,
                         'discount' => $discount,
-                        'date_product' => $date_product,
+                        'created_date' => $date_product,
                         'quantity' => $quantity,
-                        'content' => $content,
+                        'note' => $content,
 
                     );
                     // them moi vao co so du lieu
@@ -132,6 +132,7 @@
             $this->data['temp'] = 'admin/product/add';
             $this->load->view('admin/main', $this->data);
         }
+
         // chinh sua san pham
         function edit(){
             // load ra id san pham
@@ -156,7 +157,7 @@
                 $this->form_validation->set_rules('content','Nội dung bắt buộc nhập','required');
                 if($this->form_validation->run()){
                     // bat dau insert du lieu
-                    $product_name = $this->input->post('product_name');
+                    $name = $this->input->post('product_name');
                     $category_name = $this->input->post('category_name') ;
 
                     $category_id = $this->category_model->get_category_id($category_name);
@@ -164,9 +165,9 @@
                     $price = str_replace(',', '', $price);
                     $discount = $this->input->post('discount');
                     $discount = $discount = str_replace(',','',$discount);
-                    $date_product = $this->input->post('date_product');
+                    $created_date = $this->input->post('date_product');
                     $quantity =$this->input->post('quantity');
-                    $content = $this->input->post('content');
+                    $note = $this->input->post('content');
 
                     // lay ten file anh minh hoa dc upload
                     $this->load->library('upload_library');
@@ -179,14 +180,14 @@
                     // data du lieu insert
 
                     $data = array(
-                        'product_name' => $product_name,
+                        'name' => $name,
                         'category_id' => $category_id['category_id'],
                         'image' => $image,
                         'price' => $price,
                         'discount' => $discount,
-                        'date_product' => $date_product,
+                        'created_date' => $created_date,
                         'quantity' => $quantity,
-                        'content' => $content,
+                        'note' => $note,
 
 
                     );

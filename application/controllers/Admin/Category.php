@@ -11,10 +11,10 @@
             $this->data['total'] = $total;
             // lay danh sach danh muc
             $input = array();
-            $input['where'] = array('parent_id' => 0);
+            $input['where'] = array('parent' => 0);
             $category_list = $this->category_model->get_list($input);
             foreach ($category_list as $row){
-                $input['where'] = array('parent_id' => $row->category_id);
+                $input['where'] = array('parent' => $row->category_id);
                 $subs = $this->category_model->get_list($input);
                 $row->subs = $subs;
             }
@@ -31,7 +31,7 @@
             $this->load->view('admin/main', $this->data);
         }
         function add(){
-            $input['where'] = array('parent_id' => 0);
+            $input['where'] = array('parent' => 0);
             $category_list = $this->category_model->get_list($input);
             $this->data['list'] = $category_list;
             $this->load->library('form_validation');
@@ -39,10 +39,10 @@
             if($this->input->post()){
                 $this->form_validation->set_rules('category_name','Tên sản phẩm bắt buộc nhập','required|min_length[4]');
                 if($this->form_validation->run()){
-                    $category_name = $this->input->post('category_name');
+                    $name = $this->input->post('category_name');
                     $data = array(
-                        'category_name' => $category_name,
-                        'parent_id' => $this->input->post('parent_category_id'),
+                        'name' => $name,
+                        'parent' => $this->input->post('parent_category_id'),
 
                     );
                     // insert du lieu
@@ -74,9 +74,9 @@
             if($this->input->post()){
                 $this->form_validation->set_rules('category_name','Tên sản phẩm bắt buộc nhập','required|min_length[4]');
                 if($this->form_validation->run()){
-                    $category_name = $this->input->post('category_name');
+                    $name = $this->input->post('category_name');
                     $data = array(
-                        'category_name' => $category_name,
+                        'name' => $name,
                     );
                     // insert du lieu
                     if($this->category_model->update($category_id, $data)){
@@ -126,7 +126,7 @@
 
             // kiem tra xem danh muc nay co san pham hay ko
             $this->load->model('product_model');
-            $category_info = $this->category_model->get_info_rule(array('parent_id' => $category_id), 'category_id');
+            $category_info = $this->category_model->get_info_rule(array('parent' => $category_id), 'category_id');
             if($category_info){
                 $this->session->set_flashdata('message', 'Danh mục ' .$category->category_name. ' có chứa sản phẩm, bạn cần xóa hết các sản phẩm trước khi xóa danh mục');
                 if($redirect) {
@@ -141,7 +141,7 @@
             $this->load->model('product_model');
             $product = $this->product_model->get_info_rule(array('category_id' => $category_id), 'product_id');
             if($product){
-                $this->session->set_flashdata('message', 'Danh mục ' .$category->category_name. ' có chứa sản phẩm, bạn cần xóa hết các sản phẩm trước khi xóa danh mục');
+                $this->session->set_flashdata('message', 'Danh mục ' .$category->name. ' có chứa sản phẩm, bạn cần xóa hết các sản phẩm trước khi xóa danh mục');
                 if($redirect) {
                     redirect(admin_url('Category'));
                 }else{
