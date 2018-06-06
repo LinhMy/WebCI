@@ -38,7 +38,7 @@ $this->load->view('admin/category/head', $this->data);
                             <select name="parent_category_id" id="param_parent_id" _autocheck="true">
                                 <option value="0">Là danh mục cha: </option>
                                 <?php foreach ($list as $row): ?>
-                                    <option value="<?php echo $row->category_id ?>"><?php echo $row->category_name; ?></option>
+                                    <option value="<?php echo $row->category_id ?>"><?php echo $row->name; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </span>
