@@ -18,9 +18,10 @@ class Home extends MY_Controller{
         $this->data['line_week'] = $this->revenue_model->get_tendency_week();*/
         $this->data['tran']=$this->revenue_model->get_tran();
         $this->data['prod']=$this->revenue_model->get_product();
-        $this->data['user']=$this->revenue_model->get_user();
         $this->data['member']=$this->revenue_model->get_member();
+        $this->data['contact']=$this->revenue_model->get_contact();
         $this->data['day_reve']=$this->revenue_model->get_revenue_now();
+        
 
         $this->data['temp'] = 'admin/home/index';
         $this->load->view('admin/main', $this->data);

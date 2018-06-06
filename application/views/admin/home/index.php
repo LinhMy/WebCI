@@ -46,7 +46,7 @@
                         <td class="fontB blue f13">Doanh số hôm nay</td>
                         <td style="width:120px;" class="textR webStatsLink red">
                             <?php foreach ($day_reve as $value) :
-                                    echo $value->total;
+                                    echo $value->amount;
                                 endforeach; ?>.000 đ
                         </td>
                     </tr>
@@ -55,7 +55,7 @@
                         <td class="fontB blue f13">Doanh số theo tháng</td>
                         <td style="width:120px;" class="textR webStatsLink red">
                             <?php foreach ($month as $value) :
-                                if ($value->label_m =="May") {
+                                if ($value->label_m == date("F")) {
                                     echo $value->total_sum;
                                 }
                                 endforeach; ?>.000 đ
@@ -110,7 +110,7 @@
                         </td>
 
                         <td class="textC webStatsLink">
-                           <?php echo $user; ?>			</td>
+                           <?php echo $member; ?>			</td>
                     </tr>
                     <tr>
                         <td>
@@ -119,7 +119,7 @@
                         </td>
 
                         <td class="textC webStatsLink">
-                            <?php echo $member; ?>    			</td>
+                            <?php echo $contact; ?>    			</td>
                     </tr>
                     </tbody>
                 </table>
