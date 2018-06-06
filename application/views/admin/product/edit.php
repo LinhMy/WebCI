@@ -25,7 +25,7 @@ $this->load->view('admin/product/head', $this->data);
                         <div class="formRow">
                             <label for="param_product_name" class="formLeft">Tên sản phẩm:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" value="<?php echo $product_info->product_name; ?>" name="product_name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" value="<?php echo $product_info->name; ?>" name="product_name"></span>
                                 <span class="autocheck" name="product_name_autocheck"></span>
                                 <div class="clear error" name="product_name_error"><?php echo form_error('product_name'); ?></div>
                             </div>
@@ -39,7 +39,7 @@ $this->load->view('admin/product/head', $this->data);
                                 <select name="category_name">
                                     <!-- kiem tra danh muc co danh muc con hay khong -->
                                     <?php foreach ($category_name as $row): ?>
-                                        <option value="<?= $row->category_name?>"><?= $row->category_name?></option>
+                                        <option value="<?= $row->name?>"><?= $row->name?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <span class="autocheck" name="cat_autocheck"></span>
@@ -103,7 +103,7 @@ $this->load->view('admin/product/head', $this->data);
                         Ngày :
                     </label>
                     <div class="formRight">
-                        <span class="oneFour"><input type="date" id="param_date" value="<?php echo $product_info->date_product ?>" name="date"></span>
+                        <span class="oneFour"><input type="date" id="param_date" value="<?php echo $product_info->created_date ?>" name="date"></span>
                         <span class="autocheck" name="quantity_autocheck"></span>
 
                     </div>
@@ -127,7 +127,7 @@ $this->load->view('admin/product/head', $this->data);
                         <div class="formRow">
                             <label for="param_content" class="formLeft">Ghi chú:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="content"><?php echo $product_info->content ?></textarea></span>
+                                <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="content"><?php echo $product_info->note ?></textarea></span>
                                 <span class="autocheck" name="content_autocheck"></span>
 
                             </div>

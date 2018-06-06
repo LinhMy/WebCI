@@ -36,7 +36,7 @@ $this->load->view('admin/product/head', $this->data);
                                 <select name="category_name">
                                     <!-- kiem tra danh muc co danh muc con hay khong -->
                                     <?php foreach ($category_name as $row): ?>
-                                    <option value="<?= $row->category_name?>"><?= $row->category_name?></option>
+                                    <option value="<?= $row->name?>"><?= $row->name?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <span class="autocheck" name="cat_autocheck"></span>
