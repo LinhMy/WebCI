@@ -6,6 +6,9 @@ class Product extends MY_Controller{
         $this->load->model('product_model');
         $this->load->helper('name_helper');
     }
+    /*
+     * Phương thức view sản phẩm
+     * */
     function view_product()
     {
         if ($this->uri->rsegment('3') == 1) {
@@ -19,7 +22,7 @@ class Product extends MY_Controller{
         if ($this->input->get('category') > 0) {
             $category_id = $this->input->get('category');
             $this->load->model('Category_model');
-            $input1['where'] = array('parent_id' => $category_id);
+            $input1['where'] = array('parent' => $category_id);
             $category_list = $this->Category_model->get_list($input1);
             $id_catalog_subs = array();
             foreach ($category_list as $row) {
@@ -27,7 +30,7 @@ class Product extends MY_Controller{
             }
             $this->db->where_in('category_id', $id_catalog_subs);
         }
-        $input['like'] = array('product_name', $key);
+        $input['like'] = array('name', $key);
         $list = $this->product_model->get_list($input);
         $this->data['list'] = $list;
         if ($this->uri->rsegment('3') == 1) {
@@ -36,8 +39,8 @@ class Product extends MY_Controller{
             foreach ($list as $row) {
                 $item = array();
                 $item['id'] = $row->product_id;
-                $item['label'] = $row->product_name;
-                $item['value'] = $row->product_name;
+                $item['label'] = $row->name;
+                $item['value'] = $row->name;
                 $result[] = $item;
             }
             // du lieu tra ve duoi dang json
@@ -48,6 +51,9 @@ class Product extends MY_Controller{
             $this->load->view('site/layout', $this->data);
         }
     }
+    /*
+     * Phương thức hiển thị danh mục sản phẩm
+     * */
     function catalog(){
         //  lay ra id danh muc san pham
         $this->load->model('Category_model');
@@ -59,8 +65,8 @@ class Product extends MY_Controller{
         }
         // kiem tra co phai la danh muc cha hay ko
         $input = array();
-        if($catalog_info->parent_id == 0){
-            $input_catalog['where'] = array('parent_id' => $category_id);
+        if($catalog_info->parent == 0){
+            $input_catalog['where'] = array('parent' => $category_id);
             $catalog_sub = $this->Category_model->get_list($input_catalog);
             $catalog_subs_id = array();
             if(!empty($catalog_sub)) {
@@ -128,7 +134,7 @@ class Product extends MY_Controller{
         if($this->input->get('category') > 0){
             $category_id = $this->input->get('category');
             $this->load->model('Category_model');
-            $input1['where'] = array('parent_id' => $category_id);
+            $input1['where'] = array('parent' => $category_id);
             $category_list = $this->Category_model->get_list($input1);
             $id_catalog_subs = array();
             foreach ($category_list as $row){
@@ -136,7 +142,7 @@ class Product extends MY_Controller{
             }
             $this->db->where_in('category_id', $id_catalog_subs);
         }
-        $input['like'] = array('product_name', $key);
+        $input['like'] = array('name', $key);
         $list = $this->product_model->get_list($input);
         $this->data['list'] = $list;
         if($this->uri->rsegment('3') == 1){
@@ -145,8 +151,8 @@ class Product extends MY_Controller{
             foreach ($list as $row){
                 $item = array();
                 $item['id'] = $row->product_id;
-                $item['label'] = $row->product_name;
-                $item['value'] = $row->product_name;
+                $item['label'] = $row->name;
+                $item['value'] = $row->name;
                 $result[] = $item;
             }
             // du lieu tra ve duoi dang json

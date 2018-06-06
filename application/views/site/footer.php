@@ -99,8 +99,8 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 <body>
 <div class="support-icon-right" style="position:fixed; z-index:9999999; right:50px; bottom:10px;">
-    <h3><i class="fa fa-facebook"></i> Chat với NatulieShop</h3>
-    <div class="online-support">
+    <h3><i class="fa fa-envelope-o"></i>Liên Hệ Với Chúng Tôi</h3>
+   <div class="online-support">
         <div
                 class="fb-page"
                 data-href="https://www.facebook.com/T%C3%BAi-x%C3%A1ch-nam-n%E1%BB%AF-gi%C3%A1-r%E1%BA%BB-t%E1%BA%A1i-%C4%91%C3%A0-n%E1%BA%B5ng-1770089636567342/"

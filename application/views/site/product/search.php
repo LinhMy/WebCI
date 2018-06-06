@@ -13,19 +13,19 @@
                                 <li class="product-item style6" style="float: left; width: 233px; height: 390px;">
                                     <div class="product-inner">
                                         <div class="thumb">
-                                            <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">
+                                            <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="">
                                                 <img style="width: 230px; height: 297px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>" alt="">
                                             </a>
                                             <div class="group-button">
                                                 <a class="wishlist" href="">Yêu Thích</a>
-                                                <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="">Chi Tiết</a>
+                                                <a class="compare button" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>" title="">Chi Tiết</a>
                                                 <a class="button add_to_cart_button" href="<?php echo base_url('cart/add/'.$row->product_id) ?>">Thêm Giỏ Hàng</a>
                                             </div>
 
                                         </div>
                                         <div class="info">
 
-                                            <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title=""><?php echo $row->product_name; ?></a></h3>
+                                            <h3 class="product-name short"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>" title=""><?php echo $row->name; ?></a></h3>
                                             <span class="price">
                                                 <?php if($row->discount > 0){ ?>
                                                     <ins><?php echo number_format($row->price - $row->discount); ?> VNĐ</ins>

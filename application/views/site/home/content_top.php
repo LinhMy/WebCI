@@ -12,12 +12,12 @@
                         <li class="product-item style9" style="float: left; width: 28%;">
                             <div class="product-inner">
                                 <div class="thumb col-sm-5">
-                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>">
+                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>">
                                         <img style="width: 150px; height: 184px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="info col-sm-7">
-                                    <h3 class="product-name short"><a title="" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>"><?php echo $row->product_name; ?></a></h3>
+                                    <h3 class="product-name short"><a title="" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>"><?php echo $row->name; ?></a></h3>
                                     <div title="Rated 3 out of 5" class="rating">
                                         <i class="active fa fa-star"></i>
                                         <i class="active fa fa-star"></i>
@@ -54,12 +54,12 @@
                         <li class="product-item style9" style="float: left; width: 28%;">
                             <div class="product-inner">
                                 <div class="thumb col-sm-5">
-                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>">
+                                    <a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>">
                                         <img style="width: 150px; height: 184px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="info col-sm-7">
-                                    <h3 class="product-name short"><a title="" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>"><?php echo $row->product_name; ?></a></h3>
+                                    <h3 class="product-name short"><a title="" href="<?php echo base_url('chi-tiet-san-pham/'.seoname($row->name).'/'.seoname($row->name).'/'.$row->product_id) ?>"><?php echo $row->name; ?></a></h3>
                                     <div title="Rated 3 out of 5" class="rating">
                                         <i class="active fa fa-star"></i>
                                         <i class="active fa fa-star"></i>
