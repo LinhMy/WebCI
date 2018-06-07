@@ -27,7 +27,7 @@
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6"">
             <div class="summary">
-                <h1 title=""  class="product_title entry-title"><?php echo $product_info->name; ?></h1>
+                <h1 title=""  class="product_title entry-title" style="color: red; margin-left: "><?php echo $product_info->name; ?></h1>
                 <?php if($product_info->discount > 0){ ?>
                     <span class="price" style="font-size: 15px; color: #800000; float: left; padding-right: 8px;"><i style="color: #0b0b0b;">Giá:</i> <?php echo number_format($product_info->price - $product_info->discount); ?> VNĐ</span>
                     <span class="price" style="font-size: 15px;color: #666666; text-decoration: line-through;"><?php echo number_format($product_info->price); ?> VNĐ</span>
@@ -35,30 +35,15 @@
                     Giá: <span class="price" style="font-size: 15px; color: #800000; "><?php echo number_format($product_info->price - $product_info->discount); ?> VNĐ</span>
                 <?php }?>
                 <p class="stock out-of-stock"><label>Tình Trạng:</label> <i class="fa fa-check"></i> Còn Hàng </p>
-                <div class="rateit">
-                <div id="rateit_srar1"  data-productid="123"></div>
-                <script type="text/javascript">
-                    $(function () {
-                        $('#rateit_star1').rateit({min: 1, max: 10, step: 1});
-                        $('#rateit_star1').bind('rated', function (e) {
-                            var ri = $(this);
-                            var value = ri.rateit('value');
-                            var productID = ri.data('productid');
-                            alert('Bạn đã đánh giá '+value +' sao cho sản phẩm có id là:'+productID );
-                            //không cho phép đánh giá,sau khi đã đánh giá xong
-                            ri.rateit('readonly', true);
-                        });
-                    });
-                </script>
-                </div>
                 <div class="short-descript">
-                    <p><strong>Thông tin:</strong><br><?php echo $product_info->note; ?></p>
+                <p id = "view_vote">Vote: <?php echo $data_vote?></p>
+                    <?php $this->load->view('site/rating'); ?>
+                </div>
+                <br>
+                <div class="short-descript">
+                    <p><strong style="margin-left: 4px">Thông tin:</strong><?php echo $product_info->note; ?></p>
                 </div>
                 <form name="add_product" method="post" action="<?php echo base_url('cart/add/'.$product_info->product_id); ?>" enctype="multipart/form-data">
-                    <div class="quantity">
-                        <span>Số Lượng Mua:</span>
-                        <input type="number" step="1" min="1" max="" name="qty" value="01" title="Qty" class="input-text qty text" size="4">
-                    </div>
                     <button type="submit" class="single_add_to_cart_button button alt">Thêm Vào Giỏ Hàng</button>
                 </form>
                 <div class="share" style="padding-top: 8px;">

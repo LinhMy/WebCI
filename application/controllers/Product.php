@@ -4,6 +4,7 @@ class Product extends MY_Controller{
     {
         parent::__construct();
         $this->load->model('product_model');
+        $this->load->model('vote_model');
         $this->load->helper('name_helper');
     }
     /*
@@ -111,6 +112,7 @@ class Product extends MY_Controller{
         $product_id = $this->uri->rsegment('3');
         $product_info = $this->product_model->get_info($product_id);
         $this->data['product_info'] = $product_info;
+
         // danh sách sản phẩm liên quan
         $input['where'] = array(
             'product_id !=' => $product_id,
@@ -118,9 +120,28 @@ class Product extends MY_Controller{
         );
         $list = $this->product_model->get_list($input);
         $this->data['list'] = $list;
+        //truyen vote
+        $this->data['data_vote']= $this->vote_model->get_reviews($product_id);
+
         // load view
         $this->data['temp'] = 'site/product/view';
         $this->load->view('site/layout', $this->data);
+        $this->load->view('site/rating', $this->data['product_info']);
+    }
+    public function rating()
+    {
+        $data = $this->input->post();
+        $product_id = $data['product_id'];
+        $vote  = $data['userRating'];
+        //print_r($data);
+        $data_insert=array(
+            'point'=> $vote,
+            'product_id'=> $product_id
+        );
+        $this->vote_model->insert_vote($data_insert);
+        $data_vote= $this->data['data_vote']= $this->vote_model->get_reviews($product_id);
+        echo json_encode($data_vote);
+
     }
     function search(){
         if($this->uri->rsegment('3') == 1){
@@ -178,5 +199,6 @@ class Product extends MY_Controller{
         $this->data['temp'] = 'site/product/search';
         $this->load->view('site/layout', $this->data);
     }
+
 }
 ?>

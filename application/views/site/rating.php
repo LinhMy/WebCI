@@ -9,7 +9,7 @@
     <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
     <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
     <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-
+    <input type="hidden" value = "<?php echo $product_info->product_id?>" id="product-id">
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -20,13 +20,29 @@ $(document).ready(function(){
     $('.rating input').click(function () {
         $(".rating span").removeClass('checked');
         $(this).parent().addClass('checked');
+
     });
 
     $('input:radio').change(
       function(){
         var userRating = this.value;
-        alert(userRating);
-    }); 
+        var product_id = $("#product-id").val();
+        var base_url = "<?php echo base_url();?>"
+          $.ajax({
+              type: 'POST',
+              url: base_url+'product/rating',
+              data: {
+                  product_id: product_id,
+                  userRating: userRating
+              },
+              dataType: 'json',
+              success: function(res) {
+                  if (res) {
+                      jQuery("#view_vote").html(res);
+                  }
+          });
+        // alert(product_id);
+    });
 });
 </script>
 <style>
