@@ -35,7 +35,7 @@ class bill extends MY_Controller{
         $input['where'] = array();
         if($id > 0)
         {
-            $input['where']['id'] = $id;
+            $input['where']['transaction_id'] = $id;
         }
 
 

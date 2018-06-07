@@ -2,6 +2,7 @@
     <?php $this->load->view('site/slide'); ?>
 </div>
 
+
 <div class="margin-top-30">
     <?php $this->load->view('site/bill'); ?>
 </div>

@@ -34,7 +34,7 @@
         */
         public function get_list_product()
         {
-            $this->db->select('category.category_name as category_name, product.*');
+            $this->db->select('category.name as category_name, product.*');
             $this->db->from('product');
             $this->db->join('category','product.category_id = category.category_id');
             $this->db->order_by('product_id','desc');
@@ -44,10 +44,10 @@
         // lay cac san pham co trong set
         public function get_list_product_in_set($set_id)
         {
-          $sql= "select  * from product
+          $sql= "select product.*, category.name as category_name from product
             join category
             where category.category_id = product.category_id and product_id in (
-                select product_id from set_product_child  where set_id  =
+                select product_id from product_set_item  where product_set_id  =
                 ".$set_id.") ;
             ";
         $query = $this->db->query($sql);
@@ -59,9 +59,10 @@
         $query=$this->db->get();
         return $query->result();*/
         }
+        // lay ten cua set dua trenn id
         public function get_set_name($product_set_id)
         {
-        $sql= "select set_id from set_product where name = \"".$product_set_id."\"";
+        $sql= "select name  from product_set where product_set_id = \"".$product_set_id."\"";
         $query = $this->db->query($sql);
         return $query->row();
         }

@@ -23,8 +23,9 @@
             // load model admin
             $this->load->model('admin_model');
             $where = array(
-                'username' => $username,
+                'name' => $username,
                 'password' => $password,
+                'type'=>1
             );
 
             if($this->admin_model->check_exists($where)){
