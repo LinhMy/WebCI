@@ -1,6 +1,6 @@
 <?php
 // load ra file head
-$this->load->view('admin/product/head', $this->data);
+$this->load->view('admin/product/headset', $this->data);
 ?>
 <div class="line"></div>
 
