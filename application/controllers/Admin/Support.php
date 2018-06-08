@@ -13,6 +13,7 @@ class Support extends MY_Controller {
 
   public function index()
   {
+    
     //lay du lieu o db 
     if($this->input->post()){
      
@@ -32,27 +33,29 @@ class Support extends MY_Controller {
           }
           // data du lieu insert
 
-          $data = array(
-              'info_shop' => $info_shop,
-              'facebook' => $facebook,
-              'message' => $message,
-              'address' => $address,
-              'image_shop' => $image_shop,
-              'phone' => $phone
-
-
-          );
-          if($image != ''){
+           if($image != ''){
               $image_corner = $product_info->image;
               if(file_exists($image_corner)){
                   $image_corner = $this->input->get('image');
                   unlink('./upload/products/'.$image_corner);
               }
-              $data['image'] = $image;
-
+              //$data_image = $image;
+              
           }
-          // them moi vao co so du lieu
-          if($this->contact_model->update( $data)){
+          $data =  $info_shop.";".$facebook.";". $message.";".$address.";".$phone.";". $image_shop;
+          $path= "././public/shopinfo.txt";
+           $file = @fopen( $path, "w" );   
+          if( $file == false )
+          {
+              echo 'Mở file không thành công';
+            }
+            else
+            {                
+                fwrite($file, $data);
+            }
+
+          /*/ them moi vao co so du lieu
+         if($this->contact_model->update( $data)){
               // neu them thanh cong
               $this->session->set_flashdata('message', 'Cập nhật thành công danh muc');
               redirect(admin_url('support'));
@@ -60,12 +63,29 @@ class Support extends MY_Controller {
               // in ra thong bao loi
               $this->session->set_flashdata('message', 'Có lỗi khi cập nhật');
               redirect(admin_url('support'));
-          }
+          }*/
 
         }
 
    // $this->data['shop_info']=$this->contact_model->get_info_shop();
-    $this->data['contact_list']=$this->contact_model->get_list_contact();
+
+   // lay du lieu lien he
+     $this->data['contact_list']=$this->contact_model->get_list_contact();
+    //doc file chua thong tin shop
+        $path= "././public/shopinfo.txt";
+        $fp = @fopen($path, "r");
+        
+        // Kiểm tra file mở thành công không
+        if (!$fp) {
+           // echo $path;
+        }
+        else
+        {
+            // Đọc file và trả về nội dung
+            $data = file_get_contents($path);//fread($fp, filesize($path));            
+            $this->data['shopinfo']= explode (";",$data);
+        }
+        fclose($fp);
     $this->data['temp'] = 'admin/support/index';
     $this->load->view('admin/main', $this->data);
   	

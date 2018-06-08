@@ -7,17 +7,16 @@
 
         </div>
         <div class="row" >
-            <br />      <?php foreach ($shop_info as  $shop) {?>
+            <br />    
             <?php ?>
-            <h2 class="fa fa-spinner"> Thông tin shop <i><?=$shop->info_shop ?></i></h2><br />
-            <h3 class="fa fa-facebook-square"> facebook:<a href="<?=$shop->facebook ?>"><?=$shop->facebook ?></a></h3><br />
-            <h3 class="fa fa-check-square"> <?=$shop->message ?></h3><br />
-            <i class="fa fa-volume-control-phone"> Điện thoại:<?=$shop->phone ?></i><br />
-            <?php $url ="upload/logos/".$shop->image_shop ?>
+            <h2 class="fa fa-spinner"> Thông tin shop <i><?=$shopinfo[0] ?></i></h2><br />
+            <h3 class="fa fa-facebook-square"> Facebook:<a href="<?=$shopinfo[1] ?>"><?=$shopinfo[1] ?></a></h3><br />
+            <h3 class="fa fa-check-square"> <?=$shopinfo[2] ?></h3><br />
+            <i class="fa fa-volume-control-phone"> Điện thoại:<?=$shopinfo[4] ?></i><br />
+            <?php $url ="upload/logos/".$shopinfo[5] ?>
             <img src="<?php echo base_url($url) ?>">
         </div>
-            <?php }?>
-
+           
         <div class="contact" >
             <form action="" method="POST">
                 <input type="text" id="name" name="name" placeholder="Tên của bạn...">
