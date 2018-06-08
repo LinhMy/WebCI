@@ -11,7 +11,7 @@
             $total_rows = $this->user_model->get_total();
             $this->data['total_rows'] = $total_rows;
             // lay danh sach user
-            $user_list = $this->user_model->get_list();
+            $user_list = $this->user_model->get_list_user();
             $this->data['list'] = $user_list;
 
             // load ra dong thong bao
@@ -22,8 +22,8 @@
             $this->load->view('admin/main', $this->data);
         }
         function check_username(){
-            $username = $this->input->post('username');
-            $where = array('username' => $username);
+            $username = $this->input->post('name');
+            $where = array('name' => $username);
             // kiem tra userame da ton tai hay chua
             if($this->user_model->check_exists($where)){
                 // in ra thong bao loi
@@ -39,24 +39,22 @@
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
-                $this->form_validation->set_rules('username','Tên tài khoản bắt buộc','required|min_length[4]|callback_check_username');
+                $this->form_validation->set_rules('name','Tên tài khoản bắt buộc','required|min_length[4]|callback_check_username');
                 $this->form_validation->set_rules('password','Mật khẩu bắt buộc','required|min_length[4]');
                 $this->form_validation->set_rules('password_rp','Nhập lại mật khẩu không đúng ','required|matches[password]');
-                $this->form_validation->set_rules('email','email','required|min_length[2]');
-                $this->form_validation->set_rules('phone','Số điện thoại','required|min_length[2]');
-                $this->form_validation->set_rules('address','Địa chỉ','required|min_length[2]');
-                $this->form_validation->set_rules('note','Ghi chú','required|min_length[2]');
+
                 if($this->form_validation->run()){
-                    $username = $this->input->post('username');
+
+                    $username = $this->input->post('name');
                     $password = $this->input->post('password');
-                    $password = md5($password);
+                    $password = ($password);
                     $email = $this->input->post('email');
                     $phone = $this->input->post('phone');
                     $address = $this->input->post('address');
                     $note = $this->input->post('note');
 
                     $data = array(
-                        'username' => $username,
+                        'name' => $username,
                         'password' => $password,
                         'phone' => $phone,
                         'email' => $email,
@@ -106,7 +104,7 @@
                 if($this->form_validation->run()){
 
                     $password = $this->input->post('password');
-                    $password = md5($password);
+                    $password = ($password);
                     $email = $this->input->post('email');
                     $phone = $this->input->post('phone');
                     $address = $this->input->post('address');
