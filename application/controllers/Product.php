@@ -138,6 +138,7 @@ class Product extends MY_Controller{
             'point'=> $vote,
             'product_id'=> $product_id
         );
+        //chen danh gia nguoi dung danh gia vao
         $this->vote_model->insert_vote($data_insert);
         $data_vote= $this->data['data_vote']= $this->vote_model->get_reviews($product_id);
         echo json_encode($data_vote);

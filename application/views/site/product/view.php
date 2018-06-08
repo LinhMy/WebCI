@@ -36,7 +36,7 @@
                 <?php }?>
                 <p class="stock out-of-stock"><label>Tình Trạng:</label> <i class="fa fa-check"></i> Còn Hàng </p>
                 <div class="short-descript">
-                <p id = "view_vote">Vote: <?php echo $data_vote?></p>
+                <p>Vote: <div id = "vote"></div></p>
                     <?php $this->load->view('site/rating'); ?>
                 </div>
                 <br>
