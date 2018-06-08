@@ -17,7 +17,7 @@ $(document).ready(function(){
     // Check Radio-box
     $(".rating input:radio").attr("checked", false);
 
-    $('.rating input').click(function () {
+    $('.rating input').dblclick(function () {
         $(".rating span").removeClass('checked');
         $(this).parent().addClass('checked');
 
@@ -36,10 +36,14 @@ $(document).ready(function(){
                   userRating: userRating
               },
               dataType: 'json',
-              success: function(res) {
-                  if (res) {
-                      jQuery("#view_vote").html(res);
-                  }
+              success: function(data) {
+                  // code here
+                  //console.log(data);
+                  jQuery("#vote").html(data);
+              },
+              error: function() {
+                  // code here
+              }
           });
         // alert(product_id);
     });

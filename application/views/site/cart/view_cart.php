@@ -53,7 +53,7 @@
                                 <?php endforeach; ?>
                                 <tr>
                                     <td colspan="3"></td>
-                                    <td class="order-total" colspan="2" style="color: red">Tổng Tiền Thanh Toán: <?php echo number_format($total_amount); ?>VNĐ</td>
+                                    <td class="order-total" colspan="2" style="color: red">Tổng Tiền Thanh Toán: <span class="total_amount"><span class="number"><?php echo number_format($total_amount); ?></span></span>VNĐ</td>
                                 </tr>
                                 </tbody>
                             </table>

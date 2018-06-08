@@ -31,7 +31,7 @@
                     </tr
                     <tr>
                         <td>Họ Tên:</td>
-                        <td><input type="text" name="name" value="<?php echo isset($user_info->username) ? $user_info->name : '' ?>">
+                        <td><input type="text" name="name" value="<?php echo isset($user_info->name) ? $user_info->name : '' ?>">
                             <i><?php echo form_error('name'); ?></i>
                         </td>
 
@@ -52,32 +52,32 @@
                     </tr>
                     <tr>
                         <td>Date:</td>
-                        <td><input type="date" name="paid_date" value="<?php echo isset($user_info->paid_date) ? $user_info->paid_date : '' ?>">
+                        <td><input type="date" name="paid_date" style="height: auto;width:235px;" value="<?php echo isset($user_info->paid_date) ? $user_info->paid_date : '' ?>">
                             <i><?php echo form_error('paid_date'); ?></i>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Ghi chú:</td>
-                        <td><textarea cols="40" style="text-align: left;" type="text" name="message" value="">
+                        <td><textarea cols="40" style="text-align: left;width: 235px" type="text" name="message" value="">
                             </textarea><i><?php echo form_error('message'); ?></i>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Status:</td>
-                        <td><textarea cols="40" style="text-align: left;" type="text" name="status" value="">
-                            </textarea><i><?php echo form_error('status'); ?></i>
+                        <td><select name="status" style="width: 235px">
+                                <option value="Đã Đặt hàng" >1</option>
+                            </select>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Thanh toán qua:</td>
                         <td>
-                            <select name="payment">
-                                <option value="" >-- Chọn cổng thanh toán --</option>
+                            <select name="payment" style="width: 235px">
+                                <option value="" >-- Cổng Thanh Toán --</option>
                                 <option value="offline">Thanh toán khi nhận hàng</option>
-                                <option value="baokim">Paypal</option>
                             </select>
                             <i><?php echo form_error('payment'); ?></i>
                         </td>

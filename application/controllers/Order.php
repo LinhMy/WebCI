@@ -1,4 +1,5 @@
 <?php
+
 Class Order extends MY_Controller
 {
     function __construct()
@@ -16,14 +17,12 @@ Class Order extends MY_Controller
         //tong so san pham co trong gio hang
         $total_items = $this->cart->total_items();
 
-        if($total_items <= 0)
-        {
+        if ($total_items <= 0) {
             redirect();
         }
         //tong so tien can thanh toan
         $total_amount = 0;
-        foreach ($carts as $row)
-        {
+        foreach ($carts as $row) {
             $total_amount = $total_amount + $row['subtotal'];
         }
         $this->data['total_amount'] = $total_amount;
@@ -31,21 +30,19 @@ Class Order extends MY_Controller
         //neu thanh vien da dang nhap thì lay thong tin cua thanh vien
         $user_id = 0;
         $user = '';
-        if($this->session->userdata('user_id_login'))
-        {
+        if ($this->session->userdata('user_id_login')) {
             //lay thong tin cua thanh vien
             $user_id = $this->session->userdata('user_id_login');
             $user = $this->user_model->get_info($user_id);
         }
-        $this->data['user']  = $user;
+        $this->data['user'] = $user;
 
 
         $this->load->library('form_validation');
         $this->load->helper('form');
 
         //neu ma co du lieu post len thi kiem tra
-        if($this->input->post())
-        {
+        if ($this->input->post()) {
 
             $this->form_validation->set_rules('email', 'Email nhận hàng', 'required|valid_email');
             $this->form_validation->set_rules('name', 'Tên', 'required|min_length[5]');
@@ -55,17 +52,16 @@ Class Order extends MY_Controller
             $this->form_validation->set_rules('payment', 'Cổng thanh toán', 'required');
 
             //nhập liệu chính xác
-            if($this->form_validation->run())
-            {
+            if ($this->form_validation->run()) {
                 $payment = $this->input->post('payment');
                 //them vao csdl
                 $data = array(
-                    'user_id'  => $user_id, //id thanh vien mua hang neu da dang nhap
-                    'amount'        => $total_amount,//tong so tien can thanh toan
-                    'paid_date'    => $this->input->post('paid_date'),
-                    'payment'       => $payment, //cổng thanh toán,
-                    'message'       => $this->input->post('message'), //ghi chú khi mua hàng
-                    'status'       =>   $this->input->post('status'),
+                    'user_id' => $user_id, //id thanh vien mua hang neu da dang nhap
+                    'amount' => $total_amount,//tong so tien can thanh toan
+                    'paid_date' => $this->input->post('paid_date'),
+                    'payment' => $payment, //cổng thanh toán,
+                    'message' => $this->input->post('message'), //ghi chú khi mua hàng
+                    'status' => $this->input->post('status'),
 
                 );
                 //them du lieu vao bang transaction
@@ -75,14 +71,12 @@ Class Order extends MY_Controller
 
                 //them vao bảng order (chi tiết đơn hàng)
                 $this->load->model('order_model');
-                foreach ($carts as $row)
-                {
+                foreach ($carts as $row) {
                     $data = array(
                         'transaction_id' => $transaction_id,
-                        'name'            => $row['name'],
-                        'email'            => $row['email'],
-                        'phone'         => $row['phone'],
-                        'message'         => $row['message'],
+                        'name' => $row['name'],
+                        'quantity' => $row['qty'],
+                        'amount' => $row['subtotal'],
                     );
                     $this->order_model->create($data);
                 }

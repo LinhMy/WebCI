@@ -14,7 +14,6 @@ Class Vote_model extends MY_Model
     }
     function insert_vote($data){
         $this->db->insert('vote',$data);
-
     }
 }
     ?>
