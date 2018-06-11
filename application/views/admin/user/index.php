@@ -32,7 +32,7 @@ $this->load->view('admin/user/head', $this->data);
                 <tr class="row_<?php echo $row->user_id; ?>">
 
                     <td ><?php echo $row->user_id; ?></td>
-                    <td ><?php echo $row->username; ?></td>
+                    <td ><?php echo $row->name; ?></td>
                     <td ><?php echo $row->email; ?></td>
                     <td ><?php echo $row->phone; ?></td>
                     <td ><?php echo $row->address; ?></td>

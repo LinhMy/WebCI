@@ -21,14 +21,14 @@
             $password = $this->input->post('password');
             $password = ($password);
             // load model admin
-            $this->load->model('admin_model');
+            $this->load->model('user_model');
             $where = array(
                 'name' => $username,
                 'password' => $password,
                 'type'=>1
             );
 
-            if($this->admin_model->check_exists($where)){
+            if($this->user_model->check_exists($where)){
                 return true;
             }else{
                 // tao ra thong bao dang nhap ko thanh cong

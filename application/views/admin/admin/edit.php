@@ -24,7 +24,7 @@ $this->load->view('admin/admin/head', $this->data);
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Username:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><?php echo $admin_info->username; ?></span>
+                                <span class="oneTwo"><?php echo $user_info->name; ?></span>
                                 <span class="autocheck" name="name_autocheck"></span>
                                 <div class="clear error" name="name_error"><?php echo form_error('username'); ?></div>
                             </div>
@@ -35,7 +35,7 @@ $this->load->view('admin/admin/head', $this->data);
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Password:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><b style="color: red;">Làm mới password thì mời nhập liệu:</b><input type="password" _autocheck="true" id="param_password" value="<?php echo $admin_info->password; ?>" name="password"></span>
+                                <span class="oneTwo"><b style="color: red;">Làm mới password thì mời nhập liệu:</b><input type="password" _autocheck="true" id="param_password" value="<?php echo $user_info->password; ?>" name="password"></span>
                                 <span class="autocheck" name="password_autocheck"></span>
                                 <div class="clear error" name="password_error"><?php echo form_error('password'); ?></div>
                             </div>
@@ -52,20 +52,38 @@ $this->load->view('admin/admin/head', $this->data);
                                 <div class="clear"></div>
                             </div>
                         <div class="formRow">
-                            <label for="param_information" class="formLeft">Thông tin:<span class="req">*</span></label>
+                            <label for="param_position" class="formLeft">Email:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="information" _autocheck="true" id="param_information" value="<?php echo $admin_info->information; ?>" name="information"></span>
-                                <span class="autocheck" name="information_autocheck"></span>
-                                <div class="clear error" name="information_error"><?php echo form_error('information'); ?></div>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_email" value="<?php echo $user_info->email; ?>" name="email"></span>
+                                <span class="autocheck" name="position_autocheck"></span>
+                                <div class="clear error" name="position_error"><?php echo form_error('email'); ?></div>
                             </div>
+
                             <div class="clear"></div>
                         </div>
                         <div class="formRow">
                             <label for="param_position" class="formLeft">Chức vụ:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" value="<?php echo $admin_info->position; ?>" name="position"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" value="<?php echo $user_info->phone; ?>" name="position"></span>
                                 <span class="autocheck" name="position_autocheck"></span>
                                 <div class="clear error" name="position_error"><?php echo form_error('position'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label for="param_position" class="formLeft">Địa chỉ:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" value="<?php echo $user_info->address; ?>" name="address"></span>
+                                <span class="autocheck" name="position_autocheck"></span>
+                                <div class="clear error" name="position_error"><?php echo form_error('address'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label class="formLeft">Nội dung:</label>
+                            <div class="formRight">
+                                <textarea class="editor" id="param_content" name="note" value="<?php echo $user_info->note; ?>"></textarea>
+                                <div class="clear error" name="content_error"><?php echo form_error('note'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
