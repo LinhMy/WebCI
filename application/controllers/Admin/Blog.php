@@ -103,7 +103,7 @@ class Blog extends MY_Controller {
          // load ra id
          $post_id = $this->uri->rsegment('3');
          $post_info = $this->blog_model->get_info($post_id);
-         $image = $post_info->image_post;
+         $image = $post_info->image;
          $this->data['post_info'] = $post_info;
          if(!$post_info){
              // thong bao ko ton tai id nay
@@ -122,7 +122,7 @@ class Blog extends MY_Controller {
                  $title = $this->input->post('title');
                  $summary = $this->input->post('summary');
                  $content = $this->input->post('content') ;
-                 $key = $this->input->post('key') ;
+                // $key = $this->input->post('key') ;
 
                  // lay ten file anh minh hoa dc upload
                  $this->load->library('upload_library');
@@ -136,9 +136,9 @@ class Blog extends MY_Controller {
                  $data = array(
                     'title' => $title,
                     'summary' => $summary,
-                    'image_post' => $image,
+                    'image' => $image,
                     'content' => $content,
-                    'key_search' => $key
+                   // 'key_search' => $key
   
                 );
                  //hinh anh
@@ -148,7 +148,7 @@ class Blog extends MY_Controller {
                          $image_corner = $this->input->get('image');
                          unlink('./upload/post/'.$image_corner);
                      }
-                     $data['image_post'] = $image;
+                     $data['image'] = $image;
 
                  }
                  // them moi vao co so du lieu
@@ -185,7 +185,7 @@ class Blog extends MY_Controller {
               $title = $this->input->post('title');
               $summary = $this->input->post('summary');
               $content = $this->input->post('content') ;
-              $key = $this->input->post('key') ;
+             // $key = $this->input->post('key') ;
 
               //  up anh minh hoa san pham
               $this->load->library('upload_library');
@@ -200,11 +200,11 @@ class Blog extends MY_Controller {
               $data = array(
                   'title' => $title,
                   'summary' => $summary,
-                  'image_post' => $image,
+                  'image' => $image,
                   'content' => $content,
                   'view' => 0,
-                  'date_post' => date("Y-m-d h:i:sa"),
-                  'key_search' => $key
+                  'create_date' => date("Y-m-d h:i:sa")//,
+                  //'key_search' => $key
 
               );
               // them moi vao co so du lieu

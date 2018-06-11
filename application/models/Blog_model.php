@@ -5,7 +5,7 @@
         //lay danh sach bai viet theo thoi gian giam dan
         public function get_list_post()
         {
-            $this->db->order_by('date_post', 'desc');
+            $this->db->order_by('create_date', 'desc');
             $query = $this->db->get('post');
             return $query->result();
         }

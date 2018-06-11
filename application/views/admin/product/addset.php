@@ -3,24 +3,29 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#add_product").click(function(event) {
-            event.preventDefault();
-            var product_id1 = $("#product_name1").val();
-            var product_id2 = $("#product_name2").val();
-            var product_id3 = $("#product_name3").val();
-            var product_id4 = $("#product_name4").val();
-            var product_id5 = $("#product_name5").val();
-            var qty1 = $("#qty1").val();
-            var qty2 = $("#qty2").val();
-            var qty3 = $("#qty3").val();
-            var qty4 = $("#qty4").val();
-            var qty5 = $("#qty5").val();            
+        $(".product_name").change(function(event) {
+            event.preventDefault();  
+           /* var product_id = new [];          
+           // $(".selectproduct").insertBefore($(".insertproduct"));
+           for (i = 0; i <  $(".selectproduct").length; i++) { 
+               product_id.push($("[name*=product_name]").eq(i).val());
+            }*/
+            var product_id1 =  $("[name*=product_name]").eq(0).val();
+            var product_id2 =  $("[name*=product_name]").eq(1).val();
+            var product_id3 =  $("[name*=product_name]").eq(2).val();
+            var product_id4 =  $("[name*=product_name]").eq(3).val();
+            var product_id5 =  $("[name*=product_name]").eq(4).val();
+            var qty1 = $("[name*=qty]").eq(0).val();
+            var qty2 = $("[name*=qty]").eq(1).val();
+            var qty3 = $("[name*=qty]").eq(2).val();
+            var qty4 = $("[name*=qty]").eq(3).val();
+            var qty5 = $("[name*=qty]").eq(4).val();           
 
             jQuery.ajax({
             type: "POST",
             url: "<?php echo admin_url('productset/total_product_set'); ?>",
             dataType: 'json',
-            data: {pid1: product_id1, pid2: product_id2, pid3: product_id3, pid4:               product_id4, pid5: product_id5,
+            data: { pid1: product_id1, pid2: product_id2, pid3: product_id3, pid4:               product_id4, pid5: product_id5,
                 qty1: qty1, qty2: qty2, qty3: qty3, qty4: qty4, qty5: qty5
             },
             success: function(res) {
@@ -32,8 +37,19 @@
                 }
             });
         });
+        $("#add_product").click(function(){
+            event.preventDefault();            
+           // $(".selectproduct").clone().insertBefore($(".insertproduct"));
+           $(".selectproduct:first").clone().appendTo($(".insertproduct"));
+        });
+        $(".removeproduct").click(function(){
+            event.preventDefault();            
+            $(".selectproduct:last").remove();
+        });
     });
+
 </script>
+
 <?php
 
 // load ra file head
@@ -81,7 +97,7 @@ $this->load->view('admin/product/headset', $this->data);
                                 Số lượng :
                             </label>
                             <div class="formRight">
-                                <span class="oneFour"><input type="text" id="param_quantity" name="quantity"></span>
+                                <span class="oneFour"><input type="number" id="param_quantity" name="quantity" step="1" min="1"  value="1" size="4" style="width:55px; height: 35px"></span>
                                 <span class="autocheck" name="quantity_autocheck"></span>
 
                             </div>
@@ -91,124 +107,29 @@ $this->load->view('admin/product/headset', $this->data);
                         <!-- Chọn sản phẩm-->
 		         
                  <div class="formRow">
-                            <label for="param_content" class="formLeft">Chọn sản phẩm thêm vào set:</label>
-                                <thead class="filter"><tr><td colspan="8">
-                    <!--form method="get" action="" class="list_filter form"-->
-                        <table width="80%" cellspacing="0" cellpadding="0" >
-                        <tbody>
-                            <tr>
-                                <td style="width:100px;" class="label"><label for="filter_id">Tên sản phẩm:</label></td>
-                                <td style="width:355px;" class="item">
-                                <select name="product_name1" id ="product_name1" style="width:355px;">
-                                    <!--  hien thi toan bo san pham co trong DB -->
-                                    <?php foreach ($product_list as $row): ?>
-                                    <option value="<?= $row->product_id?>"><?= $row->name?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                 <!--input type="text" id="text-search" value="<?php// echo isset($key) ? $key : '' ?>" name="key-search"  placeholder="Tìm kiếm sản phẩm..." >
-                                     <input style="color: black;" type="text" aria-haspopup="true" aria-autocomplete="list" value="<?php //echo isset($key) ? $key : '' ?>" role="textbox" autocomplete="off" class="input ui-autocomplete-input" placeholder="Tìm kiếm sản phẩm..."  name="key-search" id="text-search">
-                        <button type="submit" name="but" id="but" value="" class="btn-search"><span class="flaticon-magnifying-glass34"></span></button-->
-
-                                </td>
-                               
-                                <td style="width:10px;" class="label"></td>
-                                <td style="width:80px;" class="label"><label for="filter_id">Số lượng</label></td>
-                                <td style="width:155px;" class="item">    
-                                <input type="number" step="1" min="1" max="" name="qty" id ="qty1" value="1" title="Qty" class="input-text qty text" size="4" style="width:55px; height: 35px">
-                                
-                                </td>
-
-                            </tr>
+                            Chọn sản phẩm thêm vào set:
                             <br />
-                            <tr>
-                                <td style="width:100px;" class="label"><label for="filter_id">Tên sản phẩm:</label></td>
-                                <td style="width:355px;" class="item">
-                                <select name="product_name2" id ="product_name2" style="width:355px;">
-                                    <!--  hien thi toan bo san pham co trong DB-->
+                            <div>                                             
+                                <button value="Thêm" class="button blueB" id="add_product">Thêm </button>                       
+                                <input type="reset"  value="Xóa" class="removeproduct">
+                            </div>
+                            
+                            <div class="selectproduct" name= "selectproduct[]">
+                                Tên sản phẩm: 
+                                <select class="product_name" name ="product_name[]" style="width:355px;" >
+                                    <!--  hien thi toan bo san pham co trong DB -->
+                                    <option value="" "selected" >-- Chọn sản phẩm --</option>                              
                                     <?php foreach ($product_list as $row): ?>
                                     <option value="<?= $row->product_id?>"><?= $row->name?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                </td>
-
-                                <td style="width:10px;" class="label"></td>
-                                <td style="width:80px;" class="label"><label for="filter_id">Số lượng</label></td>
-                                <td style="width:155px;" class="item">    
-                                <input type="number" step="1" min="1" max="" name="qty" value="1" title="Qty"  id ="qty2" class="input-text qty text" size="4" style="width:55px; height: 35px">
-
-                                </td>
-                                </tr>
-                                <br />
-                                <tr>
-                                    <td style="width:100px;" class="label"><label for="filter_id">Tên sản phẩm:</label></td>
-                                    <td style="width:355px;" class="item">
-                                    <select name="product_name3" id="product_name3" style="width:355px;">
-                                    <!-- hien thi toan bo san pham co trong DB -->
-                                    <?php foreach ($product_list as $row): ?>
-                                    <option value="<?= $row->product_id?>"><?= $row->name?></option>
-                                    <?php endforeach; ?>
-                                    </select>
-                                    </td>
-
-                                    <td style="width:10px;" class="label"></td>
-                                    <td style="width:80px;" class="label"><label for="filter_id">Số lượng</label></td>
-                                    <td style="width:155px;" class="item">    
-                                    <input type="number" step="1" min="1" max="" name="qty" value="1" id ="qty3" title="Qty" class="input-text qty text" size="4" style="width:55px; height: 35px">
-
-                                    </td>
-
-                                    </tr>
-                                    <br />
-                                    <tr>
-                                        <td style="width:100px;" class="label"><label for="filter_id">Tên sản phẩm:</label></td>
-                                        <td style="width:355px;" class="item">
-                                        <select name="product_name4" id="product_name4" style="width:355px;">
-                                        <!-- hien thi toan bo san pham co trong DB -->
-                                        <?php foreach ($product_list as $row): ?>
-                                        <option value="<?= $row->product_id?>"><?= $row->name?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                        </td>
-
-                                        <td style="width:10px;" class="label"></td>
-                                        <td style="width:80px;" class="label"><label for="filter_id">Số lượng</label></td>
-                                        <td style="width:155px;" class="item">    
-                                        <input type="number" step="1" min="1" max="" name="qty" value="1"  id ="qty4" title="Qty" class="input-text qty text" size="4" style="width:55px; height: 35px">
-
-                                        </td>
-
-                                        </tr>
-                                        <br />
-                                        <tr>
-                                            <td style="width:100px;" class="label"><label for="filter_id">Tên sản phẩm:</label></td>
-                                            <td style="width:355px;" class="item">
-                                            <select name="product_name5" id ="product_name5" style="width:355px;">
-                                            <!--hien thi danh sach san pham -->
-                                            <?php foreach ($product_list as $row): ?>
-                                            <option value="<?= $row->product_id?>"><?= $row->name?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                            </td>
-
-                                            <td style="width:10px;" class="label"></td>
-                                            <td style="width:80px;" class="label"><label for="filter_id">Số lượng</label></td>
-                                            <td style="width:155px;" class="item">    
-                                            <input type="number" step="1" min="1" max="" name="qty" value="1"  id ="qty5" title="Qty" class="input-text qty text" size="4" style="width:55px; height: 35px">
-
-                                            </td>
-
-                                            </tr>
-                                            
-                                               
-                            
-                            </tbody></table>
-                            <!--/form-->
-                        </td></tr></thead>
-                                        
-                        <button value="Thêm" class="button blueB" id="add_product">Thêm </button>
-                        
-                        <input type="reset"  value="Xóa" class="basic">
+                               Số lượng: 
+                                <input type="number" step="1" min="1" name="qty[]"  value="1" title="Qty"  size="4" style="width:55px; height: 35px"class ="product_name">
+                            </div>
+                            <div class="insertproduct">
+                            </div>
                                 
+                           </div>
                             <div class="clear"></div>
                         </div>			
                         <div class="formRow">
@@ -218,16 +139,13 @@ $this->load->view('admin/product/headset', $this->data);
                             </label>
                             <div class="formRight">
                                 <span class="oneTwo">
-                                    <!--input type="text" _autocheck="true" class="format_number" id="param_price" style="width:200px" name="price"-->
                                     <div id='result_total' class="format_number" style = "color: red ; font-size: 20px;"> </div>
                                 </span>
                                 
                             </div>
                             
                             <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-                        </div>			
+                        </div>	
                         <div class="formRow">
                             
                             <label for="param_price" class="formLeft">

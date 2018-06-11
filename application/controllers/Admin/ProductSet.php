@@ -157,7 +157,10 @@
                     }
                 }
             }
-            // load view
+            // load view            
+            
+            $a=$this->data['product_list'] = $this->productset_model->get_list_product();
+            $b=$this->data['product_set_item'] = $this->productset_model->get_list_product_in_set($set_id);
             $this->data['temp'] = 'admin/product/editset';
             $this->load->view('admin/main', $this->data);
 
@@ -244,6 +247,14 @@
                         $this->input->post('product_name5')
 
                     );
+                    $data_qty= array(
+                        $this->input->post('qty1'),
+                        $this->input->post('qty2'),
+                        $this->input->post('qty3'),
+                        $this->input->post('qty4'),
+                        $this->input->post('qty5')
+
+                    );
                     //  up anh minh hoa san pham
                     $this->load->library('upload_library');
                     $upload_path = './upload/products';
@@ -268,9 +279,9 @@
                     if($this->productset_model->create($data)){
                         // neu them thanh cong
                        $set_id = $this->productset_model->get_set_id($name);
-                       foreach ($data_product as $product_id){
+                       for ($i=0; $i <5 ; $i++) { 
                             //$this->_del($product_id);
-                            $this->productset_model->insert_product_set_item($product_id,$set_id->product_set_id);
+                            $this->productset_model->insert_product_set_item($data_product[$i],$data_qty[$i],$set_id->product_set_id);
                             /// neu san pham da ton tai thi cong them vao qty????
                         }
                         $this->session->set_flashdata('message', 'Thêm mới thành công sản phẩm');
@@ -292,7 +303,7 @@
         public function viewproduct($set_id)
         {
             $this->load->model('product_model');
-            $total_rows =  $this->product_model->get_total();
+            $total_rows =  $this->productset_model->get_total_product_in_set($set_id);
             $this->data['total_rows'] = $total_rows;
             // load ra thu vien phan trang
             $this->load->library('pagination');
@@ -339,9 +350,13 @@
             // lay ra noi dung thong bao message
             $message = $this->session->flashdata('message');
             $this->data['message'] = $message;
-            //tra ve cac san pham co trong set hien thi len
+
+            //tra ve cac san pham co trong set hien thi len            
+            $query =$this->data['list']=$this->productset_model->get_list_product_in_set($set_id);
             
-            $this->data['list']=$this->productset_model->get_list_product_in_set($set_id);
+            // lay gia tien cua set 
+            $this->data['amount']= $this->productset_model->get_price_set($set_id);
+
             // lay ten cua set
            // $this->data['setname']= $this->productset_model->get_set_name($set_id);
             $this->data['temp'] = 'admin/product/viewproductset';

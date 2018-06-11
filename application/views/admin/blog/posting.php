@@ -40,16 +40,7 @@ $this->load->view('admin/blog/head', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>	
-                        <!-- tu khoa tim kiem-->
-                        <div class="formRow">
-                            <label for="param_content" class="formLeft">Từ khóa tìm kiếm:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="key"></textarea></span>
-                                <span class="autocheck" name="content_autocheck"></span>
-
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+                        
 
                         <div class="formRow">
                             <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
@@ -70,8 +61,20 @@ $this->load->view('admin/blog/head', $this->data);
 
                             </div>
                             <div class="clear"></div>
-                        </div>					         <div class="formRow hide"></div>
+                        </div>
+                        <!-- tu khoa tim kiem-->
+                        <div class="formRow">
+                            <label for="param_content" class="formLeft">Từ khóa tìm kiếm:</label>
+                            <div class="formRight">
+                                <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="key"></textarea></span>
+                                <span class="autocheck" name="content_autocheck"></span>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        					         <div class="formRow hide"></div>
                     </div>
+
 
                 </div><!-- End tab_container-->
 
