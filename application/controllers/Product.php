@@ -175,16 +175,28 @@ class Product extends MY_Controller
         $product_id = $this->input->post('product_id');
         $vote = $this->input->post('userRating');
         $comment = $this->input->post('comment');
+        $type = $this->input->post('type');
         //print_r($data);
         $data_insert = array(
             'point' => $vote,
             'product_id' => $product_id,
             'comment' => $comment,
-            'created_date' => date('Y-m-d')
+            'created_date' => date('Y-m-d'),
+            'type' =>$type
         );
         //chen danh gia nguoi dung danh gia vao
         $this->vote_model->insert_vote($data_insert);
-        $data_vote = $this->data['data_vote'] = $this->vote_model->get_reviews($product_id);
+        $where= array(
+            'product_id' => $product_id,
+            'type'=>$type
+        );
+        if($type=="1"){
+             $data_vote = $this->data['data_vote'] = $this->vote_model->get_reviews_set($where);
+        }
+        else if($type=="0")
+        {
+            $data_vote = $this->data['data_vote'] = $this->vote_model->get_reviews($where); 
+        }
         echo json_encode($data_vote);
 
     }

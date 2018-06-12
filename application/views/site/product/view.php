@@ -83,6 +83,8 @@
         <li class="active"><a data-toggle="tab" href="#tab-1">Đánh Giá Sản Phẩm</a></li>
         <br><br>
         <?php $this->load->view('site/rating'); ?>
+        <input type="hidden" value = "<?php echo $product_info->product_id?>" id="product-id">
+        <input type="hidden" value = "1" id="type-vote">
         <div id="tab-1" class="tab-panel active">
             <input type="text" value="" name="comment" id="comment"/>
             <input type="submit" name="votebtn" class="votebtn"/>

@@ -40,10 +40,10 @@
              
                     <span class="price" style="font-size: 15px; color: #800000; float: left; padding-right: 8px;"><i
                                 style="color: #0b0b0b;">Giá:</i> <?php echo number_format($product_set_info->price); ?>
-                        VNĐ</span>
+                        </span>
                     <span class="price"
-                          style="font-size: 15px;color: #666666; text-decoration: line-through;">
-                        VNĐ</span>
+                          style="font-size: 15px;color: #666666; text-decoration: line-through;"> VNĐ
+                        </span>
                 <p class="stock out-of-stock"><label>Tình Trạng:</label> <i class="fa fa-check"></i> Còn Hàng </p>
                 <div class="short-descript">
                     <p>Vote:
@@ -78,6 +78,8 @@
         <li class="active"><a data-toggle="tab" href="#tab-1">Đánh Giá Sản Phẩm</a></li>
         <br><br>
         <?php $this->load->view('site/rating'); ?>
+        <input type="hidden" value = "<?php echo $product_set_info->product_set_id?>" id="product-id">
+        <input type="hidden" value = "1" id="type-vote">
         <div id="tab-1" class="tab-panel active">
             <input type="text" value="" name="comment" id="comment"/>
             <input type="submit" name="votebtn" class="votebtn"/>
