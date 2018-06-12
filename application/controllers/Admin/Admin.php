@@ -3,15 +3,16 @@
         function __construct()
         {
             parent::__construct();
-            $this->load->model('admin_model');
+            $this->load->model('user_model');
         }
         function index(){
             // lay tong danh sach admin
-            $total_rows = $this->admin_model->get_total();
+            $total_rows = $this->user_model->get_total();
             $this->data['total_rows'] = $total_rows;
+
             // lay danh sach admin
-            $admin_list = $this->admin_model->get_list();
-            $this->data['list'] = $admin_list;
+            $user_list = $this->user_model->get_list_admin();
+            $this->data['list'] = $user_list;
 
             // load ra dong thong bao
             $message = $this->session->flashdata('message');
@@ -21,10 +22,10 @@
             $this->load->view('admin/main', $this->data);
         }
         function check_username(){
-            $username = $this->input->post('username');
-            $where = array('username' => $username);
+            $username = $this->input->post('name');
+            $where = array('name' => $username);
             // kiem tra userame da ton tai hay chua
-            if($this->admin_model->check_exists($where)){
+            if($this->user_model->check_exists($where)){
                 // in ra thong bao loi
                 // tra ve thong bao loi
                 $this->form_validation->set_message(__FUNCTION__,'Tai khoan da ton tai');
@@ -38,26 +39,32 @@
             $this->load->library('form_validation');
             $this->load->helper('form');
             if($this->input->post()){
-                $this->form_validation->set_rules('username','Tên tài khoản bắt buộc','required|min_length[4]|callback_check_username');
+                $this->form_validation->set_rules('name','Tên tài khoản bắt buộc','required|min_length[4]|callback_check_username');
                 $this->form_validation->set_rules('password','Mật khẩu bắt buộc','required|min_length[4]');
+
                 $this->form_validation->set_rules('password_rp','Nhập lại mật khẩu không đúng ','required|matches[password]');
-                $this->form_validation->set_rules('information','thông tin nhân viên','required|min_length[2]');
-                $this->form_validation->set_rules('position','chức vụ','required|min_length[2]');
                 if($this->form_validation->run()){
-                    $username = $this->input->post('username');
+
+                    $username = $this->input->post('name');
                     $password = $this->input->post('password');
                     $password = ($password);
-                    $information = $this->input->post('information');
-                    $position = $this->input->post('position');
+                    $email = $this->input->post('email');
+                    $phone = $this->input->post('phone');
+                    $address = $this->input->post('address');
+                    $note = $this->input->post('note');
 
                     $data = array(
-                        'username' => $username,
+                        'name' => $username,
                         'password' => $password,
-                        'position' => $position,
-                        'information' => $information,
+                        'email' => $email,
+                        'phone' => $phone,
+                        'address' => $address,
+                        'note' => $note,
+                        'type' => 1
                     );
+
                     // insert du lieu
-                    if($this->admin_model->create($data)){
+                    if($this->user_model->create($data)){
                         // thong bao them thanh cong
                         $this->session->set_flashdata('message', 'Thêm mới thành công');
                         redirect(admin_url('admin'));
@@ -73,14 +80,14 @@
         }
         function edit(){
             // lay ra id thanh vien admin
-            $admin_id = $this->uri->rsegment('3');
-            $admin_info = $this->admin_model->get_info($admin_id);
-            if(!$admin_info){
+            $user_id = $this->uri->rsegment('3');
+            $user_info = $this->user_model->get_info($user_id);
+            if(!$user_info){
                 // in ra thong bao loi
                 $this->session->set_flashdata('message', 'Không tồn tại admin này');
                 redirect(admin_url('admin'));
             }
-            $this->data['admin_info'] = $admin_info;
+            $this->data['user_info'] = $user_info;
             // load ra dong thong bao
             $message = $this->session->flashdata('message');
             $this->data['message'] = $message;
@@ -90,21 +97,26 @@
             if($this->input->post()){
                 $this->form_validation->set_rules('password','Mật khẩu bắt buộc','required|min_length[4]');
                 $this->form_validation->set_rules('password_rp','Nhập lại mật khẩu không đúng ','required|matches[password]');
-                $this->form_validation->set_rules('information','thông tin nhân viên','required|min_length[2]');
-                $this->form_validation->set_rules('position','chức vụ','required|min_length[2]');
+
                 if($this->form_validation->run()){
+
                     $password = $this->input->post('password');
                     $password = ($password);
-                    $information = $this->input->post('information');
-                    $position = $this->input->post('position');
+                    $email = $this->input->post('email');
+                    $phone = $this->input->post('phone');
+                    $address = $this->input->post('address');
+                    $note = $this->input->post('note');
 
                     $data = array(
                         'password' => $password,
-                        'position' => $position,
-                        'information' => $information,
+                        'email' => $email,
+                        'phone' => $phone,
+                        'address' => $address,
+                        'note' => $note,
+                        'type' => 1
                     );
                     // cap nhat co so du lieu
-                    if($this->admin_model->update($admin_id, $data)){
+                    if($this->user_model->update($user_id, $data)){
                         // neu them thanh cong
                         $this->session->set_flashdata('message', 'Cập nhật thành công danh muc');
                         redirect(admin_url('admin'));
@@ -123,21 +135,21 @@
         }
         function delete(){
             // lay ra id admin
-            $admin_id = $this->uri->rsegment('3');
-            $this->_del($admin_id);
+            $user_id = $this->uri->rsegment('3');
+            $this->_del($user_id);
             redirect(admin_url('admin'));
 
         }
         function delete_all(){
             $ids = $this->input->post('ids');
-            foreach ($ids as $admin_id){
-                $this->_del($admin_id);
+            foreach ($ids as $user_id){
+                $this->_del($user_id);
             }
         }
-        function _del($admin_id, $redirect = true){
-            $admin_id = intval($admin_id);
-            $admin_info = $this->admin_model->get_info($admin_id);
-            if(!$admin_info){
+        function _del($user_id, $redirect = true){
+            $user_id = intval($user_id);
+            $user_info = $this->user_model->get_info($user_id);
+            if(!$user_info){
                 // tao roi noi dung thong bao
                 $this->session->set_flashdata('message', 'Không tồn tại admin này');
                 if($redirect) {
@@ -148,7 +160,7 @@
 
             }
             // xoa du lieu
-            if($this->admin_model->delete($admin_id)){
+            if($this->user_model->delete($user_id)){
                 // tao ra noi dung xoa thanh cong
                 $this->session->set_flashdata('message','Xóa thành công');
             }

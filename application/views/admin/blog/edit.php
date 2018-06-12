@@ -44,7 +44,7 @@ $this->load->view('admin/blog/head', $this->data);
                         <div class="formRow">
                             <label for="param_content" class="formLeft">Từ khóa tìm kiếm:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="key"><?php echo $post_info->key_search ?></textarea></span>
+                                <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="key"><?php //echo $post_info->key_search ?></textarea></span>
                                 <span class="autocheck" name="content_autocheck"></span>
 
                             </div>
@@ -55,7 +55,7 @@ $this->load->view('admin/blog/head', $this->data);
                             <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
                             <div class="formRight">
                                 <input type="file" name="image" id="image">
-                                <img src="<?php echo base_url('upload/post/'.$post_info->image_post); ?>" style="width: 100px; height: 70px;">
+                                <img src="<?php echo base_url('upload/post/'.$post_info->image); ?>" style="width: 100px; height: 70px;">
 
                             </div>
                             <div class="clear"></div>

@@ -20,7 +20,7 @@ $this->load->view('admin/product/head', $this->data);
 
 
                                 <td style="width:40px;" class="label"><label for="filter_id">Tên</label></td>
-                                <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('product_name'); ?>" name="product_name"></td>
+                                <td style="width:155px;" class="item"><input type="text" style="width:155px;" id="filter_iname" value="<?php echo $this->input->get('name'); ?>" name="name"></td>
 
                                 <td style="width:150px">
                                     <input type="submit" value="Lọc" class="button blueB">
@@ -42,6 +42,7 @@ $this->load->view('admin/product/head', $this->data);
                 <td style="width: 50px;">Giảm giá</td>
                 <td style="width: 50px;">Hình ảnh</td>
                 <td style="width: 20px;">Lượt xem</td>
+                <td style="width: 20px;">Nội dung</td>
                 <td style="width:100px;">Chức năng</td>
             </tr>
             </thead>
@@ -76,13 +77,14 @@ $this->load->view('admin/product/head', $this->data);
                         </a>
                     </td>
                     <td><?php echo $row->view; ?></td>
+                    <td><?php echo $row->note; ?></td>
 
                     <td class="option">
                         <a href="<?php echo admin_url('product/edit/'.$row->product_id); ?>" title="Chỉnh sửa" class="tipS ">
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/edit.png" />
                         </a>
 
-                        <a href="<?php echo admin_url('product/delete/'.$row->product_id); ?>" title="Xóa" class="tipS verify_action" >
+                        <a href="<?php echo admin_url('product/del/'.$row->product_id); ?>" title="Xóa" class="tipS verify_action" >
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png" />
                         </a>
                     </td>

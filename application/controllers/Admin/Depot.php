@@ -155,14 +155,14 @@
                     //}
                     //gan gia tri insert theo tung cot trong excel
                     $inserdata['category_id'] =(int)$value['A'];
-                    $inserdata['product_name'] = $value['B'];
+                    $inserdata['name'] = $value['B'];
                     $inserdata['image'] = $value['C'];
                     $inserdata['price'] = (int)$value['D'];
                     $inserdata['discount'] =(int)$value['E'];
-                    $inserdata['create_date'] = date('Y-m-d H:i:s');
+                    $inserdata['created_date'] = date('Y-m-d H:i:s');
                     //$inserdata[$i]['view'] = 0;
                     $inserdata['quantity'] =(int)$value['F'];
-                    $inserdata['content'] = $value['G'];
+                    $inserdata['note'] = $value['G'];
                     $result = $this->upload_model->insert_product_excel($inserdata);   
                     // $i++;
 

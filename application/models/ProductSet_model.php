@@ -2,7 +2,7 @@
     class ProductSet_model extends MY_Model{
         var $table = 'product_set';
         var $key = 'product_set_id';
-
+        
         // tim kiem theo id product set
 
         public function search_product_set_id($product_set_id)
@@ -44,35 +44,94 @@
         // lay cac san pham co trong set
         public function get_list_product_in_set($set_id)
         {
-          $sql= "select product.*, category.name as category_name from product
-            join category
-            where category.category_id = product.category_id and product_id in (
-                select product_id from product_set_item  where product_set_id  =
-                ".$set_id.") ;
-            ";
-        $query = $this->db->query($sql);
-        return $query->result();
-       /* $this->db-> select('product.*');
-        $this->db->from('product');
-        $this->db->join('set_product_child','product.product_id = set_product_child.product_id');
-        $this->db->order_by('product_id','desc');
-        $query=$this->db->get();
-        return $query->result();*/
+            /*$sql= "SELECT product.*, category.name as category_name, psi.qty as qty
+                    FROM product
+                    INNER JOIN category
+                    ON category.category_id = product.product_id
+                    INNER JOIN product_set_item psi
+                    ON psi.product_id = product.product_id
+                    INNER JOIN product_set
+                    On product_set.product_set_id = psi.product_set_id
+                    WHERE product.product_id in (
+                    select product_id from product_set_item  where product_set_id  =
+                    ".$set_id.")";*/
+            $sql= "select product.*, category.name as category_name        
+            from product
+                join category
+                where category.category_id = product.category_id and product_id in (
+                    select product_id from product_set_item  where product_set_id  =
+                    ".$set_id.") ;
+                ";
+            $query = $this->db->query($sql);
+            return $query->result();
         }
-        // lay ten cua set dua trenn id
-        public function get_set_name($product_set_id)
+
+        function get_price_set($set_id)
         {
-        $sql= "select name  from product_set where product_set_id = \"".$product_set_id."\"";
-        $query = $this->db->query($sql);
-        return $query->row();
+            $this->db->select('price');
+            $this->db->where('product_set_id',$set_id);
+            $query =$this->db->get('product_set')->row();
+            return $query->price;
+
         }
-        public function insert_product_set_item($product_id,$set_id)
+
+        //tong san pham co trong set
+        function get_total_product_in_set($set_id)
+        {
+            $this->db->select('product_id');
+            $this->db->where('product_set_id', $set_id);
+            $query = $this->db->get('product_set_item');
+            return $query->num_rows();
+        }
+
+        // lay ten cua set dua tren id
+        public function get_set_id($name)
+        {
+            $sql= "select product_set_id  from product_set where name = \"".$name."\"";
+            $query = $this->db->query($sql);
+            return $query->row();
+        }
+        // chen du lieu vao product item khi chen cac san pham vao set
+        public function insert_product_set_item($product_id,$qty,$product_set_id)
         {
             $data = array(
                 'product_id' => $product_id,
+                'qty' => $qty,
                 'product_set_id' => $product_set_id
             );
             $this->db->insert('product_set_item',$data);
+        }
+        // update du lieu khi sua doi cac san pham trong set
+        public function update_product_set_item($product_id,$qty,$product_set_id)
+        {
+            $data = array(
+                'product_id' => $product_id,
+                'qty' => $qty               
+            );
+            $this->db->where( 'product_set_id', $product_set_id);
+            $this->db->update('product_set_item',$data);
+        }
+        /*Lay tong tien tu san pham da chon
+        */
+        function get_total_product_select($where)
+        {
+            $sql= "select sum(price) as total from product where ".$where;                
+            $query = $this->db->query($sql);
+            $ret =$query->row();
+            return $ret->total;
+            //$this->db->select_sum('price');
+            //$this->db->where($where);
+           // $query = $this->db->get('product');
+            //return $query->result();
+        }
+        // lay gia tung san pham
+        function get_product_price($product_id)
+        {
+            $this->db->select('price');
+            $this->db->where('product_id', $product_id);
+            $query= $this->db->get('product');
+            $ret= $query->row();
+            return $ret->price;
         }
     }
 ?>

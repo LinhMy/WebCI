@@ -21,7 +21,7 @@ $this->load->view('admin/support/head', $this->data);
                             <label for="param_product_name" class="formLeft"><img src="<?php echo public_url(); ?>/admin/images/icons/color/info.png" style="margin-bottom:-3px" >		
                     	    Thông tin chung:<span class="req">*</span></label>
                             <div class="formRight">
-                            <span class="oneTwo"><textarea cols="" rows="3" id="param_content" name="info_shop"><?php //=$shop->info_shop ?></textarea></span>
+                            <span class="oneTwo"><textarea cols="" rows="3" id="param_content" name="info_shop"><?=$shopinfo[0] ?></textarea></span>
                             <span class="autocheck" name="content_autocheck"></span>
 
                             </div>
@@ -29,10 +29,10 @@ $this->load->view('admin/support/head', $this->data);
                         </div>
                         <div class="formRow">
                             <label for="param_product_name" class="formLeft">
-                            <img src="<?php //echo public_url(); ?>/admin/images/icons/color/fb.png" style="margin-bottom:-3px" >
+                            <img src="<?php echo public_url(); ?>/admin/images/icons/color/fb.png" style="margin-bottom:-3px" >
                     	       Facebook:<span class="req">*</span></label>
                             <div class="formRight">
-                            <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="facebook"><?php //=$shop->facebook ?></textarea></span>
+                            <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="facebook"><?=$shopinfo[1] ?></textarea></span>
                                 <span class="autocheck" name="content_autocheck"></span>
                          </div>
                             <div class="clear"></div>
@@ -44,7 +44,7 @@ $this->load->view('admin/support/head', $this->data);
                     	    
                             Thông điệp:<span class="req">*</span></label>
                             <div class="formRight">
-                            <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="message"><?php //=$shop->message ?></textarea></span>
+                            <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="message"><?=$shopinfo[2] ?></textarea></span>
                             <span class="autocheck" name="content_autocheck"></span>
 
                         </div>
@@ -56,7 +56,7 @@ $this->load->view('admin/support/head', $this->data);
                     	    
                             Địa chỉ:<span class="req">*</span></label>
                             <div class="formRight">
-                            <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="address"><?php //=$shop->address ?></textarea></span>
+                            <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="address"><?=$shopinfo[3]?></textarea></span>
                             <span class="autocheck" name="content_autocheck"></span>
 
                         </div>
@@ -67,7 +67,7 @@ $this->load->view('admin/support/head', $this->data);
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/phone.png" style="margin-bottom:-3px" >
                             Điện thoại:<span class="req">*</span></label>
                             <div class="formRight">
-                            <span class="oneTwo"><textarea cols="" rows="1" id="param_content" name="phone"> </textarea></span>
+                            <span class="oneTwo"><textarea cols="" rows="1" id="param_content" name="phone"><?=$shopinfo[4] ?> </textarea></span>
                             <span class="autocheck" name="content_autocheck"></span>
 
                         </div>
@@ -79,7 +79,7 @@ $this->load->view('admin/support/head', $this->data);
                             Hình ảnh:<span class="req">*</span></label>
                             <div class="formRight">
                                 <input type="file" name="image" id="image">
-                                <img src="<?php //echo base_url('upload/logos/'.$shop->image_shop); ?>" style="width: 100px; height: 70px;">
+                                <img src="<?php echo base_url('upload/logos/'.$shopinfo[5]); ?>" style="width: 100px; height: 70px;">
 
                             </div>
                             <div class="clear"></div>
@@ -91,7 +91,7 @@ $this->load->view('admin/support/head', $this->data);
                 <?php// } ?>
                 <div class="formSubmit">
                     <input type="submit" class="redB" value="Cập nhật">
-                    <input type="reset" class="basic" value="Hủy bỏ">
+                    <!--input type="reset" class="basic" value="Hủy bỏ"-->
                 </div>
                 <div class="clear"></div>
             </div>

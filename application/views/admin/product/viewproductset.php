@@ -41,8 +41,7 @@ $this->load->view('admin/product/headset', $this->data);
                 <td style="width: 100px;">Danh mục</td>
                 <td style="width: 100px;">Giá bán gốc</td>
                 <td style="width: 50px;">Hình ảnh</td>                
-                <td style="width: 50px;">Số lượng</td>
-                <td style="width: 20px;">Thành tiền</td>
+                <!--td style="width: 50px;">Số lượng</td-->
             </tr>
             </thead>
 
@@ -54,7 +53,7 @@ $this->load->view('admin/product/headset', $this->data);
                             <span style='color:white;'>Xóa hết</span>
                         </a-->
                         <label style= "color:red">Tổng tiền:</label>
-                        <label style= "color:red" name ="sum_money">123</label>
+                        <label style= "color:red" name ="sum_money"><?php echo $amount." "?> VNĐ</label>
                     </div>
 
                     <!--div class='pagination'>
@@ -72,8 +71,7 @@ $this->load->view('admin/product/headset', $this->data);
                     <td style="width: 200px;"><?php echo $row->category_name; ?></td>
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
                     <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;" title="Click để xem chi tiết sản phẩm"></td>
-                    <td><?php echo $row->quantity; ?></td>
-                    <td></td>
+                    <!--td><?php// echo $row->qty; ?></td-->
 
                     
                 </tr>

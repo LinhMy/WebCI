@@ -69,10 +69,10 @@ $this->load->view('admin/blog/head', $this->data);
                     <td style="width: 200px;"><?php echo $row->summary; ?></td>
                     <td style="text-align: center;">
                         <a href="<?php// echo base_url('chi-tiet-san-pham/'.seoname($row->product_name).'/'.seoname($row->product_name).'/'.$row->product_id) ?>" title="Click vào đây để xem chi tiết tin tức" >
-                        <img src="<?php echo  base_url('upload/post/'.$row->image_post); ?>" style="width: 100px; height: 70px;">
+                        <img src="<?php echo  base_url('upload/post/'.$row->image); ?>" style="width: 100px; height: 70px;">
                         </a>
                     </td>
-                    <td><?php echo ($row->date_post); ?> </td>
+                    <td><?php echo ($row->create_date); ?> </td>
                     <td><?php echo $row->view; ?></td>
 
                     <td class="option">

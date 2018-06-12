@@ -24,9 +24,9 @@ $this->load->view('admin/product/head', $this->data);
                         <div class="formRow">
                             <label for="param_product_name" class="formLeft">Tên sản phẩm:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" name="product_name"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_product_name" name="name" value="<?php echo set_value('name')?>"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('product_name'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -53,6 +53,14 @@ $this->load->view('admin/product/head', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>
+                        <div class="formRow">
+                            <label class="formLeft">Ảnh kèm theo:</label>
+                            <div class="formRight">
+                                <input type="file" multiple="" name="image_list[]" multiple id="image_list">
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
                         <!-- Price -->
                         <div class="formRow">
                             <label for="param_price" class="formLeft">
@@ -61,14 +69,28 @@ $this->load->view('admin/product/head', $this->data);
                             </label>
                             <div class="formRight">
 		<span class="oneTwo">
-			<input type="text" _autocheck="true" class="format_number" id="param_price" style="width:100px" name="price">
-			<img src="<?php echo public_url(); ?>/admin/crown/images/icons/notifications/information.png" style="margin-bottom:-8px" title="Giá bán sử dụng để giao dịch" class="tipS">
+			<input type="text" _autocheck="true" class="format_number" id="price" style="width:100px" name="price" >
+			<img src="<?php echo public_url(); ?>/admin/crown/images/icons/notifications/information.png" style="margin-bottom:-8px" title="Giá bán sử dụng để giao dịch" class="tipS" value="<?php echo set_value('price')?>">
 		</span>
                                 <span class="autocheck" name="price_autocheck"></span>
                                 <div class="clear error" name="price_error"><?php echo form_error('price'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
+                        <script>
+                            //validate
+                            function validateTwoDates() {
+                                var $price = $("#price").val();
+                                var $discount = $("#discount").val();
+                                return($price > $discount);
+                            }
+
+                            function test(){
+                                if (! validateTwoDates()) {
+                                    alert('date_to phải lớn hơn date_from');
+                                }
+                            }
+                        </script>
 
                         <!-- Price -->
                         <div class="formRow">
@@ -78,11 +100,11 @@ $this->load->view('admin/product/head', $this->data);
                             </label>
                             <div class="formRight">
 		<span>
-			<input type="text" class="format_number" id="param_discount" style="width:100px" name="discount">
+			<input type="text" class="format_number" id="discount" style="width:100px" name="discount">
 			<img src="<?php echo public_url(); ?>/admin/crown/images/icons/notifications/information.png" style="margin-bottom:-8px" title="Số tiền giảm giá" class="tipS">
 		</span>
                                 <span class="autocheck" name="discount_autocheck"></span>
-                                <div class="clear error" name="discount_error"></div>
+                                <div class="clear error" name="discount_error"><?php echo form_error('discount'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -93,7 +115,7 @@ $this->load->view('admin/product/head', $this->data);
                                 Ngày :
                             </label>
                             <div class="formRight">
-                                <span class="oneFour"><input type="date" id="param_quantity" name="date_product"></span>
+                                <span class="oneFour"><input type="date" id="param_created_date" name="created_date"></span>
                                 <span class="autocheck" name="quantity_autocheck"></span>
 
                             </div>
@@ -115,7 +137,7 @@ $this->load->view('admin/product/head', $this->data);
                         <div class="formRow">
                             <label for="param_content" class="formLeft">Ghi chú:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="content"></textarea></span>
+                                <span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="note" value="<?php echo set_value('note')?>"></textarea></span>
                                 <span class="autocheck" name="content_autocheck"></span>
 
                             </div>

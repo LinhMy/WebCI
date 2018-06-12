@@ -24,9 +24,9 @@ $this->load->view('admin/user/head', $this->data);
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Username:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><?php echo $user_info->username; ?></span>
+                                <span class="oneTwo"><?php echo $user_info->name; ?></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('username'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>

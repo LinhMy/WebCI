@@ -24,9 +24,9 @@ $this->load->view('admin/admin/head', $this->data);
                         <div class="formRow">
                             <label for="param_name" class="formLeft">Username:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_username" name="username"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_name" name="name"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('username'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('name'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -50,25 +50,42 @@ $this->load->view('admin/admin/head', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>
-
                         <div class="formRow">
-                            <label for="param_information" class="formLeft">Thông tin:<span class="req">*</span></label>
+                            <label for="param_information" class="formLeft">Email:<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_information" name="information"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_email" name="email"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
-                                <div class="clear error" name="name_error"><?php echo form_error('information'); ?></div>
+                                <div class="clear error" name="name_error"><?php echo form_error('email'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="formRow">
-                            <label for="param_position" class="formLeft">Chức vụ:<span class="req">*</span></label>
+                            <label for="param_position" class="formLeft">Số điện thoại :<span class="req">*</span></label>
                             <div class="formRight">
-                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" name="position"></span>
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" name="phone"></span>
                                 <span class="autocheck" name="name_autocheck"></span>
                                 <div class="clear error" name="name_error"><?php echo form_error('position'); ?></div>
                             </div>
                             <div class="clear"></div>
                         </div>
+                        <div class="formRow">
+                            <label for="param_position" class="formLeft">Địa chỉ:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input type="text" _autocheck="true" id="param_position" name="address"></span>
+                                <span class="autocheck" name="name_autocheck"></span>
+                                <div class="clear error" name="name_error"><?php echo form_error('position'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow">
+                            <label class="formLeft">Nội dung:</label>
+                            <div class="formRight">
+                                <textarea class="editor" id="param_content" name="note"></textarea>
+                                <div class="clear error" name="content_error"><?php echo form_error('note'); ?></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formRow hide"></div>
 
                     </div>
 
