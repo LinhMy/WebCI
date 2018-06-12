@@ -43,6 +43,38 @@ class Cart extends MY_Controller
         //chuyen sang trang danh sach
         Redirect(base_url('cart/view_cart'));
     }
+    /*
+    them set san pham vao gio hang
+    
+    */
+    function addset()
+    {
+        //lay san pham muon them vao gio hang
+        $this->load->model('ProductSet_model');
+        $product_set_id = $this->uri->rsegment(3);
+        $product_set_info = $this->ProductSet_model->get_info($product_set_id);
+        if (!$product_set_info) {
+            redirect();
+        }
+        //tong so san pham
+        $qty = 1;
+          if ($this->input->post('quantity')) {
+              $qty = $this->input->post('quantity');
+          }
+        $price = $product_set_info->price;
+        // thong tin san pham thêm vào giỏ hàng
+        $data = array(
+            'id' => $product_set_info->product_set_id,
+            'qty' => $qty,
+            'name'  => $product_set_info->name,
+            'price' => $price,
+            'image_link'  => $product_set_info->image,
+       );
+        // insert du lieu vao thu vien cart
+        $this->cart->insert($data);
+        //chuyen sang trang danh sach
+        Redirect(base_url('cart/view_cart'));
+    }
 
     function view_cart()
     {
