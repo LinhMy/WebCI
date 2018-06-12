@@ -41,7 +41,7 @@ $this->load->view('admin/product/headset', $this->data);
                 <td style="width: 100px;">Giá bán gốc</td>
                 <td style="width: 20px;">Hình ảnh</td>
                 <td style="width: 20px;">Lượt xem</td>
-                <td style="width: 20px;">Hiển thị</td>
+                <td style="width: 20px;">Cho phép bán</td>
                 <td style="width:100px;">Chức năng</td>
             </tr>
             </thead>

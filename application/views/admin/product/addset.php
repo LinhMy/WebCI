@@ -3,36 +3,26 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".product_name").change(function(event) {
+        $(".product_name").change(function(event) {            
             event.preventDefault();  
-           /* var product_id = new [];          
+            var product_id =  []; 
+            var qty=[];         
            // $(".selectproduct").insertBefore($(".insertproduct"));
            for (i = 0; i <  $(".selectproduct").length; i++) { 
                product_id.push($("[name*=product_name]").eq(i).val());
-            }*/
-            var product_id1 =  $("[name*=product_name]").eq(0).val();
-            var product_id2 =  $("[name*=product_name]").eq(1).val();
-            var product_id3 =  $("[name*=product_name]").eq(2).val();
-            var product_id4 =  $("[name*=product_name]").eq(3).val();
-            var product_id5 =  $("[name*=product_name]").eq(4).val();
-            var qty1 = $("[name*=qty]").eq(0).val();
-            var qty2 = $("[name*=qty]").eq(1).val();
-            var qty3 = $("[name*=qty]").eq(2).val();
-            var qty4 = $("[name*=qty]").eq(3).val();
-            var qty5 = $("[name*=qty]").eq(4).val();           
+               qty.push($("[name*=qty]").eq(i).val());
+            }          
 
             jQuery.ajax({
             type: "POST",
             url: "<?php echo admin_url('productset/total_product_set'); ?>",
             dataType: 'json',
-            data: { pid1: product_id1, pid2: product_id2, pid3: product_id3, pid4:               product_id4, pid5: product_id5,
-                qty1: qty1, qty2: qty2, qty3: qty3, qty4: qty4, qty5: qty5
-            },
+            data: { product_id_array :product_id, qty_array:qty },
             success: function(res) {
                 if (res)
                     {
-                    // Show Entered Value
-                    jQuery("div#result_total").html(res);
+                    // hien thi du kieu tra ve
+                    jQuery("div#result_total").html(res);                   
                     }
                 }
             });

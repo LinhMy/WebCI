@@ -44,24 +44,14 @@
         // lay cac san pham co trong set
         public function get_list_product_in_set($set_id)
         {
-            /*$sql= "SELECT product.*, category.name as category_name, psi.qty as qty
-                    FROM product
-                    INNER JOIN category
-                    ON category.category_id = product.product_id
-                    INNER JOIN product_set_item psi
-                    ON psi.product_id = product.product_id
-                    INNER JOIN product_set
-                    On product_set.product_set_id = psi.product_set_id
-                    WHERE product.product_id in (
-                    select product_id from product_set_item  where product_set_id  =
-                    ".$set_id.")";*/
-            $sql= "select product.*, category.name as category_name        
-            from product
-                join category
-                where category.category_id = product.category_id and product_id in (
-                    select product_id from product_set_item  where product_set_id  =
-                    ".$set_id.") ;
-                ";
+            $sql= "select product.*, product_set_item.qty as qty  
+                    from product_set_item                                
+                    join product
+                    on product.product_id = product_set_item.product_id
+                    join category
+                    on category.category_id = product.category_id 
+                    WHERE product_set_item.product_set_id  = 
+                    ".$set_id;
             $query = $this->db->query($sql);
             return $query->result();
         }
@@ -132,6 +122,13 @@
             $query= $this->db->get('product');
             $ret= $query->row();
             return $ret->price;
+        }
+        # xoa cac san pham trong bang product_set_item
+        public function delete_product_in_set($product_set_id)
+        {
+            $this->db->where('product_set_id', $product_set_id);
+            return $this->db->delete('product_set_item');
+
         }
     }
 ?>

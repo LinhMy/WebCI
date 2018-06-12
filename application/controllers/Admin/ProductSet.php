@@ -124,6 +124,9 @@
                     if(isset($upload_data['file_name'])){
                         $image = $upload_data['file_name'];
                     }
+                    // du lieu insert bang product_set_item
+                    $data_product = $this->input->post('product_name');
+                    $data_qty = $this->input->post('qty');
                     // data du lieu insert
 
                     $data = array(
@@ -148,6 +151,17 @@
                     // them moi vao co so du lieu
                     if($this->productset_model->update($set_id, $data)){
                         // neu them thanh cong
+                        // xoa cac san pham co trong product_set_item
+                        if($this->productset_model->delete_product_in_set($set_id))
+                        {
+                            //  cap nhat san pham
+                            for ($i=0; $i <count($data_product) ; $i++) {
+                                #insert san pham        
+                                $a= $data_product[$i];    
+                                $this->productset_model->insert_product_set_item($data_product[$i],$data_qty[$i],$set_id);
+                                
+                            }
+                        }
                         $this->session->set_flashdata('message', 'Cập nhật thành công danh muc');
                         redirect(admin_url('productset'));
                     }else{
@@ -239,22 +253,9 @@
                     $price = str_replace(',', '', $price);
                     $quantity =$this->input->post('quantity');
                     $create_date = $this->input->post('create_date');
-                    $data_product= array(
-                        $this->input->post('product_name1'),
-                        $this->input->post('product_name2'),
-                        $this->input->post('product_name3'),
-                        $this->input->post('product_name4'),
-                        $this->input->post('product_name5')
-
-                    );
-                    $data_qty= array(
-                        $this->input->post('qty1'),
-                        $this->input->post('qty2'),
-                        $this->input->post('qty3'),
-                        $this->input->post('qty4'),
-                        $this->input->post('qty5')
-
-                    );
+                   // du lieu insert bang product_set_item
+                   $data_product = $this->input->post('product_name');
+                   $data_qty = $this->input->post('qty');
                     //  up anh minh hoa san pham
                     $this->load->library('upload_library');
                     $upload_path = './upload/products';
@@ -279,7 +280,7 @@
                     if($this->productset_model->create($data)){
                         // neu them thanh cong
                        $set_id = $this->productset_model->get_set_id($name);
-                       for ($i=0; $i <5 ; $i++) { 
+                       for ($i=0; $i <count($data_product) ; $i++) { 
                             //$this->_del($product_id);
                             $this->productset_model->insert_product_set_item($data_product[$i],$data_qty[$i],$set_id->product_set_id);
                             /// neu san pham da ton tai thi cong them vao qty????
@@ -366,31 +367,15 @@
         //trong add product set
         function total_product_set()
         {
-            $product_id1 = $this->input->post('pid1');
-            $product_id2 = $this->input->post('pid2');            
-            $product_id3 = $this->input->post('pid3');
-            $product_id4 = $this->input->post('pid4');
-            $product_id5 = $this->input->post('pid5');
-
-            $qty1 = $this->input->post('qty1');
-            $qty2= $this->input->post('qty2');            
-            $qty3 = $this->input->post('qty3');
-            $qty4 = $this->input->post('qty4');
-            $qty5 = $this->input->post('qty5');
-            
-            $where= "product_id in($product_id1,$product_id2, $product_id3, $product_id4, $product_id5)";
-           $total1 = $this->productset_model->get_product_price($product_id1);
-           $total2 = $this->productset_model->get_product_price($product_id2);
-           $total3 = $this->productset_model->get_product_price($product_id3);
-           $total4 = $this->productset_model->get_product_price($product_id4);
-           $total5 = $this->productset_model->get_product_price($product_id5);
-           $data=$total1*$qty1 + 
-                 $total2*$qty2 +
-                 $total3*$qty3 + 
-                 $total4*$qty4 +
-                 $total5*$qty5;
-           
-            //$data =$this->productset_model->get_total_product_select($where)." VNĐ";
+            $product_id = $this->input->post('product_id');
+            $qty = $this->input->post('qty');
+            //$data;
+            for ($i=0; $i <count($product_id) ; $i++) { 
+                if($product_id[$i]!=""){
+                $total = $this->productset_model->get_product_price($product_id[$i]);
+                $data += $total*$qty[$i];
+                }
+            }
             $data=$data."VNĐ";
             echo json_encode($data);
         }

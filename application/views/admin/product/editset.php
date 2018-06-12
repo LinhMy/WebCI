@@ -1,30 +1,24 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(".product_name").change(function(event) {
-            event.preventDefault();            
-           // $(".selectproduct").insertBefore($(".insertproduct"));            
-            var product_id1 =  $("[name*=product_name]").eq(0).val();
-            var product_id2 =  $("[name*=product_name]").eq(1).val();
-            var product_id3 =  $("[name*=product_name]").eq(2).val();
-            var product_id4 =  $("[name*=product_name]").eq(3).val();
-            var product_id5 =  $("[name*=product_name]").eq(4).val();
-            var qty1 = $("[name*=qty]").eq(0).val();
-            var qty2 = $("[name*=qty]").eq(1).val();
-            var qty3 = $("[name*=qty]").eq(2).val();
-            var qty4 = $("[name*=qty]").eq(3).val();
-            var qty5 = $("[name*=qty]").eq(4).val();           
+            event.preventDefault();
+            var product_id =  []; 
+            var qty=[];         
+           for (i = 0; i <  $("[name*=product_name]").length; i++) { 
+               product_id.push($("[name*=product_name]").eq(i).val());
+               qty.push($("[name*=qty]").eq(i).val());
+            }           
 
             jQuery.ajax({
             type: "POST",
             url: "<?php echo admin_url('productset/total_product_set'); ?>",
             dataType: 'json',
-            data: {pid1: product_id1 ,pid2: product_id2, pid3: product_id3, pid4:               product_id4, pid5: product_id5,
-                qty1: qty1, qty2: qty2, qty3: qty3, qty4: qty4, qty5: qty5
+            data: { product_id :product_id, qty:qty
             },
             success: function(res) {
                 if (res)
                     {
-                    // Show Entered Value
+                    // Hien thi tong tien tra ve
                     jQuery("div#result_total").html(res);
                     }
                 }
@@ -32,7 +26,6 @@
         });
         $("#add_product").click(function(){
             event.preventDefault();            
-           // $(".selectproduct").clone().insertBefore($(".insertproduct"));
            $(".selectproduct:first").clone().appendTo($(".insertproduct"));
         });
         $(".removeproduct").click(function(){
@@ -128,7 +121,7 @@ $this->load->view('admin/product/headset', $this->data);
                                         <?php endforeach; ?>
                                     </select>                                
                                      Số lượng:  
-                                    <input type="number" step="1" min="1" name="qty[]"  value="1" title="Qty"  size="4" style="width:55px; height: 35px"class ="product_name">
+                                    <input type="number" step="1" min="1" name="qty[]"  value="<?php echo number_format($item->qty) ?>" title="Qty"  size="4" style="width:55px; height: 35px"class ="product_name">
                                     
                                 <br />   
                                 </div>    
@@ -165,6 +158,8 @@ $this->load->view('admin/product/headset', $this->data);
                                 </span>
                                 
                             </div>
+                            <div class="clear"></div>
+                        </div>
                         <div class="formRow hide"></div>
                     </div>
 

@@ -13,5 +13,12 @@
     {
         $this->db->like('product.product_name', $product_name);
     }
+    
+    // lay danh sach set san pham
+    public function get_list_product_set()
+    {
+        $query =$this->db->get('product_set');
+        return $query->result();
+    }
 }
 ?>
