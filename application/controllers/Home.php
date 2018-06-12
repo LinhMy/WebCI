@@ -30,17 +30,21 @@
             $input = array();
             $input['limit'] = array($config['per_page'], $segment);
             // end phan trang
+            // danh sach san pham
             $product_news = $this->product_model->get_list($input);
             $this->data['product_news'] = $product_news;
 
+            // danh sach set san pham
 
+            $this->data['product_set']=$this->product_model->get_list_product_set($input);
             // san pham giam gia
 
             $input['where'] = array('discount !='=> "0");
             $product_sale = $this->product_model->get_list($input);
             $this->data['product_sale'] = $product_sale;
             
-            // load view
+            
+           // load view
             $this->data['temp'] = 'site/home/index';
             $this->load->view('site/layout', $this->data);
         }
