@@ -12,8 +12,14 @@ Class Vote_model extends MY_Model
         $ret = $query->row();
         return $ret->point;
     }
-    function insert_vote($data){
-        $this->db->insert('vote',$data);
+    function insert_vote($data_insert){
+        $this->db->insert('vote',$data_insert);
+    }
+    function get_comment($product_id){
+        $this->db->select('*');
+        $this->db->where('product_id',$product_id);
+        $query= $this->db->get('vote');
+        return $query->result();
     }
 }
     ?>
