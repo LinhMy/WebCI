@@ -44,7 +44,7 @@
         // lay cac san pham co trong set
         public function get_list_product_in_set($set_id)
         {
-            $sql= "select product.*, product_set_item.qty as qty  
+            $sql= "select product.*, product_set_item.qty as qty , category.name as category_name
                     from product_set_item                                
                     join product
                     on product.product_id = product_set_item.product_id
@@ -130,5 +130,13 @@
             return $this->db->delete('product_set_item');
 
         }
+        /* danh sach set san pham lien quan*/
+        public function get_list_set_product()
+        {
+            $sql="SELECT * FROM product_set ORDER BY RAND()  LIMIT 3; ";            
+            $query = $this->db->query($sql);
+            return $query->result();
+        }
+
     }
 ?>

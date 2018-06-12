@@ -12,7 +12,7 @@
             jQuery.ajax({
             type: "POST",
             url: "<?php echo admin_url('productset/total_product_set'); ?>",
-            dataType: 'json',
+            dataType: 'text',
             data: { product_id :product_id, qty:qty
             },
             success: function(res) {
@@ -28,9 +28,10 @@
             event.preventDefault();            
            $(".selectproduct:first").clone().appendTo($(".insertproduct"));
         });
-        $(".removeproduct").click(function(){
-            event.preventDefault();            
-            $(".selectproduct:last").remove();
+        $(".removeproduct").live("click",function(){
+            event.preventDefault();
+            var index = $( ".removeproduct" ).index( this ); 
+            $(".selectproduct").get(index).remove(); 
         });
     });
 </script>
@@ -72,7 +73,7 @@ $this->load->view('admin/product/headset', $this->data);
                             <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
                             <div class="formRight">
                                 <input type="file" name="image" id="image">
-                                <img src="<?php echo base_url('upload/products/'.$set_info->image); ?>" style="width: 100px; height: 70px;">
+                                <img src="<?php echo base_url('upload/set/'.$set_info->image); ?>" style="width: 100px; height: 70px;">
 
                             </div>
                             <div class="clear"></div>
@@ -107,8 +108,11 @@ $this->load->view('admin/product/headset', $this->data);
                 <div class="formRow">
                             Các sản phẩm có trong set:
                             <br />
-                            <button value="Thêm" class="button blueB" id="add_product">Thêm </button>                       
-                            <input type="reset"  value="Xóa" class="removeproduct">
+                            <button value="Thêm" class="button blueB" id="add_product">
+                                <img src="<?php echo public_url(); ?>/admin/images/icons/color/plus.png" style="margin-bottom:-3px" >
+                                    Thêm  
+                            </button>                       
+                            
                     <!--hien thi san pham co trong set-->
                             <?php  foreach ($product_set_item as $item) {?>
                                 <div class="selectproduct">                                
@@ -122,6 +126,7 @@ $this->load->view('admin/product/headset', $this->data);
                                     </select>                                
                                      Số lượng:  
                                     <input type="number" step="1" min="1" name="qty[]"  value="<?php echo number_format($item->qty) ?>" title="Qty"  size="4" style="width:55px; height: 35px"class ="product_name">
+                                    <img src="<?php echo public_url(); ?>/admin/images/icons/color/del.png" style="margin-bottom:-3px" class="removeproduct" name="removeproduct[]">
                                     
                                 <br />   
                                 </div>    

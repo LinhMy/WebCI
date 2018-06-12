@@ -139,7 +139,33 @@ class Product extends MY_Controller
         $this->data['temp'] = 'site/product/view';
         $this->load->view('site/layout', $this->data);
     }
+     /*
+   * Phương thức hiển thị chi tiết cua set sản phẩm
+   * */
+    function view_productset()
+    {
+        $this->load->model('productset_model');
+        $product_set_id = $this->uri->rsegment('3');
+        $product_set_info = $this->productset_model->get_info($product_set_id);
+        $this->data['product_set_info'] = $product_set_info;
 
+        // danh sách sản phẩm liên quan
+
+        $list = $this->productset_model->get_list_set_product();
+        $this->data['list'] = $list;
+        //truyen vote
+        $where = array(
+            'product_id'=> $product_set_id,
+            'type'=>1
+        );
+        $this->data['data_vote'] = $this->vote_model->get_reviews_set($where);
+        //hien thi comment
+        $this->data['comments'] = $this->vote_model->get_comment_set($where);
+        // load view
+        $this->data['temp'] = 'site/product/viewset';
+        $this->load->view('site/layout', $this->data);
+    }
+    
     /*
    * Phương thức vote sản phẩm
    * */

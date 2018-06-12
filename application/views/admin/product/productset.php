@@ -74,7 +74,7 @@ $this->load->view('admin/product/headset', $this->data);
                     <td><input type="checkbox" name="id[]" value="<?php echo $row->product_set_id; ?>" /></td>
                     <td ><?php echo $row->name; ?></td>
                     <td><?php echo number_format($row->price); ?> VNĐ</td>
-                    <td style="text-align: center;"><img src="<?php echo  base_url('upload/products/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
+                    <td style="text-align: center;"><img src="<?php echo  base_url('upload/set/'.$row->image); ?>" style="width: 100px; height: 70px;"></td>
                     <td><?php echo $row->view; ?></td>
                   
                     <td><a href="<?php echo admin_url('productset/change/'.$row->product_set_id); ?>">

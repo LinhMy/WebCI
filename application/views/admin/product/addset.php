@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".product_name").change(function(event) {            
+        $(".product_name").live("change",function(event) {            
             event.preventDefault();  
             var product_id =  []; 
             var qty=[];         
@@ -16,8 +16,8 @@
             jQuery.ajax({
             type: "POST",
             url: "<?php echo admin_url('productset/total_product_set'); ?>",
-            dataType: 'json',
-            data: { product_id_array :product_id, qty_array:qty },
+            dataType: 'text',
+            data: { product_id :product_id, qty:qty },
             success: function(res) {
                 if (res)
                     {
@@ -32,9 +32,10 @@
            // $(".selectproduct").clone().insertBefore($(".insertproduct"));
            $(".selectproduct:first").clone().appendTo($(".insertproduct"));
         });
-        $(".removeproduct").click(function(){
-            event.preventDefault();            
-            $(".selectproduct:last").remove();
+        $(".removeproduct").live("click",function(){
+            event.preventDefault();         
+            var index = $( ".removeproduct" ).index( this ); 
+            $(".selectproduct").get(index).remove();
         });
     });
 
@@ -100,8 +101,11 @@ $this->load->view('admin/product/headset', $this->data);
                             Chọn sản phẩm thêm vào set:
                             <br />
                             <div>                                             
-                                <button value="Thêm" class="button blueB" id="add_product">Thêm </button>                       
-                                <input type="reset"  value="Xóa" class="removeproduct">
+                                <button value="Thêm" class="button blueB" id="add_product">
+                                    <img src="<?php echo public_url(); ?>/admin/images/icons/color/plus.png" style="margin-bottom:-3px" >
+                                    Thêm 
+                                </button>                       
+                                
                             </div>
                             
                             <div class="selectproduct" name= "selectproduct[]">
@@ -115,6 +119,8 @@ $this->load->view('admin/product/headset', $this->data);
                                 </select>
                                Số lượng: 
                                 <input type="number" step="1" min="1" name="qty[]"  value="1" title="Qty"  size="4" style="width:55px; height: 35px"class ="product_name">
+                                <!--input type="reset"  value="Xóa" class="removeproduct"-->
+                                <img src="<?php echo public_url(); ?>/admin/images/icons/color/del.png" style="margin-bottom:-3px" class="removeproduct" name ="removeproduct[]">
                             </div>
                             <div class="insertproduct">
                             </div>

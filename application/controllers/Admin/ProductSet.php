@@ -118,7 +118,7 @@
 
                     // lay ten file anh minh hoa dc upload
                     $this->load->library('upload_library');
-                    $upload_path = './upload/products';
+                    $upload_path = './upload/set';
                     $upload_data = $this->upload_library->upload($upload_path, 'image');
                     $image = '';
                     if(isset($upload_data['file_name'])){
@@ -143,7 +143,7 @@
                         $image_corner = $set_info->image;
                         if(file_exists($image_corner)){
                             $image_corner = $this->input->get('image');
-                            unlink('./upload/products/'.$image_corner);
+                            unlink('./upload/set/'.$image_corner);
                         }
                         $data['image'] = $image;
 
@@ -217,7 +217,7 @@
                 }
             }
             //  xoa anh san pham
-            $image = './upload/products/'.$set->image;
+            $image = './upload/set/'.$set->image;
             if(file_exists($image)){
                 unlink($image);
             }
@@ -258,7 +258,7 @@
                    $data_qty = $this->input->post('qty');
                     //  up anh minh hoa san pham
                     $this->load->library('upload_library');
-                    $upload_path = './upload/products';
+                    $upload_path = './upload/set';
                     $upload_data = $this->upload_library->upload($upload_path, 'image');
                     $image = '';
                     if(isset($upload_data['file_name'])){
@@ -369,15 +369,16 @@
         {
             $product_id = $this->input->post('product_id');
             $qty = $this->input->post('qty');
-            //$data;
+            $data=0;
             for ($i=0; $i <count($product_id) ; $i++) { 
                 if($product_id[$i]!=""){
                 $total = $this->productset_model->get_product_price($product_id[$i]);
                 $data += $total*$qty[$i];
                 }
             }
-            $data=$data."VNĐ";
-            echo json_encode($data);
+            $data=$data." VNĐ";
+            echo ($data);
+            exit();
         }
 
     }

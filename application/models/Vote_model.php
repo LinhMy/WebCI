@@ -12,6 +12,25 @@ Class Vote_model extends MY_Model
         $ret = $query->row();
         return $ret->point;
     }
+    /*lay gia tri vote cua set san pham
+    */
+    public function get_reviews_set($where)
+    {
+        $this->db->select_avg('point');
+        $this->db->where($where);
+        $query= $this->db->get('vote');
+        $ret = $query->row();
+        return $ret->point;
+    }
+    /*lay comment cua set san pham
+    */
+    public function get_comment_set($where)
+    {
+        $this->db->select('*');
+        $this->db->where($where);
+        $query= $this->db->get('vote');
+        return $query->result();
+    }
     function insert_vote($data_insert){
         $this->db->insert('vote',$data_insert);
     }
