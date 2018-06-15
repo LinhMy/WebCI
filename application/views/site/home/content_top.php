@@ -46,7 +46,7 @@
                                     <?php } ?>
                                     <div class="group-buttons">
                                         <a class="button add_to_cart_button"
-                                           href="<?php echo base_url('cart/add/' . $row->product_id); ?>">Thêm Vào Giỏ
+                                           href="<?php echo base_url('cart/add/'. $row->product_id); ?>">Thêm Vào Giỏ
                                             Hàng</a>
                                     </div>
                                 </div>
@@ -98,9 +98,9 @@
                                               style="font-size: 14px; color: #800000; "><?php echo number_format($row->price - $row->discount); ?>
                                             VNÐ</span>
                                     <?php } ?>
-                                    <div class="group-buttons">
+                                    <div class="group-buttons1">
                                         <a class="button add_to_cart_button"
-                                           href="<?php echo base_url('cart/add/' . $row->product_id); ?>">Thêm Vào Giỏ
+                                           href="<?php echo base_url('cart/add/'. $row->product_id); ?>">Thêm Vào Giỏ
                                             Hàng</a>
                                     </div>
                                 </div>
@@ -131,15 +131,13 @@
                                         <i class="active fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <?php //if($row->discount > 0){ ?>
+                                    
                                         <div style="width: 100%;">
                                             <i class="price" style="font-size: 14px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price); ?> VNÐ</i>
                                             <!--i class="price" style="color: #666666; text-decoration: line-through;"><?php //echo number_format($row->price); ?> VNÐ</i-->
                                         </div>
-                                    <?php// }else{ ?>
-                                        <!--span class="price" style="font-size: 14px; color: #800000; "><?php //echo number_format($row->price - $row->discount); ?> VNÐ</span-->
-                                    <?php //}?>
-                                    <div class="group-buttons">
+                                   
+                                    <div class="group-buttons2">
                                         <a class="button add_to_cart_button" href="<?php echo base_url('cart/addset/'.$row->product_set_id); ?>">Thêm Vào Giỏ Hàng</a>
                                     </div>
                                 </div>
@@ -148,7 +146,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-
+        </div>
 
     </div>
 </div>

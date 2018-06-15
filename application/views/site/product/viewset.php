@@ -54,7 +54,7 @@
                 <p><strong style="margin-left: 4px">Thông tin:</strong><?php ?></p>
             </div>
             <form name="add_product" method="post"
-                  action="<?php echo base_url('cart/add/' . $product_set_info->product_set_id); ?>"
+                  action="<?php echo base_url('cart/addset/'. $product_set_info->product_set_id); ?>"
                   enctype="multipart/form-data">
                 <button type="submit" class="single_add_to_cart_button button alt">Thêm Vào Giỏ Hàng</button>
             </form>

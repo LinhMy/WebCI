@@ -51,18 +51,22 @@
             if($this->uri->rsegment('3') == 1){
                 // lay du lieu tu auto tim kiem
                 $key = $this->input->get('term');
-            }else{
+            }
+            else
+            {
                 $key = $this->input->get('key-search');
             }
             $this->data['key'] = trim($key);
             $input = array();
-            if($this->input->get('category') > 0){
+            if($this->input->get('category') > 0)
+            {
                 $category_id = $this->input->get('category');
                 $this->load->model('Category_model');
                 $input1['where'] = array('parent' => $category_id);
                 $category_list = $this->Category_model->get_list($input1);
                 $id_catalog_subs = array();
-                foreach ($category_list as $row){
+                foreach ($category_list as $row)
+                {
                     $id_catalog_subs[] = $row->category_id;
                 }
                 $this->db->where_in('category_id', $id_catalog_subs);
@@ -70,7 +74,8 @@
             $input['like'] = array('name', $key);
             $list = $this->product_model->get_list($input);
             $this->data['list'] = $list;
-            if($this->uri->rsegment('3') == 1){
+            if($this->uri->rsegment('3') == 1)
+            {
                 // auto tim kiem
                 $result = array();
                 foreach ($list as $row){
@@ -82,7 +87,9 @@
                 }
                 // du lieu tra ve duoi dang json
                 die(json_encode($result));
-            }else{
+            }
+            else
+            {
                 // load view
                 $this->data['temp'] = 'site/product/search';
                 $this->load->view('site/layout', $this->data);
@@ -96,7 +103,8 @@
             $set_info = $this->productset_model->get_info($set_id);
             $image = $set_info->image;
             $this->data['set_info'] = $set_info;
-            if(!$set_info){
+            if(!$set_info)
+            {
                 // thong bao ko ton tai id nay
                 $this->session->set_flashdata('message', 'Không tồn tại set sản phẩm này');
                 redirect(admin_url('productset'));
@@ -104,10 +112,12 @@
             // load ra thu vien validation
             $this->load->library('form_validation');
             $this->load->helper('form');
-            if($this->input->post()){
+            if($this->input->post())
+            {
                 $this->form_validation->set_rules('name','Tên bắt buộc nhập','required');
                 $this->form_validation->set_rules('price','Nội dung bắt buộc nhập','required');
-                if($this->form_validation->run()){
+                if($this->form_validation->run())
+                {
                     // bat dau insert du lieu
                     $name = $this->input->post('name');
                     $price = $this->input->post('price');
@@ -121,7 +131,8 @@
                     $upload_path = './upload/set';
                     $upload_data = $this->upload_library->upload($upload_path, 'image');
                     $image = '';
-                    if(isset($upload_data['file_name'])){
+                    if(isset($upload_data['file_name']))
+                    {
                         $image = $upload_data['file_name'];
                     }
                     // du lieu insert bang product_set_item
@@ -139,7 +150,8 @@
 
 
                     );
-                    if($image != ''){
+                    if($image != '')
+                    {
                         $image_corner = $set_info->image;
                         if(file_exists($image_corner)){
                             $image_corner = $this->input->get('image');
@@ -207,7 +219,8 @@
         private function _del($set_id, $redirect = true){
             // lay ra thong tin san pham
             $set = $this->productset_model->get_info($set_id);
-            if(!$set){
+            if(!$set)
+            {
                 // in ra thong bao loi
                 $this->session->set_flashdata('message', 'Không tồn tại sản phẩm này');
                 if($redirect){
@@ -240,10 +253,12 @@
             $this->load->library('form_validation');
             $this->load->helper('form');
             // kiem tra xem co du lieu post len
-            if($this->input->post()){
+            if($this->input->post())
+            {
                 $this->form_validation->set_rules('name','Tên sản phẩm bắt buộc nhập','required');
              //   $this->form_validation->set_rules('price','Giá bắt buộc nhập','required');
-                 if($this->form_validation->run()){
+                 if($this->form_validation->run())
+                 {
 
                     //lay du lieu da chon trong bang sp
                     $ids = $this->input->post('id');
@@ -261,7 +276,8 @@
                     $upload_path = './upload/set';
                     $upload_data = $this->upload_library->upload($upload_path, 'image');
                     $image = '';
-                    if(isset($upload_data['file_name'])){
+                    if(isset($upload_data['file_name']))
+                    {
                         $image = $upload_data['file_name'];
 
                     }
@@ -277,17 +293,20 @@
 
                     );
                     // them moi vao co so du lieu
-                    if($this->productset_model->create($data)){
+                    if($this->productset_model->create($data))
+                    {
                         // neu them thanh cong
                        $set_id = $this->productset_model->get_set_id($name);
-                       for ($i=0; $i <count($data_product) ; $i++) { 
+                       for ($i=0; $i <count($data_product) ; $i++) 
+                       { 
                             //$this->_del($product_id);
                             $this->productset_model->insert_product_set_item($data_product[$i],$data_qty[$i],$set_id->product_set_id);
                             /// neu san pham da ton tai thi cong them vao qty????
                         }
                         $this->session->set_flashdata('message', 'Thêm mới thành công sản phẩm');
                         redirect(admin_url('productset'));
-                    }else{
+                    }
+                    else{
                         // in ra thong bao loi
                         $this->session->set_flashdata('message', 'Có lỗi khi thêm sản phẩm');
                     }
@@ -370,8 +389,10 @@
             $product_id = $this->input->post('product_id');
             $qty = $this->input->post('qty');
             $data=0;
-            for ($i=0; $i <count($product_id) ; $i++) { 
-                if($product_id[$i]!=""){
+            for ($i=0; $i <count($product_id) ; $i++) 
+            { 
+                if($product_id[$i]!="")
+                {
                 $total = $this->productset_model->get_product_price($product_id[$i]);
                 $data += $total*$qty[$i];
                 }

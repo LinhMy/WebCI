@@ -20,5 +20,14 @@
         $query =$this->db->get('product_set');
         return $query->result();
     }
+    #lay danh sach diem vote cho set san pham
+    public function get_vote_set_product()
+    {
+        $this->db->select_avg('point');
+        $this->db->select('product_id');
+        $this->db->where('type',1);
+        $query= $this->db->get('vote');
+        return $query->result();
+    }
 }
 ?>

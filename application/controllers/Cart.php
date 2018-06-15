@@ -37,6 +37,7 @@ class Cart extends MY_Controller
             'name'  => $product_info->name,
             'price' => $price,
             'image_link'  => $product_info->image,
+            'type' =>"0"
        );
         // insert du lieu vao thu vien cart
         $this->cart->insert($data);
@@ -69,6 +70,7 @@ class Cart extends MY_Controller
             'name'  => $product_set_info->name,
             'price' => $price,
             'image_link'  => $product_set_info->image,
+            'type' =>"1"
        );
         // insert du lieu vao thu vien cart
         $this->cart->insert($data);
@@ -97,6 +99,7 @@ class Cart extends MY_Controller
             $data['rowid'] = array();
             $data['rowid'] = $key;
             $data['qty'] = $this->input->post('qty_' . $value['id']);
+            
             $this->cart->update($data);
         }
         redirect(base_url('cart/view_cart'));
@@ -114,6 +117,7 @@ class Cart extends MY_Controller
                     $data['rowid'] = array();
                     $data['rowid'] = $key;
                     $data['qty'] = 0;
+                    $data['type']="0";
                     $this->cart->update($data);
                 }
             }

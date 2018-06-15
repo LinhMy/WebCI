@@ -55,7 +55,7 @@
             $query = $this->db->query($sql);
             return $query->result();
         }
-
+        # lấy giá tiền của set theo id
         function get_price_set($set_id)
         {
             $this->db->select('price');

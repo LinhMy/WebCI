@@ -26,10 +26,16 @@
                                     <?php
 
                                     $total_amount = $total_amount + $rows['subtotal'];
+                                    
                                     ?>
+                                    
                                     <tr>
                                         <td class="product">
+                                        <?php if($rows['type']=="0"){?>
                                             <img alt="" style="width: 101px; height: 126px;" src="<?php echo base_url('upload'); ?>/products/<?php echo $rows['image_link']; ?>" class="product-thumb">
+                                        <?php } else {?>
+                                            <img alt="" style="width: 101px; height: 126px;" src="<?php echo base_url('upload'); ?>/set/<?php echo $rows['image_link']; ?>" class="product-thumb">
+                                        <?php }?>
                                             <div class="product-info">
                                                 <h3 class="product-name"><a href="<?php echo base_url('chi-tiet-san-pham/'.seoname($rows['name']).'/'.seoname($rows['name']).'/'.$rows['id']) ?>"><?php echo $rows['name']; ?></a></h3>
                                                 <span class="product-price"><?php echo number_format($rows['price']); ?> VNĐ</span>
@@ -40,7 +46,7 @@
                                         </td>
                                         <td>
                                             <div class="quantity">
-                                                <input name="qty_<?php echo $rows['id']; ?>" type="number" min="1" max="" size="4" class="input-text qty text" title="Qty" value="<?php echo $rows['qty']; ?>" data-step="1" vk_123a3="subscribed">
+                                                <input name="qty_<?php echo $rows['id']; ?>" type="number" min="1" max="" size="4" class="qty-product" title="Qty" value="<?php echo $rows['qty']; ?>" data-step="1" vk_123a3="subscribed">
                                             </div>
                                         </td>
                                         <td class="product-subtotal">
