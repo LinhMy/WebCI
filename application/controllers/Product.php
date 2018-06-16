@@ -132,9 +132,13 @@ class Product extends MY_Controller
         $list = $this->product_model->get_list($input);
         $this->data['list'] = $list;
         //truyen vote
-        $this->data['data_vote'] = $this->vote_model->get_reviews($product_id);
+        $where_vote= array(
+            'product_id' => $product_id,
+            'type'=>0
+        );
+        $a=$this->data['data_vote'] = $this->vote_model->get_reviews($where_vote);
         //hien thi comment
-        $this->data['comments'] = $this->vote_model->get_comment($product_id);
+        $this->data['comments'] = $this->vote_model->get_comment($where_vote);
         // load view
         $this->data['temp'] = 'site/product/view';
         $this->load->view('site/layout', $this->data);
@@ -158,9 +162,9 @@ class Product extends MY_Controller
             'product_id'=> $product_set_id,
             'type'=>1
         );
-        $this->data['data_vote'] = $this->vote_model->get_reviews_set($where);
+        $this->data['data_vote'] = $this->vote_model->get_reviews($where);
         //hien thi comment
-        $this->data['comments'] = $this->vote_model->get_comment_set($where);
+        $this->data['comments'] = $this->vote_model->get_comment($where);
         // load view
         $this->data['temp'] = 'site/product/viewset';
         $this->load->view('site/layout', $this->data);
@@ -181,7 +185,7 @@ class Product extends MY_Controller
             'point' => $vote,
             'product_id' => $product_id,
             'comment' => $comment,
-            'created_date' => date('Y-m-d'),
+            'created_date' => date('Y-m-d h-i-s'),
             'type' =>$type
         );
         //chen danh gia nguoi dung danh gia vao
@@ -190,13 +194,7 @@ class Product extends MY_Controller
             'product_id' => $product_id,
             'type'=>$type
         );
-        if($type=="1"){
-             $data_vote = $this->data['data_vote'] = $this->vote_model->get_reviews_set($where);
-        }
-        else if($type=="0")
-        {
-            $data_vote = $this->data['data_vote'] = $this->vote_model->get_reviews($where); 
-        }
+        $data_vote = $this->data['data_vote'] = $this->vote_model->get_reviews($where); 
         echo json_encode($data_vote);
 
     }

@@ -84,21 +84,16 @@
             <input type="text" value="" name="comment" id="comment"/>
             <input type="submit" name="votebtn" class="votebtn"/>
         </div>
-        <table>
-            <tr>
-                <th>Comment</th>
-                <th>Date</th>
-            </tr>
-            </thead>
-            <tbody>
+        <!-- hien thi comment -->
+        <hr/>
+        <div id="comment-vote">
             <?php foreach ($comments as $item) : ; ?>
-                <tr>
-                    <td><?php echo $item->comment ?></td>
-                    <td><?php echo $item->created_date ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+			<div id="view-comment" style="margin-left:50px"><?php echo $item->comment?></div>
+			<div id="created-date" style="margin-left:600px;margin-top:-20px"><?php echo $item->created_date?></div>
+            <hr/>
+		   <?php endforeach; ?>
+        </div>        
+		<div id="insertcomment"></div>	
     </ul>
     <ul class="nav-tab">
         <li><a data-toggle="tab" href="#tab-2">Sản Phẩm Liên Quan</a></li>

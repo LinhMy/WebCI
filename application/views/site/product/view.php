@@ -51,10 +51,13 @@
                 <?php } ?>
                 <p class="stock out-of-stock"><label>Tình Trạng:</label> <i class="fa fa-check"></i> Còn Hàng </p>
                 <div class="short-descript">
-                    <p>Vote:
+                    <p>Vote:</p>
                     <div id="vote">
-                    </p><?php echo $data_vote ?></div>
+                       <?php echo $data_vote ?>
+                        <?php //$this->load->view('site/rating'); ?>
+                    </div>
             </div>
+            
             <div class="short-descript">
                 <p><strong style="margin-left: 4px">Thông tin:</strong><?php echo $product_info->note; ?></p>
             </div>
@@ -85,18 +88,27 @@
     
 	    <br><br>
         <?php $this->load->view('site/rating'); ?>
+        <!-- lay gia tri cua product de vote-->
         <input type="hidden" value = "<?php echo $product_info->product_id?>" id="product-id">
-        <input type="hidden" value = "1" id="type-vote">
+        <input type="hidden" value = "0" id="type-vote">
+        <!-- end lay gia tri cua product de vote -->
+
+        <!-- comment và button gửi -->
         <div id="tab-1" class="tab-panel active">
             <input type="text" value="" name="comment" id="comment"/>
             <input type="submit" name="votebtn" class="votebtn"/>
         </div>
-        <div id="comment-vote"><?php foreach ($comments as $item) : ; ?>
+        <!-- hien thi comment -->
+        <div id="comment-vote">
+            <?php foreach ($comments as $item) : ; ?>
 			<div id="view-comment" style="margin-left:50px"><?php echo $item->comment?></div>
 			<div id="created-date" style="margin-left:600px;margin-top:-20px"><?php echo $item->created_date?></div>
-			<div id="insertcomment"></div>	
-		   <?php endforeach; ?></div>
-    </ul>
+            <hr/>
+		   <?php endforeach; ?>
+        </div>        
+		<div id="insertcomment"></div>	
+
+    </ul>    
     <ul class="nav-tab">
         <li><a data-toggle="tab" href="#tab-2">Sản Phẩm Liên Quan</a></li>
     </ul>
