@@ -1,4 +1,4 @@
-<div class="top" style="background: #f6f6f6; height: 500px">
+<div class="top" id="footer-site" style="background: #f6f6f6; height: 500px">
     <div class="container">
         <div id="footer-info">
             <h5>KÊNH MUA SẮM TRỰC TUYẾN HÀNG ĐẦU VIỆT NAM!</h5>
@@ -71,9 +71,9 @@
 
     </style>
 </div>
-<div class="container">
+<div class="container" >
 
-    <div class="row">
+    <div class="row" id="footer-site1">
         <div class="col-sm-12">
             <div class="widget widget-payment-methods" style="margin-top: 0px; border: none">
                 <h3 class="widget-title" style="padding: 36px">Chấp nhận thanh toán: </h3>

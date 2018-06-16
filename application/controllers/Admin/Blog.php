@@ -203,12 +203,14 @@ class Blog extends MY_Controller {
                   'image' => $image,
                   'content' => $content,
                   'view' => 0,
-                  'create_date' => date("Y-m-d h:i:sa")//,
+                  'create_date' => date("Y-m-d h:i:sa"),
+                  'post_by' =>2
+                  //,
                   //'key_search' => $key
 
               );
               // them moi vao co so du lieu
-              if($this->blog_model->create($data)){
+              if($this->blog_model->insert_post($data)){
                   // neu them thanh cong
                   $this->session->set_flashdata('message', 'Thêm mới thành công');
                   redirect(admin_url('blog'));

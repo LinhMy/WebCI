@@ -1,0 +1,31 @@
+<?php foreach ($post_list as $item) {
+       # code...
+   ?>
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large" id ="show-view">
+        <div class="w3-center">
+          <a href="<?php echo  base_url('/blog/view_post/'.$item->post_id); ?>"><h3><?=$item->title ?></h3></a>
+          <h5><?php //echo $item->post_by?> <span class="w3-opacity"><?=$item->create_date ?></span></h5>
+        </div>
+
+        <div class="w3-justify">
+          <img src="<?php echo  base_url('upload/post/'.$item->image); ?>" alt="<?=$item->title ?>" style="width:100%" class="w3-padding-16">
+          <p><strong></strong><?=$item->summary ?></p>
+          <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Thích</b></button></p>
+          
+          <p class="w3-right"><button class="w3-button w3-black"  id="myBtn"><b>Đọc tiếp  </b><span class="w3-tag w3-white">>></span></button></p>
+          <p class="w3-clear"></p>
+          <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
+            <hr>
+              <!--div class="w3-col l2 m3">
+                <img src="/w3images/avatar_smoke.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>George <span class="w3-opacity w3-medium">May 3, 2015, 6:32 PM</span></h4>
+                <p>Great blog post! Following</p>
+              </div-->
+          </div>
+        </div>        
+        <hr>
+      </div>
+    <?php }?>

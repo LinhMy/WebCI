@@ -68,4 +68,7 @@
 <script src="<?php echo public_url()?>/site/rateit/scripts/jquery.rateit.js"></script>
 <link type="text/css" href="<?php echo public_url()?>/site/rateit/scripts/rateit.css" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo public_url('site')?>/font/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
