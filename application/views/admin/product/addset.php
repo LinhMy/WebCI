@@ -74,10 +74,19 @@ $this->load->view('admin/product/headset', $this->data);
                             <div class="clear"></div>
                         </div>
 
-                        <div class="formRow">
+                        <!--div class="formRow">
                             <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
                             <div class="formRight">
-                                <input type="file" name="image" id="image">
+                                <input type="file" name="image" id="image" >
+
+                            </div>
+                            <div class="clear"></div>
+                        </div-->
+                        <!-- upload nhieu hinh anh-->
+                        <div class="formRow">
+                            <label class="formLeft">Hình ảnh kèm theo:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <input type="file" name="image_list[]"   multiple="multiple" >
 
                             </div>
                             <div class="clear"></div>

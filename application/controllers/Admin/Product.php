@@ -137,13 +137,13 @@ class Product extends MY_Controller{
                   $product_id =  $this->album_model->get_product_id('product',$data);
                   $data1 = array(
                     'path' => $image_list,
-                      'product_id' => $product_id,
+                    'product_id' => $product_id,
                   );
 
 
                 // them moi vao co so du lieu
 
-                    $this->album_model->create($data1);
+                $this->album_model->create($data1);
                 $this->session->set_flashdata('message', 'Cập nhật thành công danh muc');
                 redirect(admin_url('product'));
                 

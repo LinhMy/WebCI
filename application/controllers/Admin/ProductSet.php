@@ -274,14 +274,20 @@
                     //  up anh minh hoa san pham
                     $this->load->library('upload_library');
                     $upload_path = './upload/set';
-                    $upload_data = $this->upload_library->upload($upload_path, 'image');
+                    /*$upload_data = $this->upload_library->upload($upload_path, 'image');
                     $image = '';
                     if(isset($upload_data['file_name']))
                     {
                         $image = $upload_data['file_name'];
 
-                    }
-
+                    }*/
+                     // upload nhieu file anh kem theo 
+                   
+                     $image_list = array();
+                     $image_list = $this->upload_library->upload_file($upload_path, 'image_list');
+                     $a=array_rand($image_list,1);
+                     $image = $image_list[$a];
+                     $this->load->model("album_model");
                     $data = array(
                         'name' => $name,
                         'image' => $image,
@@ -292,6 +298,16 @@
                         'display' =>0 
 
                     );
+
+                   
+                  //  $product_id =  $this->album_model->get_product_id('product_set',$data);
+                  /*  $data1 = array(
+                        'path' => $image_list,
+                        'product_id' => $product_id,
+                        'type' =>1
+                    );*/
+
+                    //$this->album_model->create($data1);
                     // them moi vao co so du lieu
                     if($this->productset_model->create($data))
                     {
@@ -302,6 +318,14 @@
                             //$this->_del($product_id);
                             $this->productset_model->insert_product_set_item($data_product[$i],$data_qty[$i],$set_id->product_set_id);
                             /// neu san pham da ton tai thi cong them vao qty????
+                        }
+                        foreach ($image_list as $item) {
+                            $where=array(
+                                'path' => $item,
+                                'product_id' => $set_id->product_set_id,
+                                'type' =>1
+                            );
+                            $this->album_model->insert_image_set($where);
                         }
                         $this->session->set_flashdata('message', 'Thêm mới thành công sản phẩm');
                         redirect(admin_url('productset'));
