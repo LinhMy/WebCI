@@ -77,11 +77,13 @@
             </div>
         </div>
     </div>
+
 </div>
 <div class="product-tabs">
     <ul class="nav-tab">
         <li class="active"><a data-toggle="tab" href="#tab-1">Đánh Giá Sản Phẩm</a></li>
-        <br><br>
+    
+	    <br><br>
         <?php $this->load->view('site/rating'); ?>
         <input type="hidden" value = "<?php echo $product_info->product_id?>" id="product-id">
         <input type="hidden" value = "1" id="type-vote">
@@ -89,21 +91,11 @@
             <input type="text" value="" name="comment" id="comment"/>
             <input type="submit" name="votebtn" class="votebtn"/>
         </div>
-        <table>
-            <tr>
-                <th>Comment</th>
-                <th>Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($comments as $item) : ; ?>
-                <tr>
-                    <td><?php echo $item->comment ?></td>
-                    <td><?php echo $item->created_date ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div id="comment-vote"><?php foreach ($comments as $item) : ; ?>
+			<div id="view-comment" style="margin-left:50px"><?php echo $item->comment?></div>
+			<div id="created-date" style="margin-left:600px;margin-top:-20px"><?php echo $item->created_date?></div>
+			<div id="insertcomment"></div>	
+		   <?php endforeach; ?></div>
     </ul>
     <ul class="nav-tab">
         <li><a data-toggle="tab" href="#tab-2">Sản Phẩm Liên Quan</a></li>
