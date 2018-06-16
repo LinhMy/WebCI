@@ -87,11 +87,19 @@
         <!-- hien thi comment -->
         <hr/>
         <div id="comment-vote">
-            <?php foreach ($comments as $item) : ; ?>
+            <?php if(!$comments){ ?>
+                <div id="view-comment" style="margin-left:50px; color:red">Hãy là người đầu tiên đánh giá sản phẩm này</div>
+                <div id="created-date" style="margin-left:600px;margin-top:-20px"></div>
+                <hr/>
+            <?php }
+            else
+            {?>
+            <?php foreach ($comments as $item) : ; ?>            
 			<div id="view-comment" style="margin-left:50px"><?php echo $item->comment?></div>
 			<div id="created-date" style="margin-left:600px;margin-top:-20px"><?php echo $item->created_date?></div>
             <hr/>
 		   <?php endforeach; ?>
+            <?php }?>
         </div>        
 		<div id="insertcomment"></div>	
     </ul>
