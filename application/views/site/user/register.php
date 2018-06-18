@@ -38,10 +38,6 @@
                     </p>
                     <i><?php echo form_error('adress'); ?></i>
                     <p>
-                        <input type="text" name="type" placeholder="Chức vụ Của Bạn" >
-                    </p>
-                    <i><?php echo form_error('type'); ?></i>
-                    <p>
                         <input type="text" name="note" placeholder="ghi chú" >
                     </p>
                     <i><?php echo form_error('note'); ?></i>

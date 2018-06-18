@@ -49,7 +49,7 @@
                         'password' => $password,
                         'phone' => $phone,
                         'address' => $address,
-                        'type'=>$type,
+                        'type'=>'0',
                         'note' => $note,
                     );
                     if($this->user_model->create($data)){

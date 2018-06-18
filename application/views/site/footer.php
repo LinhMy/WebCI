@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
         <div class="col-sm-3">
-            <h4 class="title">NatulieShop</h4>
+            <h4 class="title" style="background-color: #35404f">NatulieShop</h4>
             <p>Ra đời từ năm 2012, chỉ từ một cửa hàng thời trang nhỏ, đến nay NATULIESHOP đã không ngừng phát triển và trở thành một hệ thống cửa hàng chuyên kinh doanh thời trang trẻ, là một trong những thương hiệu thời trang hàng đầu tại Việt Nam....</p>
             <ul class="social-icon">
             <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -15,7 +15,7 @@
             </ul>
             </div>
         <div class="col-sm-3">
-            <h4 class="title">Chi nhánh</h4>
+            <h4 class="title" style="background-color: #35404f">Chi nhánh</h4>
             <span class="acount-icon">          
             <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15 Lê Duẩn</a>
             <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 10 Duy Tân</a>
@@ -24,7 +24,7 @@
           </span>
             </div>
         <div class="col-sm-3">
-            <h4 class="title">Dịch vụ khách hàng</h4>
+            <h4 class="title" style="background-color: #35404f";>Dịch vụ khách hàng</h4>
             <div class="category">
             <a href="#"> Khuyến mãi</a>
             <a href="#"> Khách Hàng VIP</a>
@@ -33,7 +33,7 @@
             </div>
             </div>
         <div class="col-sm-3">
-            <h4 class="title">Mọi phản ảnh xin liên hê:</h4>
+            <h4 class="title" style="background-color: #35404f">Mọi phản ánh xin liên hệ:</h4>
             <i class="fa fa fa-user" aria-hidden="true"></i> 0987.654.321
             <br/>
             <i class="fa fa fa-user" aria-hidden="true"></i> 10-Duy Tân- Thành phố Vinh - Nghệ An            
