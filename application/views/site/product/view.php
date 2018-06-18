@@ -99,9 +99,10 @@
             <input type="submit" name="votebtn" class="votebtn"/>
         </div>
         <!-- hien thi comment -->
+		<br/>
         <div id="comment-vote">
             <?php if(!$comments){ ?>
-                    <div id="view-comment" style="margin-left:50px; color:red">Hãy là người đầu tiên đánh giá sản phẩm này</div>
+                    <div id="view-comment" style="margin-left:50px;"></div>
                     <div id="created-date" style="margin-left:600px;margin-top:-20px"></div>
                     <hr/>
             <?php }
