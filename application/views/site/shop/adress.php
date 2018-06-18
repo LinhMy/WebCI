@@ -30,7 +30,7 @@
             <br />
             <h4>Câu hỏi thường gặp:</h4>
             <br />
-            <div id="myBtn" style = "background: white; color: red" title="Click vào để xem câu trả lời">Làm thế nào để có thể biết sản phẩm nào đang được khuyến mại hoặc Shop đang có chương trình ưu đãi nào?</div>
+            <div id="myBtn" style = "background: white; color: red" title="Click vào để xem câu trả lời">Làm thế nào để có thể biết sản phẩm nào đang được khuyến mại ?</div>
             <br />
             <div id ="myBtn2" style = "background: white; color: red" title="Click vào để xem câu trả lời">Phí vận chuyển được tính như thế nào?</div>
             <br />
@@ -48,7 +48,7 @@
         <!-- Modal content -->
             <div class="modal-content">
                 <span class="close" id = "close">&times;</span>
-                <h2>Làm thế nào để có thể biết sản phẩm nào đang được khuyến mại hoặc Shop đang có chương trình ưu đãi nào? 
+                <h2>Làm thế nào để có thể biết sản phẩm nào đang được khuyến mại ? 
                 </h2>
                 <p style = "color:	#191970;">
                 

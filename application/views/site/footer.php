@@ -1,75 +1,48 @@
-<div class="top" id="footer-site" style="background: #f6f6f6; height: 500px">
+<div class="top" id="footer-site" >
+ <footer class="footer">
     <div class="container">
-        <div id="footer-info">
-            <h5>KÊNH MUA SẮM TRỰC TUYẾN HÀNG ĐẦU VIỆT NAM!</h5>
-            <br>
-            <p>Mua hàng trực tuyến (mua hàng online) mang lại sự tiện lợi, lựa chọn đa dạng hơn và các dịch vụ tốt hơn cho người tiêu dùng, thế nhưng người tiêu dùng Việt Nam vẫn chưa tận hưởng được những tiện ích đó. Chính vì vậy  Việt Nam được triển khai với mong muốn trở thành trung tâm mua sắm trực tuyến số 1 tại Việt Nam, nơi bạn có thể chọn lựa mọi thứ, từ các mặt hàng điện tử như laptop, điện thoại di động giá rẻ, thiết bị gia dụng như máy lạnh, máy lọc không khí, máy hút bụi mini gia đình, nội thất phòng ngủ… Chúng tôi có tất cả!
-
-                Tại .vn bạn có thể mua đồ điện tử giá rẻ, cũng như  </p><br>
-
-
-        </div>
-        <div id="footer-info2">
-            <p>các loại mặt hàng khác với rất nhiều các chương trình khuyến mãi hàng tháng. Ngoài ra bạn cũng có thể tham gia bán hàng trực tuyến thông qua hệ thống marketplace của  với rất nhiều hỗ trợ và dịch vụ hấp dẫn. Bây giờ bạn có thể trải nghiệm mua hàng online thỏa thích mà  mang lại chỉ với 1 click chuột. Dù bạn là một nhà quản lý bận rộn với công việc hay là người nội trợ với danh sách dài việc phải làm, chắc chắn bạn cũng sẽ yêu thích trải nghiệm mua hàng tại  Việt Nam - mua hàng trực tuyến dễ dàng hơn, thuận tiện hơn và tiết kiệm thời gian.
-
-                Bạn muốn bán hàng trực tuyến online trên ? Hãy đăng ký tại đây:  </p><br>
-
-
-        </div>
-        <div id="footer-info3">
-            <ul>
-
-                <li><a href="#"> Vận chuyển </a></li>
-                <li><a href="#"> Đổi trả </a></li>
-                <li><a href="#"> Cổng thanh toán  </a></li>
-                <li><a href="#">  Thông tin </a></li>
-
+        <div class="row">
+        <div class="col-sm-3">
+            <h4 class="title">NatulieShop</h4>
+            <p>Ra đời từ năm 2012, chỉ từ một cửa hàng thời trang nhỏ, đến nay NATULIESHOP đã không ngừng phát triển và trở thành một hệ thống cửa hàng chuyên kinh doanh thời trang trẻ, là một trong những thương hiệu thời trang hàng đầu tại Việt Nam....</p>
+            <ul class="social-icon">
+            <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
             </ul>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Chi nhánh</h4>
+            <span class="acount-icon">          
+            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15 Lê Duẩn</a>
+            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 10 Duy Tân</a>
+            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> 81 Phan Đăng Lưu</a>
+            <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> 411 Nguyễn Huệ, Quy Nhơn</a>           
+          </span>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Dịch vụ khách hàng</h4>
+            <div class="category">
+            <a href="#"> Khuyến mãi</a>
+            <a href="#"> Khách Hàng VIP</a>
+            <a href="#"> Chính sách bảo hành và đổi trả sản phẩm</a>
+            <a href="#"> Chính sách bảo mật</a>
+            </div>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Mọi phản ảnh xin liên hê:</h4>
+            <i class="fa fa fa-user" aria-hidden="true"></i> 0987.654.321
+            <br/>
+            <i class="fa fa fa-user" aria-hidden="true"></i> 10-Duy Tân- Thành phố Vinh - Nghệ An            
         </div>
-        <div id="footer-info4">
-            <h5>LIÊN HỆ VỚI CHÚNG TÔI</h5>
-            <p>Thứ 2 đến CN: 9h - 18h (Hotline), 7h - 22h (chat trực tuyến)</p>
-            <p>Số Điện Thoại: 01242088997</p>
-            <p>Email: tranphu9615@gmail.com</p>
-        </div>
-    </div>
-    <style>
-        #footer-info{
-            float: left;
-            margin-top: 50px;
-            margin-left: 17px;
-            width: 24%;
-            color: #888;
-
-        }
-
-        #footer-info2{
-            float: left;
-            margin-top: 60px;
-            margin-left: 62px;
-            width: 20%;
-            color: #888;
-        }
-        #footer-info3{
-            float: left;
-            margin-top: 60px;
-            margin-left: 66px;
-            width: 20%;
-            color: #888;
-        }
-        #footer-info4{
-            float: left;
-            margin-top: 60px;
-            width: 20%;
-            color: #888;
-        }
-        #footer-info4 p{
-            margin: 0px;
-        }
-
-
-
-    </style>
+        </div> 
+        
+        <hr/>      
+        
+    </footer>
 </div>
 <div class="container" >
 
@@ -135,6 +108,42 @@
 
 <style>
 
+    .footer {
+        padding: 50px 0 20px 0;
+        background-color: #35404f;
+        color: #878c94;
+    }
+    .footer .title{text-align: left;color:#fff;font-size:25px;}
+
+
+    .footer .social-icon{padding:0px;margin:0px;}
+    .footer .social-icon a{display:inline-block;color:#fff;font-size:25px;padding:5px;}
+    .footer .acount-icon a{display:block;color:#fff;font-size:18px;padding:5px;text-decoration:none;}
+    .footer .acount-icon .fa{margin-right:25px;}
+
+
+    .footer .category a {
+        text-decoration: none;
+        color: #fff;
+        display: inline-block;
+        padding: 5px 20px;
+        margin: 1px;
+        border-radius:4px;
+        margin-top: 6px;
+        background-color: black;
+        border: solid 1px #fff;
+    }
+
+    .footer .payment{margin:0px;padding:0px;list-style-type:none}
+    .footer .payment li{list-style-type:none}
+    .footer .payment li a {
+        text-decoration: none;
+        display: inline-block;
+        color: #fff;
+        float: left;
+        font-size: 25px;
+        padding: 10px 10px;
+    }
     .support-icon-right {
         background: #F0F3EF;
         position: fixed;
