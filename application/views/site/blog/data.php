@@ -9,11 +9,18 @@
         </div>
 
         <div class="w3-justify">
-          <img src="<?php echo  base_url('upload/post/'.$item->image); ?>" alt="<?=$item->title ?>" style="width:100%" class="w3-padding-16">
+          <a href="<?php echo  base_url('/blog/view_post/'.$item->post_id); ?>">
+            <img src="<?php echo  base_url('upload/post/'.$item->image); ?>" alt="<?=$item->title ?>" style="width:100%" class="w3-padding-16">
+          </a>
           <p><strong></strong><?=$item->summary ?></p>
           <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Thích</b></button></p>
-          
-          <p class="w3-right"><button class="w3-button w3-black"  id="myBtn"><b>Đọc tiếp  </b><span class="w3-tag w3-white">>></span></button></p>
+            <p class="w3-right">
+            <a href="<?php echo  base_url('/blog/view_post/'.$item->post_id); ?>">
+              <button class="w3-button w3-black" >
+                <b> Đọc tiếp </b><span class="w3-tag w3-white">>></span>
+              </button>
+            <a/>
+            </p>
           <p class="w3-clear"></p>
           <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
             <hr>

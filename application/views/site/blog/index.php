@@ -101,31 +101,16 @@
 
 
 <!-- Footer -->
-<footer class="w3-container w3-dark-grey" style="padding:32px" id="footerid">
-  <a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Lên đầu trang</a>
-</footer>
+  <footer class="w3-container w3-dark-grey" style="padding:32px" id="footerid">
+    <a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Lên đầu trang</a>
+  </footer>
+</div>
 
-<script>
-// Toggle between hiding and showing blog replies/comments
-
-document.getElementById("myBtn").click();
-function myFunction(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
+<script type="text/javascript">
 function likeFunction(x) {
     x.style.fontWeight = "bold";
     x.innerHTML = "✓ Đã thích";
 }
-</script>
-
-</div>
-<script type="text/javascript">
 	var page = 0;
 	$(window).scroll(function() {
 	    if($(window).scrollTop() + $(window).height() >= $(document).height()) {
@@ -133,8 +118,7 @@ function likeFunction(x) {
 	        loadMoreData(page);
 	    }
 	});
-
-
+  
 	function loadMoreData(page){
 	  $.ajax(
 	        {
