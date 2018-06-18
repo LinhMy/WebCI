@@ -28,16 +28,15 @@ Class Order extends MY_Controller
         $this->data['total_amount'] = $total_amount;
 
         //neu thanh vien da dang nhap thì lay thong tin cua thanh vien
-        $user_id = 0;
+        $user_id = 2;
         $user = '';
         if ($this->session->userdata('user_id_login')) {
             //lay thong tin cua thanh vien
             $user_id = $this->session->userdata('user_id_login');
             $user = $this->user_model->get_info($user_id);
         }
-        $this->data['user'] = $user;
-
-
+		$this->data['user'] = $user;
+		
         $this->load->library('form_validation');
         $this->load->helper('form');
 
@@ -61,7 +60,7 @@ Class Order extends MY_Controller
 					'email' => $this->input->post('email'),//Ghi lại email khách hàng
                     'payment' => $payment, //cổng thanh toán,
                     'message' => $this->input->post('message'), //ghi chú khi mua hàng
-                    'status' => '1',
+                    'status' => 'Đã Đặt Hàng',
 
                 );
                 //them du lieu vao bang transaction

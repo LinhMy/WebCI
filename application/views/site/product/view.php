@@ -66,18 +66,6 @@
                   enctype="multipart/form-data">
                 <button type="submit" class="single_add_to_cart_button button alt">Thêm Vào Giỏ Hàng</button>
             </form>
-            <div class="share" style="padding-top: 8px;">
-                <span class='st_facebook_hcount' displayText='Facebook'></span>
-                <span class='st_twitter_hcount' displayText='Tweet'></span>
-                <span class='st_googleplus_hcount' displayText='Google +'></span>
-                <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-                <script type="text/javascript">stLight.options({
-                        publisher: "71bbd720-bb71-4ba5-93e5-81ec93d19019",
-                        doNotHash: true,
-                        doNotCopy: false,
-                        hashAddressBar: false
-                    });</script>
-            </div>
         </div>
     </div>
 

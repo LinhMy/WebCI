@@ -15,7 +15,7 @@
                                         <div class="thumb">
                                             <a href="<?php echo base_url('chi-tiet-san-pham/' . seoname($row->name) . '/' . seoname($row->name) . '/' . $row->product_id) ?>"
                                                title="">
-                                                <img style="width: 230px; height: 297px;"
+                                                <img style="width: 150px; height: 200px;"
                                                      src="<?php echo base_url('upload'); ?>/products/<?php echo $row->image; ?>"
                                                      alt="">
                                             </a>

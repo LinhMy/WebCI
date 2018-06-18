@@ -51,7 +51,7 @@ $this->load->view('admin/bill/head', $this->data);
                         <?php echo $row->transaction_id; ?>
                     </td>
                     <td>
-                        <?php echo $row->user_buy; ?>
+                        <?php echo $row->email; ?>
                     </td>
                    
                     <td>
