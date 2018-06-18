@@ -131,6 +131,8 @@ class Product extends MY_Controller
         );
         $list = $this->product_model->get_list($input);
         $this->data['list'] = $list;
+        //hiển thị ảnh kèm theo
+        $this->data['image_list'] = $this->product_model->get_image_list($product_id);
         //truyen vote
         $where_vote= array(
             'product_id' => $product_id,
