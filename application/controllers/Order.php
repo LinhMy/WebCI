@@ -57,7 +57,7 @@ Class Order extends MY_Controller
                 $data = array(
                     'user_id' => $user_id, //id thanh vien mua hang neu da dang nhap
                     'amount' => $total_amount,//tong so tien can thanh toan
-					'paid_date' =>date('Y-m-d'),
+					'paid_date' =>date('Y-m-d'),// Ghi lại thời điểm đặt hàng
 					'email' => $this->input->post('email'),//Ghi lại email khách hàng
                     'payment' => $payment, //cổng thanh toán,
                     'message' => $this->input->post('message'), //ghi chú khi mua hàng
