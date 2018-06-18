@@ -32,16 +32,13 @@
                                     </div>
                                     <?php if ($row->discount > 0) { ?>
                                         <div style="width: 100%;">
-                                            <i class="price"
-                                               style="font-size: 14px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price - $row->discount); ?>
+                                            <i class="price" style="font-size: 12px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price - $row->discount); ?>
                                                 VNÐ</i>
-                                            <i class="price"
-                                               style="color: #666666; text-decoration: line-through;"><?php echo number_format($row->price); ?>
+                                            <i class="price"style="font-size: 12px;color: #666666; text-decoration: line-through;"><?php echo number_format($row->price); ?>
                                                 VNÐ</i>
                                         </div>
                                     <?php } else { ?>
-                                        <span class="price"
-                                              style="font-size: 14px; color: #800000; "><?php echo number_format($row->price - $row->discount); ?>
+                                        <span class="price" style="font-size: 12px; color: #800000; "><?php echo number_format($row->price - $row->discount); ?>
                                             VNÐ</span>
                                     <?php } ?>
                                     <div class="group-buttons">
@@ -87,15 +84,15 @@
                                     <?php if ($row->discount > 0) { ?>
                                         <div style="width: 100%;">
                                             <i class="price"
-                                               style="font-size: 14px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price - $row->discount); ?>
+											style="font-size: 12px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price - $row->discount); ?>
                                                 VNÐ</i>
                                             <i class="price"
-                                               style="color: #666666; text-decoration: line-through;"><?php echo number_format($row->price); ?>
+											style="font-size: 12px;text-decoration: line-through;"><?php echo number_format($row->price); ?>
                                                 VNÐ</i>
                                         </div>
                                     <?php } else { ?>
                                         <span class="price"
-                                              style="font-size: 14px; color: #800000; "><?php echo number_format($row->price - $row->discount); ?>
+										style="font-size: 12px; color: #800000; "><?php echo number_format($row->price - $row->discount); ?>
                                             VNÐ</span>
                                     <?php } ?>
                                     <div class="group-buttons1">
@@ -133,7 +130,7 @@
                                     </div>
                                     
                                         <div style="width: 100%;">
-                                            <i class="price" style="font-size: 14px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price); ?> VNÐ</i>
+                                            <i class="price" style="font-size: 12px; color: #800000; float: left; padding-right: 8px;"><?php echo number_format($row->price); ?> VNÐ</i>
                                             <!--i class="price" style="color: #666666; text-decoration: line-through;"><?php //echo number_format($row->price); ?> VNÐ</i-->
                                         </div>
                                    

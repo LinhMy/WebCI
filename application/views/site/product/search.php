@@ -36,11 +36,11 @@
                                                         title=""><?php echo $row->name; ?></a></h3>
                                             <span class="price">
                                                 <?php if ($row->discount > 0) { ?>
-                                                    <ins><?php echo number_format($row->price - $row->discount); ?>
+                                                    <ins style="font-size: 12px;"><?php echo number_format($row->price - $row->discount); ?>
                                                         VNĐ</ins>
-                                                    <del><?php echo number_format($row->price); ?> VNĐ</del>
+                                                    <del style="font-size: 12px;"><?php echo number_format($row->price); ?> VNĐ</del>
                                                 <?php } else { ?>
-                                                    <ins><?php echo number_format($row->price); ?> VNĐ</ins>
+                                                    <ins style="font-size: 12px;"><?php echo number_format($row->price); ?> VNĐ</ins>
                                                 <?php } ?>
 												</span>
 
