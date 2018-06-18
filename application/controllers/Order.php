@@ -47,7 +47,6 @@ Class Order extends MY_Controller
             $this->form_validation->set_rules('email', 'Email nhận hàng', 'required|valid_email');
             $this->form_validation->set_rules('name', 'Tên', 'required|min_length[5]');
             $this->form_validation->set_rules('phone', 'Số điện thoại', 'required');
-            $this->form_validation->set_rules('paid_date', 'Ngày Tạo', 'required');
             $this->form_validation->set_rules('message', 'Ghi chú', 'required');
             $this->form_validation->set_rules('payment', 'Cổng thanh toán', 'required');
 
@@ -58,10 +57,11 @@ Class Order extends MY_Controller
                 $data = array(
                     'user_id' => $user_id, //id thanh vien mua hang neu da dang nhap
                     'amount' => $total_amount,//tong so tien can thanh toan
-                    'paid_date' => $this->input->post('paid_date'),
+					'paid_date' =>date('Y-m-d'),
+					'email' => $this->input->post('email'),//Ghi lại email khách hàng
                     'payment' => $payment, //cổng thanh toán,
                     'message' => $this->input->post('message'), //ghi chú khi mua hàng
-                    'status' => $this->input->post('status'),
+                    'status' => '1',
 
                 );
                 //them du lieu vao bang transaction

@@ -49,14 +49,6 @@
                                                     <ins><?php echo number_format($row->price); ?> VNĐ</ins>
                                                 <?php } ?>
 												</span>
-                                                <div class="rating" title="Rated 3 out of 5">
-                                                    <i class="active fa fa-star"></i>
-                                                    <i class="active fa fa-star"></i>
-                                                    <i class="active fa fa-star"></i>
-                                                    <i class="active fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-
-                                                </div>
                                             </div>
                                         </div>
                                 </li>

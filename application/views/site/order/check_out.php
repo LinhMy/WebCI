@@ -51,24 +51,9 @@
 
                     </tr>
                     <tr>
-                        <td>Date:</td>
-                        <td><input type="date" name="paid_date" style="height: auto;width:235px;" value="<?php echo isset($user_info->paid_date) ? $user_info->paid_date : '' ?>">
-                            <i><?php echo form_error('paid_date'); ?></i>
-                        </td>
-
-                    </tr>
-                    <tr>
                         <td>Ghi chú:</td>
                         <td><textarea cols="40" style="text-align: left;width: 235px" type="text" name="message" value="">
                             </textarea><i><?php echo form_error('message'); ?></i>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Status:</td>
-                        <td><select name="status" style="width: 235px">
-                                <option value="Đã Đặt hàng" >1</option>
-                            </select>
                         </td>
 
                     </tr>

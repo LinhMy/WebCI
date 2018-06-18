@@ -24,8 +24,8 @@
                                                    href="<?php echo base_url('chi-tiet-san-pham/' . seoname($row->name) . '/' . seoname($row->name) . '/' . $row->product_id) ?>"
                                                    title="">Chi Tiết</a>
                                                 <a class="button add_to_cart_button"
-                                                   href="<?php echo base_url('cart/add/' . $row->product_id) ?>">Thêm
-                                                    Giỏ Hàng</a>
+                                                   href="<?php echo base_url('cart/add/' . $row->product_id) ?>">Thêm Vào
+                                                    Giỏ</a>
                                             </div>
 
                                         </div>
