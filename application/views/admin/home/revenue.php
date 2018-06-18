@@ -313,8 +313,9 @@ new Chart(document.getElementById("myChartline_year"), {
         document.getElementById("content_mount").style.display = "block";      
         document.getElementById("content_week").style.display = "none";
     });
-     document.getElementById("content_year").style.display = "none";       
-        document.getElementById("content_mount").style.display = "block";        document.getElementById("content_week").style.display = "none";
+        document.getElementById("content_year").style.display = "none";       
+        document.getElementById("content_mount").style.display = "block";        
+        document.getElementById("content_week").style.display = "none";
 });
 
 </script>

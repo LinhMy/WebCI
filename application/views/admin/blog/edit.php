@@ -34,7 +34,7 @@ $this->load->view('admin/blog/head', $this->data);
                         <div class="formRow">
                             <label for="param_content" class="formLeft">Nội dung chính:</label>
                             <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="7" id="param_content" name="summary"><?php echo $post_info->summary ?></textarea></span>
+                                <span class="oneTwo"><textarea  rows="7" id="param_content" name="summary"><?php echo $post_info->summary ?></textarea></span>
                                 <span class="autocheck" name="content_autocheck"></span>
 
                             </div>
@@ -66,7 +66,7 @@ $this->load->view('admin/blog/head', $this->data);
                         <div class="formRow">
                             <label for="param_content" class="formLeft">Nội dung bài viết:</label>
                             <div class="formRight">
-                                <span class=""><textarea cols="" rows="50" id="param_content" name="content"><?php echo $post_info->content ?></textarea></span>
+                                <span class=""><textarea cols="" rows="50" id="content-posting" name="content"><?php echo $post_info->content ?></textarea></span>
                                 <span class="autocheck" name="content_autocheck"></span>
 
                             </div>

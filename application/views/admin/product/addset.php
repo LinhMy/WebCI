@@ -1,48 +1,4 @@
-<link rel="stylesheet" href="<?php echo public_url()?>/js/jquery/autocomplete/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css">
-<script src="<?php echo public_url()?>/js/jquery/autocomplete/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".product_name").live("change",function(event) {            
-            event.preventDefault();  
-            var product_id =  []; 
-            var qty=[];         
-           // $(".selectproduct").insertBefore($(".insertproduct"));
-           for (i = 0; i <  $(".selectproduct").length; i++) { 
-               product_id.push($("[name*=product_name]").eq(i).val());
-               qty.push($("[name*=qty]").eq(i).val());
-            }          
-
-            jQuery.ajax({
-            type: "POST",
-            url: "<?php echo admin_url('productset/total_product_set'); ?>",
-            dataType: 'text',
-            data: { product_id :product_id, qty:qty },
-            success: function(res) {
-                if (res)
-                    {
-                    // hien thi du kieu tra ve
-                    jQuery("div#result_total").html(res);                   
-                    }
-                }
-            });
-        });
-        $("#add_product").click(function(){
-            event.preventDefault();            
-           // $(".selectproduct").clone().insertBefore($(".insertproduct"));
-           $(".selectproduct:first").clone().appendTo($(".insertproduct"));
-        });
-        $(".removeproduct").live("click",function(){
-            event.preventDefault();         
-            var index = $( ".removeproduct" ).index( this ); 
-            $(".selectproduct").get(index).remove();
-        });
-    });
-
-</script>
-
 <?php
-
 // load ra file head
 $this->load->view('admin/product/headset', $this->data);
 ?>
@@ -73,16 +29,6 @@ $this->load->view('admin/product/headset', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>
-
-                        <!--div class="formRow">
-                            <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
-                            <div class="formRight">
-                                <input type="file" name="image" id="image" >
-
-                            </div>
-                            <div class="clear"></div>
-                        </div-->
-                        <!-- upload nhieu hinh anh-->
                         <div class="formRow">
                             <label class="formLeft">Hình ảnh kèm theo:<span class="req">*</span></label>
                             <div class="formRight">

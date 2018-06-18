@@ -147,18 +147,3 @@ $this->load->view('admin/support/head', $this->data);
 </div>
 
 <div class="clear mt30"></div>
-<style type="text/css">
-	table, td, th {    
-    border: 1px solid #ddd;
-    text-align: left;
-	}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-	}
-
-th, td {
-    padding: 15px;
-	}
-</style>

@@ -62,6 +62,9 @@
 <link href="<?php echo public_url('site') ?>/css/style.css" type="text/css" rel="stylesheet">
 <link href="<?php echo public_url('site') ?>/css/f75757.css" type="text/css" rel="stylesheet">
 
+
+<script type="text/javascript" src="<?php echo public_url(); ?>/site/js/blog.js" type="text/javascript"></script>
+
 <script src="<?php echo public_url()?>/js/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="<?php echo public_url()?>/js/jquery/jquery-ui.min.js" type="text/javascript"></script>
 <link type="text/css" href="<?php echo public_url()?>/js/jquery/jquery-ui/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet">

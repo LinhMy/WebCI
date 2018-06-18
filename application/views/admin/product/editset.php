@@ -1,40 +1,4 @@
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".product_name").change(function(event) {
-            event.preventDefault();
-            var product_id =  []; 
-            var qty=[];         
-           for (i = 0; i <  $("[name*=product_name]").length; i++) { 
-               product_id.push($("[name*=product_name]").eq(i).val());
-               qty.push($("[name*=qty]").eq(i).val());
-            }           
 
-            jQuery.ajax({
-            type: "POST",
-            url: "<?php echo admin_url('productset/total_product_set'); ?>",
-            dataType: 'text',
-            data: { product_id :product_id, qty:qty
-            },
-            success: function(res) {
-                if (res)
-                    {
-                    // Hien thi tong tien tra ve
-                    jQuery("div#result_total").html(res);
-                    }
-                }
-            });
-        });
-        $("#add_product").click(function(){
-            event.preventDefault();            
-           $(".selectproduct:first").clone().appendTo($(".insertproduct"));
-        });
-        $(".removeproduct").live("click",function(){
-            event.preventDefault();
-            var index = $( ".removeproduct" ).index( this ); 
-            $(".selectproduct").get(index).remove(); 
-        });
-    });
-</script>
 <?php
 // load ra file head
 $this->load->view('admin/product/headset', $this->data);
@@ -180,13 +144,3 @@ $this->load->view('admin/product/headset', $this->data);
         </fieldset>
     </form>
 </div>
-<script language="javascript">
-            document.getElementById('check').onclick = function(e){
-                if (this.checked){
-                 this.value="1";
-                }
-                else{
-                this.value="0";
-                }
-            };
-</script>

@@ -421,8 +421,8 @@
                 $data += $total*$qty[$i];
                 }
             }
-            $data=$data." VNĐ";
-            echo ($data);
+            $data=$data." VND";
+            echo json_encode($data);
             exit();
         }
 

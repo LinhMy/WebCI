@@ -45,10 +45,12 @@
         <ul class="w3-ul w3-hoverable w3-white">
         <?php foreach ($post_popular  as $row) {?>
           <li class="w3-padding-16">
+          <a href="<?php echo  base_url('/blog/view_post/'.$row->post_id); ?>">
             <img src="<?php echo  base_url('upload/post/'.$row->image); ?>" alt="Image" class="w3-left w3-margin-right" style="width:50px">
             <span class="w3-large"><?=$row->title ?></span>
             <br>
             <span><?=$row->summary ?></span>
+          </a>
           </li>
         <?php } ?>
         </ul>
@@ -105,39 +107,3 @@
     <a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Lên đầu trang</a>
   </footer>
 </div>
-
-<script type="text/javascript">
-function likeFunction(x) {
-    x.style.fontWeight = "bold";
-    x.innerHTML = "✓ Đã thích";
-}
-	var page = 0;
-	$(window).scroll(function() {
-	    if($(window).scrollTop() + $(window).height() >= $(document).height()) {
-	        page++;
-	        loadMoreData(page);
-	    }
-	});
-  
-	function loadMoreData(page){
-	  $.ajax(
-	        {
-	            url: '?page=' + page,
-	            type: "get",
-	            beforeSend: function()
-	            {
-	                $('.ajax-load').show();
-	            }
-	        })
-	        .done(function(data)
-	        {
-	            if(data == " "){
-	                $('.ajax-load').html("No more records found");
-	                return;
-	            }
-	            $('.ajax-load').hide();
-	            $("#post-data").append(data);
-	        })
-	        
-	}
-</script>

@@ -270,4 +270,14 @@ function str_replace (search, replace, subject, count)
 	  }
 	  return sa ? s : s[0];
 }
+(function($)
+    {
+        $(document).ready(function()
+        {
+            var main = $('#form');
 
+            // Tabs
+            main.contentTabs();
+        });
+    })(jQuery);
+	
