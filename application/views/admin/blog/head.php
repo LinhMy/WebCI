@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/admin/crown/css/blog.css" />
 <div class="titleArea">
     <div class="wrapper">
         <div class="pageTitle">
@@ -24,15 +25,3 @@
         <div class="clear"></div>
     </div>
 </div>
-<script type="text/javascript">
-    (function($)
-    {
-        $(document).ready(function()
-        {
-            var main = $('#form');
-
-            // Tabs
-            main.contentTabs();
-        });
-    })(jQuery);
-</script>

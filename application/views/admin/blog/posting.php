@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/blog/blog.js"></script>
 <?php
 // load ra file head
 $this->load->view('admin/blog/head', $this->data);
@@ -64,11 +65,31 @@ $this->load->view('admin/blog/head', $this->data);
                         </div>
                         <!-- tu khoa tim kiem-->
                         <div class="formRow">
-                            <label for="param_content" class="formLeft">Từ khóa tìm kiếm:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="key"></textarea></span>
-                                <span class="autocheck" name="content_autocheck"></span>
+                            <label for="param_content" class="formLeft">Tag:</label>
+                            <div class="formRight" style="height:170px">
+                                <!--span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="summary"></textarea></span>
+                                <span class="autocheck" name="content_autocheck"></span-->
+                                <dl class="dropdown">                                    
+                                    <dt>
+                                    <a href="">
+                                        <span class="hida">Chọn tag cho bài viết</span>    
+                                        <p class="multiSel" ></p>  
+                                    </a>
+                                    </dt>
 
+                                    <dd>
+                                        <div class="mutliSelect">
+                                            <ul>
+                                            <?php foreach ($tag_list as $tag) {?>
+                                                <li>
+                                                    <input type="checkbox" name = "tag-id[]" value="<?=$tag->tag_id ;?>" class="<?=$tag->name ;?>" /><?=$tag->name ;?>
+                                                </li>
+                                            <?php }?>
+                                            </ul>
+                                        </div>
+                                    </dd>
+                                    
+                                    </dl>
                             </div>
                             <div class="clear"></div>
                         </div>

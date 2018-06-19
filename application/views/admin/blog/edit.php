@@ -43,10 +43,31 @@ $this->load->view('admin/blog/head', $this->data);
                         <!-- tu khoa tim kiem-->
                         <div class="formRow">
                             <label for="param_content" class="formLeft">Từ khóa tìm kiếm:</label>
-                            <div class="formRight">
-                                <span class="oneTwo"><textarea cols="" rows="2" id="param_content" name="key"><?php //echo $post_info->key_search ?></textarea></span>
-                                <span class="autocheck" name="content_autocheck"></span>
+                            <div class="formRight" style="height:170px">
+                                <!--span class="oneTwo"><textarea cols="" rows="4" id="param_content" name="summary"></textarea></span>
+                                <span class="autocheck" name="content_autocheck"></span-->
+                                <dl class="dropdown">                                    
+                                    <dt>
+                                    <a href="">
+                                        <span class="hida"></span>    
+                                        <p class="multiSel" ><?php foreach ($tag_post as $item) {echo $item->name.",";}?></p>  
+                                    </a>
+                                    </dt>
 
+                                    <dd>
+                                        <div class="mutliSelect">
+                                            <ul>
+                                            <?php foreach ($tag_list as $tag) {?>
+                                                <li>
+                                                    <input type="checkbox" name = "tag-id[]" value="<?=$tag->tag_id ;?>" class="<?=$tag->name ;?>" <?php foreach ($tag_post as $item) {echo ($item->tag_id==$tag->tag_id)?"checked":"";}
+                                                    ?>/><?=$tag->name ;?>
+                                                </li>
+                                            <?php }?>
+                                            </ul>
+                                        </div>
+                                    </dd>
+                                    
+                                    </dl>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -86,3 +107,41 @@ $this->load->view('admin/blog/head', $this->data);
         </fieldset>
     </form>
 </div>
+
+<script>
+$(".dropdown dt a").on('click', function() {
+    event.preventDefault(); 
+  $(".dropdown dd ul").slideToggle('fast');
+});
+
+$(".dropdown dd ul li a").on('click', function() {
+    event.preventDefault(); 
+  $(".dropdown dd ul").hide();
+});
+
+function getSelectedValue(id) {
+  return $("#" + id).find("dt a span.value").html();
+};
+
+$(document).bind('click', function(e) {
+  var $clicked = $(e.target);
+  if (!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
+});
+
+$('.mutliSelect input[type="checkbox"]').on('click', function() {
+
+  var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').attr("class");
+    title = $(this).attr("class") + ",";
+
+  if ($(this).is(':checked')) {
+    var html = '<span title="' + title + '">' + title + '</span>';
+    $('.multiSel').append(html);
+    $(".hida").hide();
+  } else {
+    $('span[title="' + title + '"]').remove();
+    var ret = $(".hida");
+    $('.dropdown dt a').append(ret);
+
+  }
+});
+</script>

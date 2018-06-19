@@ -17,7 +17,7 @@
                 //diem bat dau lay du lieu    
                  $start = ceil($this->input->get("page") * $this->perPage);
                 //lay danh sach them vao
-                 $a=$data['post_list'] = $this->blog_model->get_list_post_load($this->perPage,$start); //$query->result();
+                 $data['post_list'] = $this->blog_model->get_list_post_load($this->perPage,$start); //$query->result();
                  $result = $this->load->view('site/blog/data', $data);
                  echo json_encode($result);
             }
@@ -25,7 +25,7 @@
             {
             $this->data['post_list']=$this->blog_model->get_list_post_load($this->perPage,0);            
             $this->data['post_popular']=$this->blog_model->get_list_post_popular();
-            $this->data['tag_list']=$this->blog_model->get_list_tag();
+            $this->data['tag_list']=$this->blog_model->get_list_tags();
             $this->data['temp'] = 'site/blog/index';
             $this->load->view('site/layout', $this->data);
             }
@@ -41,10 +41,25 @@
             $this->data['temp'] = 'site/blog/view';
             $this->load->view('site/layout', $this->data);
         }
-        // ham tra ve du lieu khi load more
-        public function load_more()
+        function post_tag($tag_id)
         {
-          
+            if(!empty($this->input->get("page"))){
+                //diem bat dau lay du lieu    
+                 $start = ceil($this->input->get("page") * $this->perPage);
+                //lay danh sach them vao
+                 $data['post_list'] = $this->blog_model->get_list_post_tag()($this->perPage,$start,$tag_id); //$query->result();
+                 $result = $this->load->view('site/blog/data', $data);
+                 echo json_encode($result);
+            }
+            else
+            {
+            $this->data['post_list']=$this->blog_model->get_list_post_tag($this->perPage,0,$tag_id);            
+            $this->data['post_popular']=$this->blog_model->get_list_post_popular();
+            $this->data['tag_list']=$this->blog_model->get_list_tags();
+            $this->data['temp'] = 'site/blog/index';
+            $this->load->view('site/layout', $this->data);
+            }
+            
         }
     }
     ?>

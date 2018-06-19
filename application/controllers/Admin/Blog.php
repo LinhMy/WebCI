@@ -164,6 +164,9 @@ class Blog extends MY_Controller {
              }
          }
          // load view
+         
+        $this->data['tag_list']=$this->blog_model->get_list_tags();
+        $this->data['tag_post']=$this->blog_model->get_tag_post($post_id);
          $this->data['temp'] = 'admin/blog/edit';
          $this->load->view('admin/main', $this->data);
 
@@ -185,6 +188,8 @@ class Blog extends MY_Controller {
               $title = $this->input->post('title');
               $summary = $this->input->post('summary');
               $content = $this->input->post('content') ;
+              $tag = $this->input->post('tag-id') ;
+
              // $key = $this->input->post('key') ;
 
               //  up anh minh hoa san pham
@@ -210,18 +215,28 @@ class Blog extends MY_Controller {
 
               );
               // them moi vao co so du lieu
-              if($this->blog_model->insert_post($data)){
+             $post_id_insert =($this->blog_model->insert_post($data));
                   // neu them thanh cong
-                  $this->session->set_flashdata('message', 'Thêm mới thành công');
-                  redirect(admin_url('blog'));
+             if($post_id_insert){
+                 foreach ($tag as $item) {
+                     $data_tag_item= array(
+                         'post_id'=>$post_id_insert,
+                         'tag_id'=>(int)$item
+                         
+                     ); $this->blog_model->insert_tag_item($data_tag_item);
+                    }
+                    $this->session->set_flashdata('message', 'Thêm mới thành công');
+                    redirect(admin_url('blog'));
+                 
               }else{
                   // in ra thong bao loi
                   $this->session->set_flashdata('message', 'Có lỗi khi thêm tin tức mới');
               }
 
-          }
+            }
           
         }
+        $this->data['tag_list']=$this->blog_model->get_list_tags();
         $this->data['temp'] = 'admin/blog/posting';
         $this->load->view('admin/main', $this->data);
   }
