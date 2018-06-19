@@ -41,7 +41,6 @@
 <script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/plugins/ui/jquery.sourcerer.js"></script>
 
 <script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/custom.js"></script>
-<script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/nicEdit/nicEdit.js"></script>
 
 
 <script type="text/javascript" src="<?php echo public_url(); ?>/js/ckeditor/ckeditor.js"></script>
@@ -54,9 +53,6 @@
 <script type="text/javascript" src="<?php echo public_url(); ?>/js/jquery/colorbox/jquery.colorbox.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/js/jquery/colorbox/colorbox.css" media="screen" />
 
-<script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/nicEdit/nicEdit_admin.js" type="text/javascript"></script>
-
-<script type="text/javascript" src="<?php echo public_url(); ?>/js/setproduct/add_set.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?php echo public_url(); ?>/js/custom_admin.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="<?php echo public_url(); ?>/js/Chart.js" type="text/javascript"></script>

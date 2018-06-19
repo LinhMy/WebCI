@@ -1,3 +1,6 @@
+
+<script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/nicEdit/nicEdit.js"></script>
+<script type="text/javascript" src="<?php echo public_url(); ?>/admin/crown/js/nicEdit/nicEdit_admin.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/admin/crown/css/blog.css" />
 <div class="titleArea">
     <div class="wrapper">

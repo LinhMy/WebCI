@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?php echo public_url(); ?>/js/setproduct/add_set.js" type="text/javascript"></script>
+
 <div class="titleArea">
     <div class="wrapper">
         <div class="pageTitle">
