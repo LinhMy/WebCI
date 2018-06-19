@@ -18,7 +18,9 @@
 	<div class="w3-container w3-white">
           <p>            
             <?php foreach ($tag_list as $rows) {?>
-            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">#<?=$rows->name?></span>
+              <a href="<?php echo  base_url('/blog/post_tag/'.$rows->tag_id); ?>">
+                <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">#<?=$rows->name?></span>
+              <a/>
             <?php }?>
            </p>
         </div>

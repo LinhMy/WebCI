@@ -36,8 +36,8 @@
         {
             //LAY DU lieu hien thi bai viet
             $this->data['post']=$this->blog_model->get_post($post_id);  
-            
-            $this->data['tag_list']=$this->blog_model->get_list_tag();          
+            // lay cac the tag cua bai viet
+            $this->data['tag_list']=$this->blog_model->get_tag_post($post_id);         
             $this->data['temp'] = 'site/blog/view';
             $this->load->view('site/layout', $this->data);
         }
