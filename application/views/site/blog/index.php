@@ -1,20 +1,5 @@
-<script type="text/javascript">
-    $(document).ready(function(){
-        document.getElementById("search_price").style.display = "none";
-        document.getElementById("danhmuc").style.display ="none";
-        document.getElementById("footer-site").style.display ="none";
-        document.getElementById("footer-site1").style.display ="none";
-       /* size_li = $("div#show-view").size();    
-        x=3;
-        $('div#show-view').hide();
-        $('div#show-view:lt('+x+')').show();
-        $('#loadMore').click(function () {
-            x= (x+3 <= size_li) ? x+3 : size_li;
-            $('div#show-view:lt('+x+')').show();
-        });*/
-    });
 
-</script>
+<script type="text/javascript" src="<?php echo public_url(); ?>/js/blogsite.js"></script>
 <div class="container">
 <!--  -->
   <!-- Grid -->
@@ -27,7 +12,7 @@
         ?>
     <!-- END BLOG ENTRIES -->
     <div class="ajax-load text-center" style="display:none">
-      <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
+      <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Đang tải thêm bài viết...</p>
     </div>
     <!--p ><button class="w3-button w3-orange"  id="loadMore"><b>Show more </b><span class="w3-tag w3-white">>></span></button></p-->
     </div>
@@ -38,7 +23,7 @@
       
 
       <!-- Posts -->
-      <div class="w3-white w3-margin">
+      <div class="w3-white">
         <div class="w3-container w3-padding w3-red " >
           <h4>Bài viết phổ biến</h4>
         </div>
@@ -106,6 +91,6 @@
 
 <!-- Footer -->
   <footer class="w3-container w3-dark-grey" style="padding:32px" id="footerid">
-    <a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Lên đầu trang</a>
+    <a href="#top" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Lên đầu trang</a>
   </footer>
 </div>

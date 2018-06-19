@@ -1,5 +1,5 @@
 
-<script type="text/javascript" src="<?php echo public_url(); ?>/site/js/view_blog.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo public_url(); ?>/site/js/view_blog.js" ></script>
 
 <div class="tab-catalog" style="width: 1340px; margin: 0px auto; height: auto;">
     <div class="container" style="border-bottom: 2px solid #003399;">
