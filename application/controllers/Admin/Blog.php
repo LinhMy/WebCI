@@ -122,6 +122,7 @@ class Blog extends MY_Controller {
                  $title = $this->input->post('title');
                  $summary = $this->input->post('summary');
                  $content = $this->input->post('content') ;
+                 $tag = $this->input->post('tag-id') ;
                 // $key = $this->input->post('key') ;
 
                  // lay ten file anh minh hoa dc upload
@@ -137,8 +138,7 @@ class Blog extends MY_Controller {
                     'title' => $title,
                     'summary' => $summary,
                     'image' => $image,
-                    'content' => $content,
-                   // 'key_search' => $key
+                    'content' => $content
   
                 );
                  //hinh anh
@@ -154,6 +154,15 @@ class Blog extends MY_Controller {
                  // them moi vao co so du lieu
                  if($this->blog_model->update($post_id, $data)){
                      // neu them thanh cong
+                     if($this->blog_model->delete_tag_item($post_id)){
+                     foreach ($tag as $item) {
+                        $data_tag_item= array(
+                            'post_id'=>$post_id,
+                            'tag_id'=>(int)$item
+                            
+                        ); $this->blog_model->insert_tag_item($data_tag_item);
+                       }
+                    }
                      $this->session->set_flashdata('message', 'Cập nhật thành công');
                      redirect(admin_url('blog'));
                  }else{

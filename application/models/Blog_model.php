@@ -76,5 +76,11 @@
             $query = $this->db->get();
             return $query->result();
         }
+        // xoa tag cua bai viet        
+        public function delete_tag_item($post_id)
+        {
+            $this->db->where('post_id',$post_id);
+            return $this->db->delete('tag_item');
+        }
     }
 ?>
