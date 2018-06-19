@@ -12,23 +12,17 @@
                                     src="<?php echo base_url('upload') ?>/products/<?php echo $product_info->image; ?>"
                                     alt="<?php echo $product_info->name; ?>"></a>
                     </div>
-                    <div class="kt-thumbs" style="height: 80px;">
-                        <div class="owl-carousel" data-items="1" data-nav="true" data-animateout="slideInUp"
-                             data-animatein="slideInUp">
-                            <?php $image = json_decode($product_info->image) ?>
-                            <?php if (is_array($image)) { ?>
-
-                                <div class="page-thumb">
-                                    <?php foreach ($image as $img): ?>
-                                        <a class="item-thumb zoom"
-                                           href="<?php echo base_url('upload') ?>/products/<?php echo $img ?>"><img
-                                                    style="width: 100px; height:100px;"
-                                                    src="<?php echo base_url('upload') ?>/products/<?php echo $img ?>"
-                                                    alt="<?php echo $product_info->name; ?>"></a>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php } ?>
-                        </div>
+                    <div class="kt_tum" style="height: 80px; margin:8px;">
+                            <div class="owl-carousel" style="margin_left:10px;height:60px;" data-items="1"  data-animateout="slideInUp" data-animatein="slideInUp">
+                            <?php if(is_array($image_list)){ ?>
+                            <div class="page" id="an_di"> 
+                                <?php foreach ($image_list as $img): ?>
+                                <a style="height:60px;" href="<?php echo base_url('upload') ?>/products/<?php echo $img->path ?>">
+                                <img style="width: 76px; height: 60px; margin_left:10px;" src="<?php echo base_url('upload') ?>/products/<?php echo $img->path; ?>" ></a>
+                                <?php endforeach; ?>
+                            </div>
+                            <?php }?>                            
+                           </div>
                     </div>
                 </div>
             </div>

@@ -5,9 +5,6 @@
         // lay ten danh muc
         public function get_category_name()
         {
-
-            $this->db->select('category_name');
-
             $this->db->select('name');
             $this->db->where('parent <>',0);
             $query = $this->db->get('category');

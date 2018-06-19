@@ -54,14 +54,13 @@ $this->load->view('admin/product/head', $this->data);
                             </div>
                             <div class="clear"></div>
                         </div>
-                        <?php $image_list = json_decode($product_info->image_list); ?>
                         <div class="formRow">
                             <label class="formLeft">Ảnh kèm theo:</label>
                             <div class="formRight">
                                 <input type="file" multiple="" name="image_list[]" id="image_list">
-                                <?php if(is_array($image_list)){ ?>
+                                <?php if(isset($image_list) && is_array($image_list)){ ?>
                                     <?php foreach ($image_list as $img): ?>
-                                        <img src="<?php echo base_url('upload/products/'.$img); ?>" style="height: 70px; width: 100px; margin: 5px;">
+                                    <img src="<?php echo base_url('upload/products/'.$img->path); ?>" style="height: 70px; width: 100px; margin: 5px;">
                                     <?php endforeach; }?>
                             </div>
                             <div class="clear"></div>
