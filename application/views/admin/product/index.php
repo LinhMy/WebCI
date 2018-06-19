@@ -84,7 +84,7 @@ $this->load->view('admin/product/head', $this->data);
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/edit.png" />
                         </a>
 
-                        <a href="<?php echo admin_url('product/del/'.$row->product_id); ?>" title="Xóa" class="tipS verify_action" >
+                        <a href="<?php echo admin_url('product/delete/'.$row->product_id); ?>" title="Xóa" class="tipS verify_action" >
                             <img src="<?php echo public_url(); ?>/admin/images/icons/color/delete.png" />
                         </a>
                     </td>

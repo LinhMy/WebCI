@@ -47,7 +47,7 @@
 
                     $username = $this->input->post('name');
                     $password = $this->input->post('password');
-                    $password = ($password);
+                    $password = md5($password);
                     $email = $this->input->post('email');
                     $phone = $this->input->post('phone');
                     $address = $this->input->post('address');
@@ -101,7 +101,7 @@
                 if($this->form_validation->run()){
 
                     $password = $this->input->post('password');
-                    $password = ($password);
+                    $password = md5($password);
                     $email = $this->input->post('email');
                     $phone = $this->input->post('phone');
                     $address = $this->input->post('address');
